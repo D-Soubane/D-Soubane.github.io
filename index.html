@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About US| </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS animation for scrolling the text */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-text {
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+    </style>
 </head>
 <body>
     <header style="background-color: #333; color: #fff;">
@@ -42,7 +53,9 @@
 
     <!-- Blue band at the bottom -->
     <div style="background-color: blue; color: white; text-align: center; padding: 10px;">
-        Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.
+        <div class="scrolling-text">
+            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research
+        </div>
     </div>
 
 </body>
