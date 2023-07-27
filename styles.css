@@ -1,44 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | </title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <!-- Logo -->
-        <img src="canada-logo.png" alt="Canada Logo" class="logo">
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: black; /* Set default text color to black */
+}
 
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
+header {
+    background-color: #333;
+    color: blue; /* Set header text color to blue */
+    padding: 10px;
+}
 
-    <section class="banner">
-        <h1>Research Area</h1>
-        <p>- Silicon-based Memristor</p>
-        <p>- Density Functional Theory: Quantum Espresso</p>
-        <h1>Collaborations</h1>
-        <p> -INRS-EMT Qc Canada: Laboratory for Producing Isolated High Energy Laser Pulses in the Attosecond Domain</p>
-        <p> -Pôle Technologique de Sud – Champagne</p>
-        <h1>Publications</h1>
-        <p>- Google Scholar link</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Your services page content goes here -->
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
 
-    <footer>
-        <p>&copy; 2023 D.Soubane. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 50px;
+    color: black; /* Set banner text color to black */
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    color: black; /* Set footer text color to black */
+}
 
