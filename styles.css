@@ -60,14 +60,21 @@ footer {
 }
 
 /* Custom styles for specific elements */
-.banner span.bigger-fluorescent {
+.banner span.bigger-blue {
     font-size: 2em;
-    color: blue; /* Keep the text blue */
+    color: blue;
 }
 
-/* Tsuneyuki Ozaki style */
-span.prof-name {
-    font-size: 2em;
-    color: #0096d6; /* Set the color to the same blue as Tsuneyuki Ozaki */
-    text-shadow: none; /* Remove the shadow */
+/* CSS animation for scrolling the text */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    animation: marquee 20s linear infinite; /* Increase the duration to slow down the scrolling */
+    color: white;
+    background-color: blue;
+    padding: 10px;
 }
