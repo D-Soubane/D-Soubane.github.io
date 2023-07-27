@@ -58,3 +58,28 @@ footer {
     padding: 10px;
     color: black; /* Set footer text color to black */
 }
+
+/* Custom styles for specific elements */
+.banner span.bigger-fluorescent {
+    font-size: 2em;
+    color: blue;
+    text-shadow: 2px 2px yellow;
+}
+
+/* CSS animation for scrolling the text */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.scrolling-text {
+    white-space: nowrap;
+    animation: marquee 20s linear infinite; /* Increase the duration to slow down the scrolling */
+}
+
+/* Blue band at the bottom */
+.blue-band {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
