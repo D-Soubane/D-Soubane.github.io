@@ -56,11 +56,11 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    color: black; /* Set footer text color to black */
+    color: white; /* Set footer text color to white */
 }
 
 /* Custom styles for specific elements */
-.banner span.bigger-blue {
+.banner h1 {
     font-size: 2em;
     color: blue;
 }
