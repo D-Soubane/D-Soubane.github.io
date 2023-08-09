@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Teaching Materials</title>
-</head>
-<body>
-    <h1>Teaching Materials</h1>
-    
-    <h2>Physics Topics</h2>
-    <ul>
-        <li>
-            <form action="check_access.php" method="POST">
-                <input type="hidden" name="resource" value="physical_optics">
-                <label for="cne">CNE: </label>
-                <input type="text" name="cne" required>
-                <label for="password">Password: </label>
-                <input type="password" name="password" required>
-                <button type="submit">Access Physical Optics</button>
-            </form>
-        </li>
-        <!-- Repeat similar forms for other topics -->
-    </ul>
-</body>
-</html>
+<?php
+$cne = $_POST['cne'];
+$password = $_POST['password'];
+$resource = $_POST['resource'];
+
+// Replace 'YOUR_ACTUAL_CNE' and 'YOUR_ACTUAL_PASSWORD' with the actual CNE and password.
+if ($cne === 'CNE' && $password === 'Let thereblight') {
+    switch ($resource) {
+        case 'physical_optics':
+            header('Location: physical_optics.html');
+            exit();
+            break;
+        // Add cases for other resources here
+        default:
+            echo 'Access granted but no resource specified.';
+    }
+} else {
+    echo 'Access denied.';
+}
+?>
