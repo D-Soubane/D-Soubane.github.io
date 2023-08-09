@@ -1,47 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Teaching Materials</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <h1>Undergraduate Courses !</h1>
-        <p> Physical Optics</p>
-        <p>  Electronics</p>
-        <p>  Electrodynamics & Maxwell's equations</p>
-        <h1>Graduate Courses !</h1>
-        <p> Dielectric Properties of Materials </p>
-
-        <a href="#" class="btn">Learn More</a>
-    </section>
-
-    <!-- Your home page content goes here -->
-
-    <footer>
-        <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved</p>
-    </footer>
-
-    <!-- Blue band at the bottom -->
-    <div class="blue-band">
-        <div class="scrolling-text">
-            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research
-        </div>
-    </div>
-
+    <h1>Teaching Materials</h1>
+    
+    <h2>Physics Topics</h2>
+    <ul>
+        <li>
+            <form action="check_access.php" method="POST">
+                <input type="hidden" name="resource" value="physical_optics">
+                <label for="cne">CNE: </label>
+                <input type="text" name="cne" required>
+                <label for="password">Password: </label>
+                <input type="password" name="password" required>
+                <button type="submit">Access Physical Optics</button>
+            </form>
+        </li>
+        <!-- Repeat similar forms for other topics -->
+    </ul>
 </body>
 </html>
