@@ -4,7 +4,7 @@ $password = $_POST['password'];
 $resource = $_POST['resource'];
 
 // Replace 'YOUR_ACTUAL_CNE' and 'YOUR_ACTUAL_PASSWORD' with the actual CNE and password.
-if ($cne === 'CNE' && $password === 'LetThereBeLight') {
+if ($cne === 'CNE' && $password === 'Let') {
     switch ($resource) {
         case 'physical_optics':
             header('Location: physical_optics.html');
