@@ -4,7 +4,7 @@ $password = $_POST['password'];
 $resource = $_POST['resource'];
 
 // Replace 'YOUR_ACTUAL_CNE' and 'YOUR_ACTUAL_PASSWORD' with the actual CNE and password.
-if ($cne === 'CNE' && $password === 'YourPassword') {
+if ($cne === 'YourCNE' && $password === 'YourPassword') {
     switch ($resource) {
         case 'physical_optics':
             $file = 'physical_optics.pdf'; // Replace with the actual file name
