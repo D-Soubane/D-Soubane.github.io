@@ -3,7 +3,7 @@ $cne = $_POST['cne'];
 $password = $_POST['password'];
 $resource = $_POST['resource'];
 
-// Replace 'YOUR_ACTUAL_CNE' and 'YOUR_ACTUAL_PASSWORD' with the actual CNE and password.
+// Replace 'CNE' and 'LetBe' with the actual CNE and password.
 if ($cne === 'You' && $password === 'Let') {
     switch ($resource) {
         case 'physical_optics':
