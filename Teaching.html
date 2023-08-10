@@ -1,61 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Teaching Materials</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching | My Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Teaching Materials</h1>
-    
-    <h2>Physics Topics</h2>
-    <ul>
-        <li>
-            <a href="physical_optics.html">Physical Optics</a>
-            <form action="check_access.php" method="POST">
-                <input type="hidden" name="resource" value="physical_optics">
-                <label for="cne_phys">CNE: </label>
-                <input type="text" name="cne" id="cne_phys" required>
-                <label for="password_phys">Password: </label>
-                <input type="password" name="password" id="password_phys" required>
-                <button type="submit">Access</button>
-            </form>
-        </li>
-        <li>
-            <a href="electronics.html">Electronics</a>
-            <form action="check_access.php" method="POST">
-                <input type="hidden" name="resource" value="electronics">
-                <label for="cne_elec">CNE: </label>
-                <input type="text" name="cne" id="cne_elec" required>
-                <label for="password_elec">Password: </label>
-                <input type="password" name="password" id="password_elec" required>
-                <button type="submit">Access</button>
-            </form>
-        </li>
-        <li>
-            <a href="electrodynamics.html">Electrodynamics & Maxwell Equations</a>
-            <form action="check_access.php" method="POST">
-                <input type="hidden" name="resource" value="electrodynamics">
-                <label for="cne_ed">CNE: </label>
-                <input type="text" name="cne" id="cne_ed" required>
-                <label for="password_ed">Password: </label>
-                <input type="password" name="password" id="password_ed" required>
-                <button type="submit">Access</button>
-            </form>
-        </li>
-        <li>
-            <a href="dielectric_properties.html">Dielectric Properties of Materials</a>
-            <form action="check_access.php" method="POST">
-                <input type="hidden" name="resource" value="dielectric_properties">
-                <label for="cne_dp">CNE: </label>
-                <input type="text" name="cne" id="cne_dp" required>
-                <label for="password_dp">Password: </label>
-                <input type="password" name="password" id="password_dp" required>
-                <button type="submit">Access</button>
-            </form>
-        </li>
-        <!-- Add similar forms for other physics topics -->
-    </ul>
-    
-    <!-- Other subject areas and resources -->
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Teaching.html">Teaching</a></li>
+                <li><a href="People.html">People</a></li>
+                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Undergraduate Courses !</h1>
+        <p>Physical Optics</p>
+        <p>Electronics</p>
+        <p>Electrodynamics & Maxwell's equations</p>
+        <h1>Graduate Courses !</h1>
+        <p>Dielectric Properties of Materials</p>
+
+        <a href="#" class="btn">Learn More</a>
+    </section>
+
+    <!-- Teaching materials section -->
+    <section class="teaching-materials">
+        <h2>Teaching Materials</h2>
+        <h3>Physics Topics</h3>
+        <ul>
+            <li>
+                <a href="physical_optics.html">Physical Optics</a>
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="physical_optics">
+                    <label for="cne_phys">CNE: </label>
+                    <input type="text" name="cne" id="cne_phys" required>
+                    <label for="password_phys">Password: </label>
+                    <input type="password" name="password" id="password_phys" required>
+                    <button type="submit">Access</button>
+                </form>
+            </li>
+            <li>
+                <a href="electronics.html">Electronics</a>
+                <!-- Add similar form for Electronics -->
+            </li>
+            <li>
+                <a href="electrodynamics.html">Electrodynamics & Maxwell Equations</a>
+                <!-- Add similar form for Electrodynamics -->
+            </li>
+            <li>
+                <a href="dielectric_properties.html">Dielectric Properties of Materials</a>
+                <!-- Add similar form for Dielectric Properties -->
+            </li>
+            <!-- Add similar list items for other physics topics -->
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved</p>
+    </footer>
+
+    <!-- Blue band at the bottom -->
+    <div class="blue-band">
+        <div class="scrolling-text">
+            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research
+        </div>
+    </div>
+
 </body>
 </html>
