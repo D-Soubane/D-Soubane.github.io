@@ -48,17 +48,38 @@
             </li>
             <li>
                 <a href="electronics.html">Electronics</a>
-                <!-- Add similar form for Electronics -->
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="electronics">
+                    <label for="cne_elec">CNE: </label>
+                    <input type="text" name="cne" id="cne_elec" required>
+                    <label for="password_elec">Password: </label>
+                    <input type="password" name="password" id="password_elec" required>
+                    <button type="submit">Access</button>
+                </form>
             </li>
             <li>
                 <a href="electrodynamics.html">Electrodynamics & Maxwell Equations</a>
-                <!-- Add similar form for Electrodynamics -->
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="electrodynamics">
+                    <label for="cne_ed">CNE: </label>
+                    <input type="text" name="cne" id="cne_ed" required>
+                    <label for="password_ed">Password: </label>
+                    <input type="password" name="password" id="password_ed" required>
+                    <button type="submit">Access</button>
+                </form>
             </li>
             <li>
                 <a href="dielectric_properties.html">Dielectric Properties of Materials</a>
-                <!-- Add similar form for Dielectric Properties -->
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="dielectric_properties">
+                    <label for="cne_dp">CNE: </label>
+                    <input type="text" name="cne" id="cne_dp" required>
+                    <label for="password_dp">Password: </label>
+                    <input type="password" name="password" id="password_dp" required>
+                    <button type="submit">Access</button>
+                </form>
             </li>
-            <!-- Add similar list items for other physics topics -->
+            <!-- Add similar forms for other physics topics -->
         </ul>
     </section>
 
