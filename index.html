@@ -14,6 +14,15 @@
             color: #0077FF; /* Shiny blue color */
             text-shadow: 2px 2px 5px #0077FF; /* Add a shadow effect */
         }
+
+        /* Styling for the 3D laptop container */
+        #laptop-container {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -41,42 +50,39 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
+    <!-- 3D Laptop Container -->
+    <div id="laptop-container"></div>
+
     <!-- Your contact page content goes here -->
 
     <footer style="background-color: #333; color: white;">
         <p>© 2023 D.Soubane Ph.D Eng. All rights reserved</p>
     </footer>
 
-    <!-- Blue band at the bottom -->
-    <div style="background-color: blue; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.
-        </div>
+    <script>
+        // Set up the scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('laptop-container').appendChild(renderer.domElement);
 
-        <div id="container" style="margin-top: 20px;"></div>
+        // Load the 3D laptop model
+        const loader = new THREE.OBJLoader();
+        loader.load('laptop.obj', (laptop) => {
+            scene.add(laptop);
+        });
 
-        <script>
-            const container = document.getElementById('container');
+        // Set the initial camera position
+        camera.position.z = 5;
 
-            // Create a 3D laptop
-            const laptop = document.createElement('div');
-            laptop.id = 'laptop';
-            laptop.innerHTML = `
-                <div id="screen">Laptop is OFF</div>
-            `;
-            container.appendChild(laptop);
+        // Animation loop
+        const animate = () => {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        };
 
-            // Create a "Turn-ON" button
-            const turnOnButton = document.createElement('button');
-            turnOnButton.id = 'turnOnButton';
-            turnOnButton.textContent = 'Turn-ON';
-            container.appendChild(turnOnButton);
-
-            turnOnButton.addEventListener('click', () => {
-                laptop.style.transform = 'rotateY(180deg)';
-                screen.textContent = "Welcome Folks! We are using DFT by means of Quantum Espresso To study Materials and Devices such as Memristor D.Soubane, Ph.D Eng.";
-            });
-        </script>
-    </div>
+        animate();
+    </script>
 </body>
 </html>
