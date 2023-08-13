@@ -6,6 +6,7 @@
     <title>About Us | </title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
     <style>
         /* Custom style for "Driss Soubane" */
         .bigger-blue {
@@ -68,9 +69,9 @@
         document.getElementById('laptop-container').appendChild(renderer.domElement);
 
         // Load the 3D laptop model
-        const loader = new THREE.OBJLoader();
-        loader.load('laptop.obj', (laptop) => {
-            scene.add(laptop);
+        const loader = new THREE.GLTFLoader();
+        loader.load('laptop.gltf', (gltf) => {
+            scene.add(gltf.scene);
         });
 
         // Set the initial camera position
