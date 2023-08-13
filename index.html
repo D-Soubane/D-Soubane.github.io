@@ -3,80 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | </title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Custom style for "Driss Soubane" */
-        .bigger-blue {
-            font-size: 2em;
-            font-weight: bold;
-            color: #0077FF;
-            text-shadow: 2px 2px 5px #0077FF;
-        }
-
-        /* Styling for the 3D laptop container */
-        #laptop-container {
-            width: 100%;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-    <header style="background-color: #333; color: #fff;">
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <b><span class="bigger-blue">Driss Soubane</span></b></p>
-        <p> Professor at FPS-uca.ma:</p>
-        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16 </p>
-        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
-        <h1>Expertises:</h1>
-        <p>Semiconductors deposition and characterization: nanostructures</p>
-        <p>Density Functional Theory: Quantum Espresso (Plane-Wave basis set and pseudopotentials), Vesta, XCrysDen, QuantumVitas, Burai ...</p>
-        <p>Welcome to our Research Group.</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
-
-    <!-- 3D Laptop Container -->
-    <div id="laptop-container"></div>
-
-    <!-- Your contact page content goes here -->
-
-    <footer style="background-color: #333; color: white;">
-        <p>© 2023 D.Soubane Ph.D Eng. All rights reserved</p>
-    </footer>
-
+    <title>3D Laptop</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <div id="laptop-container" style="position: absolute; top: 10px; right: 10px;"></div>
+
     <script>
-        // Set up the scene
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(200, 150); // Set the size of the 3D box
         document.getElementById('laptop-container').appendChild(renderer.domElement);
 
-        // Load the 3D laptop model
         const loader = new THREE.GLTFLoader();
         loader.load('laptop.gltf', (gltf) => {
             scene.add(gltf.scene);
         });
 
-        // Set the initial camera position
         camera.position.z = 5;
 
-        // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
