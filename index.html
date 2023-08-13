@@ -3,33 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Laptop</title>
+    <title>About Us | </title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <style>
+        /* Custom style for "Driss Soubane" */
+        .bigger-blue {
+            font-size: 2em; /* Increase font size */
+            font-weight: bold; /* Apply bold font weight */
+            color: #0077FF; /* Shiny blue color */
+            text-shadow: 2px 2px 5px #0077FF; /* Add a shadow effect */
+        }
+    </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-    <div id="laptop-container" style="position: absolute; top: 10px; right: 10px;"></div>
+<body>
+    <header style="background-color: #333; color: #fff;">
+        <nav>
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Teaching.html">Teaching</a></li>
+                <li><a href="People.html">People</a></li>
+                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <script>
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(200, 150); // Set the size of the 3D box
-        document.getElementById('laptop-container').appendChild(renderer.domElement);
+    <section class="banner">
+        <b><span class="bigger-blue">Driss Soubane</span></b></p>
+        <p> Professor at FPS-uca.ma:</p>
+        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16 </p>
+        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
+        <h1>Expertises:</h1>
+        <p>Semiconductors deposition and characterization: nanostructures</p>
+        <p>Density Functional Theory: Quantum Espresso (Plane-Wave basis set and pseudopotentials), Vesta, XCrysDen, QuantumVitas, Burai ...</p>
+        <p>Welcome to our Research Group.</p>
+        <a href="#" class="btn">Learn More</a>
+    </section>
 
-        const loader = new THREE.GLTFLoader();
-        loader.load('laptop.gltf', (gltf) => {
-            scene.add(gltf.scene);
-        });
+    <!-- Your contact page content goes here -->
 
-        camera.position.z = 5;
+    <footer style="background-color: #333; color: white;">
+        <p>© 2023 D.Soubane Ph.D Eng. All rights reserved</p>
+    </footer>
 
-        const animate = () => {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        };
+    <!-- Blue band at the bottom -->
+    <div style="background-color: blue; color: white; text-align: center; padding: 10px;">
+        <div class="scrolling-text">
+            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.
+        </div>
 
-        animate();
-    </script>
+        <div id="container" style="margin-top: 20px;"></div>
+
+        <script>
+            const container = document.getElementById('container');
+
+            // Create a 3D laptop
+            const laptop = document.createElement('div');
+            laptop.id = 'laptop';
+            laptop.innerHTML = `
+                <div id="screen">Laptop is OFF</div>
+            `;
+            container.appendChild(laptop);
+
+            // Create a "Turn-ON" button
+            const turnOnButton = document.createElement('button');
+            turnOnButton.id = 'turnOnButton';
+            turnOnButton.textContent = 'Turn-ON';
+            container.appendChild(turnOnButton);
+
+            turnOnButton.addEventListener('click', () => {
+                laptop.style.transform = 'rotateY(180deg)';
+                screen.textContent = "Welcome Folks! We are using DFT by means of Quantum Espresso To study Materials and Devices such as Memristor D.Soubane, Ph.D Eng.";
+            });
+        </script>
+    </div>
 </body>
 </html>
