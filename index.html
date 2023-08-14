@@ -1,82 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | </title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        /* Custom style for "Driss Soubane" */
-        .bigger-blue {
-            font-size: 2em; /* Increase font size */
-            font-weight: bold; /* Apply bold font weight */
-            color: #0077FF; /* Shiny blue color */
-            text-shadow: 2px 2px 5px #0077FF; /* Add a shadow effect */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. [Physicist's Name] - Theoretical Physicist</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  h1 {
+    margin: 0;
+    padding: 20px;
+    font-size: 36px;
+  }
+  .container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .profile-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .quote {
+    font-style: italic;
+    color: #888;
+  }
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+</style>
 </head>
 <body>
-    <header style="background-color: #333; color: #fff;">
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <b><span class="bigger-blue">Driss Soubane</span></b></p>
-        <p> Professor at FPS-uca.ma:</p>
-        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16 </p>
-        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
-        <h1>Expertises:</h1>
-        <p>Semiconductors deposition and characterization: nanostructures</p>
-        <p>Density Functional Theory: Quantum Espresso (Plane-Wave basis set and pseudopotentials), Vesta, XCrysDen, QuantumVitas, Burai ...</p>
-        <p>Welcome to our Research Group.</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
-
-    <!-- Your contact page content goes here -->
-
-    <footer style="background-color: #333; color: white;">
-        <p>© 2023 D.Soubane Ph.D Eng. All rights reserved</p>
-    </footer>
-
-    <!-- Blue band at the bottom -->
-    <div style="background-color: blue; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.
-        </div>
-
-        <div id="container" style="margin-top: 20px;"></div>
-
-        <script>
-            const container = document.getElementById('container');
-
-            // Create a 3D laptop
-            const laptop = document.createElement('div');
-            laptop.id = 'laptop';
-            laptop.innerHTML = `
-                <div id="screen">Laptop is OFF</div>
-            `;
-            container.appendChild(laptop);
-
-            // Create a "Turn-ON" button
-            const turnOnButton = document.createElement('button');
-            turnOnButton.id = 'turnOnButton';
-            turnOnButton.textContent = 'Turn-ON';
-            container.appendChild(turnOnButton);
-
-            turnOnButton.addEventListener('click', () => {
-                laptop.style.transform = 'rotateY(180deg)';
-                screen.textContent = "Welcome Folks! We are using DFT by means of Quantum Espresso To study Materials and Devices such as Memristor D.Soubane, Ph.D Eng.";
-            });
-        </script>
-    </div>
+<header>
+  <h1>Dr. [Physicist's Name]</h1>
+  <p>Theoretical Physicist</p>
+</header>
+<div class="container">
+  <img src="profile.jpg" alt="Profile Image" class="profile-image">
+  <h2 class="section-heading">About Me</h2>
+  <p>Welcome to my website! I am a passionate theoretical physicist with a deep curiosity about the fundamental nature of the universe. My research focuses on [brief description of research interests]. Through my work, I strive to unravel the mysteries of existence and contribute to the advancement of human knowledge.</p>
+  <p class="quote">"In the pursuit of knowledge, we illuminate the cosmos with the light of understanding."</p>
+  <h2 class="section-heading">Research</h2>
+  <p>I have been engaged in groundbreaking research in the field of [specific field of theoretical physics] for [number] years. My work has led to significant contributions in areas such as [mention notable achievements]. I am driven by a relentless pursuit of elegant solutions and a desire to expand the boundaries of human comprehension.</p>
+  <h2 class="section-heading">Publications</h2>
+  <ul>
+    <li>[Publication 1]</li>
+    <li>[Publication 2]</li>
+    <li>[Publication 3]</li>
+    <!-- Add more publications as needed -->
+  </ul>
+</div>
+<footer>
+  <p>Contact: [Email Address] | [Phone Number]</p>
+</footer>
 </body>
 </html>
