@@ -1,82 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. [Physicist's Name] - Theoretical Physicist</title>
-<style>
-  body {
-    font-family: 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-  h1 {
-    margin: 0;
-    padding: 20px;
-    font-size: 36px;
-  }
-  .container {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  .profile-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  .section-heading {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  .quote {
-    font-style: italic;
-    color: #888;
-  }
-  footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Driss Soubane | Theoretical Physicist</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add your custom styles here */
+        /* ... */
+
+        /* Improved styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .banner {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077FF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0055CC;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .scrolling-text {
+            animation: scrollText 20s linear infinite;
+        }
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>Dr. [Physicist's Name]</h1>
-  <p>Theoretical Physicist</p>
-</header>
-<div class="container">
-  <img src="profile.jpg" alt="Profile Image" class="profile-image">
-  <h2 class="section-heading">About Me</h2>
-  <p>Welcome to my website! I am a passionate theoretical physicist with a deep curiosity about the fundamental nature of the universe. My research focuses on [brief description of research interests]. Through my work, I strive to unravel the mysteries of existence and contribute to the advancement of human knowledge.</p>
-  <p class="quote">"In the pursuit of knowledge, we illuminate the cosmos with the light of understanding."</p>
-  <h2 class="section-heading">Research</h2>
-  <p>I have been engaged in groundbreaking research in the field of [specific field of theoretical physics] for [number] years. My work has led to significant contributions in areas such as [mention notable achievements]. I am driven by a relentless pursuit of elegant solutions and a desire to expand the boundaries of human comprehension.</p>
-  <h2 class="section-heading">Publications</h2>
-  <ul>
-    <li>[Publication 1]</li>
-    <li>[Publication 2]</li>
-    <li>[Publication 3]</li>
-    <!-- Add more publications as needed -->
-  </ul>
-</div>
-<footer>
-  <p>Contact: [Email Address] | [Phone Number]</p>
-</footer>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Teaching.html">Teaching</a></li>
+                <li><a href="People.html">People</a></li>
+                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Welcome to Dr. Driss Soubane's Research Group</h1>
+        <p>Professor at FPS-uca.ma</p>
+        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16</p>
+        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
+        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <a href="#" class="btn">Learn More</a>
+    </section>
+
+    <!-- Your contact page content goes here -->
+
+    <footer>
+        <p>© 2023 Dr. Driss Soubane. All rights reserved.</p>
+    </footer>
+
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
+        <div class="scrolling-text">
+            Welcome to our Group! Exploring the Frontiers of Theoretical Physics.
+        </div>
+
+        <div id="container" style="margin-top: 20px;"></div>
+
+        <script>
+            const container = document.getElementById('container');
+
+            // Create a 3D laptop
+            const laptop = document.createElement('div');
+            laptop.id = 'laptop';
+            laptop.innerHTML = `
+                <div id="screen">Laptop is OFF</div>
+            `;
+            container.appendChild(laptop);
+
+            // Create a "Turn-ON" button
+            const turnOnButton = document.createElement('button');
+            turnOnButton.id = 'turnOnButton';
+            turnOnButton.textContent = 'Turn ON';
+            container.appendChild(turnOnButton);
+
+            turnOnButton.addEventListener('click', () => {
+                laptop.style.transform = 'rotateY(180deg)';
+                screen.textContent = "Welcome Folks! Exploring the Quantum Universe.";
+            });
+        </script>
+    </div>
 </body>
 </html>
