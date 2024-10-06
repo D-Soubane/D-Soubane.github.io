@@ -21,15 +21,15 @@
 
     <section class="banner">
         <h1>Undergraduate Courses !</h1>
-        <p>Physical Optics S-IV </p>
-        <p>Electronics - S-IV</p>
-        <p>Electrodynamics & Maxwell's equations S-III</p>
-         <p>Quantum Mechanics - Copenhagen Interpretation S-IV</p>
-         <p>Wave Optics S-IV</p>
-         <p>Digital Electronics S-IV</p>
-         <p>Photonics & Engineering S-VI</p>
+        <p>Physical Optics - S_IV </p>
+        <p>Electronics - S_IV</p>
+        <p>Electrodynamics & Maxwell's equations - S_III</p>
+         <p>Quantum Mechanics - Copenhagen Interpretation - S_IV</p>
+         <p>Wave Optics - S_IV</p>
+         <p>Digital Electronics - S_IV</p>
+         <p>Photonics & Engineering - S_VI</p>
         <h1>Graduate Courses !</h1>
-        <p>Dielectric Properties of Materials - Master S-II</p>
+        <p>Dielectric Properties of Materials - Master S_II</p>
 
         <a href="#" class="btn">Learn More</a>
     </section>
@@ -71,7 +71,56 @@
                     <input type="password" name="password" id="password_ed" required>
                     <button type="submit">Access</button>
                 </form>
+            </li>      
+
+            <li>
+                <a href="quantum.html">Quantum Mechanics - Copenhagen Interpretation</a>
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="quantum">
+                    <label for="cne_ed">CNE: </label>
+                    <input type="text" name="cne" id="cne_ed" required>
+                    <label for="password_ed">Password: </label>
+                    <input type="password" name="password" id="password_ed" required>
+                    <button type="submit">Access</button>
+                </form>
             </li>
+          
+            <li>
+                <a href="wave.html">Wave Optics</a>
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="wave">
+                    <label for="cne_ed">CNE: </label>
+                    <input type="text" name="cne" id="cne_ed" required>
+                    <label for="password_ed">Password: </label>
+                    <input type="password" name="password" id="password_ed" required>
+                    <button type="submit">Access</button>
+                </form>
+            </li>
+                  <li>
+                <a href="digital.html">Digital Electronics</a>
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="digital">
+                    <label for="cne_ed">CNE: </label>
+                    <input type="text" name="cne" id="cne_ed" required>
+                    <label for="password_ed">Password: </label>
+                    <input type="password" name="password" id="password_ed" required>
+                    <button type="submit">Access</button>
+                </form>
+            </li>
+           
+                  <li>
+                <a href="photonics.html">Photonics & Engineering</a>
+                <form action="check_access.php" method="POST">
+                    <input type="hidden" name="resource" value="photonics">
+                    <label for="cne_ed">CNE: </label>
+                    <input type="text" name="cne" id="cne_ed" required>
+                    <label for="password_ed">Password: </label>
+                    <input type="password" name="password" id="password_ed" required>
+                    <button type="submit">Access</button>
+                </form>
+            </li>
+
+        
             <li>
                 <a href="dielectric_properties.html">Dielectric Properties of Materials</a>
                 <form action="check_access.php" method="POST">
