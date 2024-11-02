@@ -1,10 +1,11 @@
 /* Member Section Styling */
 .members-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;  /* Spreads the members evenly across the section */
     align-items: flex-start;
-    padding: 40px 10%;
+    padding: 40px 5%;
     gap: 20px;
+    flex-wrap: wrap; /* Ensures columns adjust responsively if needed */
 }
 
 .member {
@@ -20,7 +21,7 @@
 
 .member img {
     width: 100%;
-    max-width: 250px;  /* Ensures images are consistent in size */
+    max-width: 200px;  /* Enforces a consistent image width */
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
