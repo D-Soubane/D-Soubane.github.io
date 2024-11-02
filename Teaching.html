@@ -3,8 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching | Our Research Group</title>
+    <title>Teaching | Dr. Soubane</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for the Teaching page */
+        .banner {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .courses-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .course-section {
+            margin-bottom: 40px;
+        }
+
+        .course-section h1 {
+            color: #0077FF;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        .course-section p {
+            font-size: 1.1em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .download-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            padding: 15px;
+            border: 1px solid #0077FF;
+            border-radius: 5px;
+            width: 300px;
+            background-color: #e6f2ff;
+            text-align: left;
+        }
+
+        .download-form input[type="password"],
+        .download-form button {
+            margin-top: 5px;
+            padding: 8px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #0077FF;
+            font-size: 1em;
+        }
+
+        .download-form button {
+            background-color: #0077FF;
+            color: white;
+            cursor: pointer;
+        }
+
+        .download-form button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+    <script>
+        function checkPassword(course) {
+            const passwordInput = document.getElementById(`password-${course}`);
+            const password = passwordInput.value;
+            if (password === "CNE") {
+                alert("Password correct! Your download will start now.");
+                window.location.href = `${course}.pdf`; // Change this to the actual path of the course file.
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+            passwordInput.value = ""; // Clear the input after each attempt.
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -20,18 +96,60 @@
     </header>
 
     <section class="banner">
-        <h1>Teaching</h1>
-        <p>Information about courses taught by Prof. Soubane will be provided here.</p>
+        <h1>Undergraduate Courses</h1>
+        <p>Physical Optics</p>
+        <div class="download-form">
+            <label>Enter password to download Physical Optics course:</label>
+            <input type="password" id="password-PhysicalOptics" placeholder="Enter password">
+            <button onclick="checkPassword('PhysicalOptics')">Download</button>
+        </div>
+
+        <p>Electronics</p>
+        <div class="download-form">
+            <label>Enter password to download Electronics course:</label>
+            <input type="password" id="password-Electronics" placeholder="Enter password">
+            <button onclick="checkPassword('Electronics')">Download</button>
+        </div>
+
+        <p>Electrodynamics & Maxwell's Equations</p>
+        <div class="download-form">
+            <label>Enter password to download Electrodynamics & Maxwell's Equations course:</label>
+            <input type="password" id="password-Electrodynamics" placeholder="Enter password">
+            <button onclick="checkPassword('Electrodynamics')">Download</button>
+        </div>
+
+        <h1>Graduate Courses</h1>
+        <p>Dielectric Properties of Materials</p>
+        <div class="download-form">
+            <label>Enter password to download Dielectric Properties of Materials course:</label>
+            <input type="password" id="password-DielectricProperties" placeholder="Enter password">
+            <button onclick="checkPassword('DielectricProperties')">Download</button>
+        </div>
+
+        <p>Quantum Mechanics - Copenhagen Interpretation</p>
+        <div class="download-form">
+            <label>Enter password to download Quantum Mechanics course:</label>
+            <input type="password" id="password-QuantumMechanics" placeholder="Enter password">
+            <button onclick="checkPassword('QuantumMechanics')">Download</button>
+        </div>
+
+        <p>Digital Electronics</p>
+        <div class="download-form">
+            <label>Enter password to download Digital Electronics course:</label>
+            <input type="password" id="password-DigitalElectronics" placeholder="Enter password">
+            <button onclick="checkPassword('DigitalElectronics')">Download</button>
+        </div>
+
+        <p>Photonics</p>
+        <div class="download-form">
+            <label>Enter password to download Photonics course:</label>
+            <input type="password" id="password-Photonics" placeholder="Enter password">
+            <button onclick="checkPassword('Photonics')">Download</button>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
+        <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
     </footer>
-
-    <div class="blue-band">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
 </body>
 </html>
