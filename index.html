@@ -35,6 +35,10 @@
         Loading visitor country...
     </div>
 
+    <div id="visitor-count" style="text-align: center; margin-top: 20px;">
+        Loading visitor count...
+    </div>
+
     <footer>
         <p>© 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
@@ -46,6 +50,8 @@
 
         <div id="container" style="margin-top: 20px;"></div>
 
+        <script src="https://cdn.counter.dev/script.js" data-id="aac078ed-7142-47fc-8fd9-01d7395afa5c" data-utcoffset="1"></script>
+        
         <script>
             const container = document.getElementById('container');
 
@@ -73,15 +79,29 @@
                 .then(response => response.json())
                 .then(data => {
                     const country = data.country; // Country code (e.g., "MA")
-                    const countryName = data.region; // You can also get the region or city if needed
+                    const region = data.region; // You can also get the region or city if needed
                     const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`; // URL for the country flag
-                    const container = document.getElementById('country-container');
-                    container.innerHTML = `Visitor Country: ${countryName} <img src="${flagUrl}" alt="Flag of ${countryName}" style="width: 40px; height: auto; margin-left: 10px;">`;
+                    const countryContainer = document.getElementById('country-container');
+                    countryContainer.innerHTML = `Visitor Country: ${region} <img src="${flagUrl}" alt="Flag of ${country}" style="width: 40px; height: auto; margin-left: 10px;">`;
                 })
                 .catch(err => {
                     console.error('Error fetching country info:', err);
-                    const container = document.getElementById('country-container');
-                    container.innerHTML = 'Could not retrieve visitor country.';
+                    const countryContainer = document.getElementById('country-container');
+                    countryContainer.innerHTML = 'Could not retrieve visitor country.';
+                });
+
+            // Fetch and display visitor count from Counter.dev
+            fetch('https://counter.dev/api/v1/counters/aac078ed-7142-47fc-8fd9-01d7395afa5c')
+                .then(response => response.json())
+                .then(data => {
+                    const visitorCount = data.total; // Total visitor count
+                    const visitorCountContainer = document.getElementById('visitor-count');
+                    visitorCountContainer.innerHTML = `Total Visitors: ${visitorCount}`;
+                })
+                .catch(err => {
+                    console.error('Error fetching visitor count:', err);
+                    const visitorCountContainer = document.getElementById('visitor-count');
+                    visitorCountContainer.innerHTML = 'Could not retrieve visitor count.';
                 });
         </script>
     </div>
