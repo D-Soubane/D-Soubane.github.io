@@ -68,13 +68,15 @@
                 screen.textContent = "Welcome Folks! Exploring the Quantum Realm.";
             });
 
-            // Fetch visitor's country and display it
+            // Fetch visitor's country and display it with a flag
             fetch('https://ipinfo.io/json?token=b9d052ce51637f')
                 .then(response => response.json())
                 .then(data => {
-                    const country = data.country;
+                    const country = data.country; // Country code (e.g., "MA")
+                    const countryName = data.region; // You can also get the region or city if needed
+                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`; // URL for the country flag
                     const container = document.getElementById('country-container');
-                    container.innerHTML = `Visitor Country: ${country}`;
+                    container.innerHTML = `Visitor Country: ${countryName} <img src="${flagUrl}" alt="Flag of ${countryName}" style="width: 40px; height: auto; margin-left: 10px;">`;
                 })
                 .catch(err => {
                     console.error('Error fetching country info:', err);
