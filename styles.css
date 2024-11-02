@@ -1,50 +1,85 @@
-/* Member Section Styling */
-.members-section {
-    display: flex;
-    justify-content: space-around;  /* Spreads the members evenly across the section */
-    align-items: flex-start;
-    padding: 40px 5%;
-    gap: 20px;
-    flex-wrap: wrap; /* Ensures columns adjust responsively if needed */
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: black; /* Set default text color to black */
 }
 
-.member {
+header {
+    background-color: #333;
+    color: blue; /* Set header text color to blue */
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
     text-align: center;
-    width: 100%;
-    max-width: 300px;
+    background-color: #f0f0f0;
+    padding: 50px;
+    color: black; /* Set banner text color to black */
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
 }
 
-.member img {
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature img {
     width: 100%;
-    max-width: 200px;  /* Enforces a consistent image width */
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
 }
 
-.member h3 {
-    font-size: 1.2em;
-    color: #333;
-    margin: 15px 0;
-    font-weight: bold;
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    color: white; /* Set footer text color to white */
 }
 
-.member p {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.6;
-    text-align: justify;
+/* Custom styles for specific elements */
+.banner h1 {
+    font-size: 2em;
+    color: blue;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .members-section {
-        flex-direction: column;
-        align-items: center;
-    }
+/* CSS animation for scrolling the text */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    animation: marquee 20s linear infinite; /* Increase the duration to slow down the scrolling */
+    color: white;
+    background-color: blue;
+    padding: 10px;
+}
+
+/* Custom style for copyright notice */
+footer p {
+    color: white;
 }
