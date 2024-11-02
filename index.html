@@ -5,29 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Inline styles specific to this page */
-        .banner {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 100px 0;
-            text-align: center;
-        }
-        .scrolling-text {
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-            color: white;
-            background-color: blue;
-            padding: 10px;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -51,58 +28,49 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
+    <!-- Visitor Info Section -->
+    <div id="visitor-info" style="margin-top: 20px; text-align: center;">
+        <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
+        <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
+        <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
+    </footer>
+
     <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
         <div class="scrolling-text">
             Welcome to our Group! Exploring the Frontiers of Physics.
         </div>
-
-        <div id="visitor-info" style="margin-top: 20px;">Loading visitor country...</div>
-        <div id="container" style="margin-top: 20px;"></div>
-
-        <script>
-            const container = document.getElementById('container');
-
-            // Create a 3D laptop
-            const laptop = document.createElement('div');
-            laptop.id = 'laptop';
-            laptop.innerHTML = `
-                <div id="screen">Laptop is OFF</div>
-            `;
-            container.appendChild(laptop);
-
-            // Create a "Turn-ON" button
-            const turnOnButton = document.createElement('button');
-            turnOnButton.id = 'turnOnButton';
-            turnOnButton.textContent = 'Turn ON';
-            container.appendChild(turnOnButton);
-
-            turnOnButton.addEventListener('click', () => {
-                laptop.style.transform = 'rotateY(180deg)';
-                screen.textContent = "Welcome Folks! Exploring the Quantum Realm.";
-            });
-
-            // Fetch visitor country and flag
-            fetch('https://ipinfo.io/json?token=b9d052ce51637f')
-                .then(response => response.json())
-                .then(data => {
-                    const country = data.country;
-                    const region = data.region;
-                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`; // Example URL for flag
-                    visitorInfo.innerHTML = `
-                        Visitor Country: ${region} <img src="${flagUrl}" alt="Flag of ${region}" style="width: 20px; height: 15px;">
-                    `;
-                })
-                .catch(error => {
-                    console.error('Error fetching visitor country:', error);
-                    visitorInfo.innerHTML = "Could not load visitor country.";
-                });
-        </script>
     </div>
 
     <script src="https://cdn.counter.dev/script.js" data-id="aac078ed-7142-47fc-8fd9-01d7395afa5c" data-utcoffset="1"></script>
-    
-    <footer>
-        <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
-    </footer>
+
+    <script>
+        let visitorCount = 0; // Initialize visitor count
+
+        // Function to update visitor info
+        function updateVisitorInfo(country) {
+            visitorCount++;
+            document.getElementById('counter-value').innerText = visitorCount;
+            document.getElementById('country-name').innerText = country;
+
+            // Set flag URL based on country
+            const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
+            const flagElement = document.getElementById('country-flag');
+            flagElement.src = flagUrl;
+            flagElement.style.display = 'inline'; // Show flag
+        }
+
+        // Fetch visitor country info
+        fetch(`https://ipinfo.io?token=b9d052ce51637f`)
+            .then(response => response.json())
+            .then(data => {
+                const country = data.country;
+                updateVisitorInfo(country); // Call function to update info
+            })
+            .catch(error => console.error('Error fetching IP info:', error));
+    </script>
 </body>
 </html>
