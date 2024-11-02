@@ -6,7 +6,7 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Your styles here... */
+        /* Your custom styles can go here, or you can keep them in styles.css */
     </style>
 </head>
 <body>
@@ -31,24 +31,57 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <div id="country-container" style="text-align: center; margin-top: 20px;"></div>
+    <div id="country-container" style="text-align: center; margin-top: 20px;">
+        Loading visitor country...
+    </div>
 
     <footer>
         <p>© 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Fetch visitor's country and display it
-        fetch('https://ipinfo.io/json?token=b9d052ce51637f')
-            .then(response => response.json())
-            .then(data => {
-                const country = data.country;
-                const container = document.getElementById('country-container');
-                container.innerHTML = `Visitor Country: ${country}`;
-            })
-            .catch(err => {
-                console.error('Error fetching country info:', err);
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
+        <div class="scrolling-text">
+            Welcome to our Group! Exploring the Frontiers of Physics.
+        </div>
+
+        <div id="container" style="margin-top: 20px;"></div>
+
+        <script>
+            const container = document.getElementById('container');
+
+            // Create a 3D laptop
+            const laptop = document.createElement('div');
+            laptop.id = 'laptop';
+            laptop.innerHTML = `
+                <div id="screen">Laptop is OFF</div>
+            `;
+            container.appendChild(laptop);
+
+            // Create a "Turn-ON" button
+            const turnOnButton = document.createElement('button');
+            turnOnButton.id = 'turnOnButton';
+            turnOnButton.textContent = 'Turn ON';
+            container.appendChild(turnOnButton);
+
+            turnOnButton.addEventListener('click', () => {
+                laptop.style.transform = 'rotateY(180deg)';
+                screen.textContent = "Welcome Folks! Exploring the Quantum Realm.";
             });
-    </script>
+
+            // Fetch visitor's country and display it
+            fetch('https://ipinfo.io/json?token=b9d052ce51637f')
+                .then(response => response.json())
+                .then(data => {
+                    const country = data.country;
+                    const container = document.getElementById('country-container');
+                    container.innerHTML = `Visitor Country: ${country}`;
+                })
+                .catch(err => {
+                    console.error('Error fetching country info:', err);
+                    const container = document.getElementById('country-container');
+                    container.innerHTML = 'Could not retrieve visitor country.';
+                });
+        </script>
+    </div>
 </body>
 </html>
