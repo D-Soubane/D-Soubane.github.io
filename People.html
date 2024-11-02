@@ -15,30 +15,58 @@
         }
 
         .student {
-            border: 1px solid #0077FF; /* Blue border */
-            border-radius: 10px; /* Rounded corners */
-            padding: 10px;
-            width: 30%; /* Adjust width to control column size */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            border: 1px solid #0077FF;
+            border-radius: 10px;
+            padding: 15px;
+            width: 30%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             text-align: center;
-            margin: 10px; /* Space between cards */
+            margin: 10px;
         }
 
         .student img {
-            max-width: 100%; /* Ensure image does not exceed container */
-            height: 150px; /* Set a fixed height for uniformity */
-            object-fit: cover; /* Maintain aspect ratio while covering */
-            border-radius: 10px; /* Rounded image corners */
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         .student h2 {
-            font-size: 1.5em; /* Adjust title size */
-            margin: 10px 0; /* Space around titles */
+            font-size: 1.5em;
+            margin: 10px 0;
         }
 
         .student p {
-            font-size: 1em; /* Adjust paragraph size */
-            color: #333; /* Dark text for readability */
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* Scrollable area for long text in Imane’s profile */
+        .student .cv-content {
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Style for section headings in Imane’s profile */
+        .cv-content h3 {
+            font-size: 1.1em;
+            color: #0077FF; /* Attractive color for headings */
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        /* Styling for titles to be distinctive */
+        .cv-content .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #0055AA; /* Slightly darker blue for key titles */
+            margin: 15px 0 5px;
         }
     </style>
 </head>
@@ -57,10 +85,10 @@
 
     <section class="banner">
         <h1> Our Group Members</h1>
-        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research</p>
+        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
         <p>Currently: Three Ph.D Students</p>
         <h1> Opening</h1>
-        <p>Interested in joining our group to use DFT to discover and better understand the cutting edge research realm</p>
+        <p>Interested in joining our group to use DFT to discover and better understand the cutting-edge research realm.</p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
@@ -80,52 +108,29 @@
         <div class="student">
             <img src="im.jpg" alt="Kharbouchi Imane">
             <h2>Kharbouchi Imane</h2>
-            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.
-                Who am I ?
-I am a first-year PhD student specializing in Physical and Chemical
-Sciences, with a focus on advanced materials for renewable energy
-applications. I hold a Master's degree in Teaching and Training
-Professions in Physical and Chemical Sciences, where I studied the ab
-initio properties of double perovskites. With a strong background in
-condensed matter physics and quantum mechanics, I am passionate
-about interdisciplinary research, combining theoretical and experimental
-methods to optimize solar cell performance through innovative
-approaches and computational simulations.simulations.
+            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
+            <div class="cv-content">
+                <p class="section-title">Who am I?</p>
+                <p>I am a first-year PhD student specializing in Physical and Chemical Sciences, focusing on advanced materials for renewable energy applications...</p>
 
-                PHD THESIS OVERVIEW
-Title: Exploration of Synergy Between Experimental
-and Computational Approaches for Optimized
-Energy Harvesting in DSSC Cells
-Dye-Sensitized Solar Cells (DSSCs) represent a promising
-technology for harnessing solar energy due to their
-relatively low cost, flexibility, and ability to operate under
-low-light conditions. This PhD project aims to optimize
-DSSCs by combining theoretical and  experimental
-approaches. By integrating DFT simulations conducted in
-Morocco, via Quantum Espresso, with experimental work
-in France focused on the synthesis and characterization of
-prototypes, our research establishes a direct link between
-computational predictions and the actual performance of
-the devices, with the goal of improving the efficiency of
-DSSCs.
-                EDUCATION
-MASTER'S IN PHYSICAL AND CHEMICAL SCIENCES
-Higher Normal School (ENSC) 2022-2024
-BACHELOR'S DEGREE IN PHYSICS AND CHEMISTRY
-Higher Normal School (ENSM) 2019-2022
-BACCALAUREATE IN PHYSICAL SCIENCES 2018
-                SKIILS
-Proficiency in office software (Word,
-Excel, PowerPoint) Proficiency
- in programming languages C and Python
-DFT Methods (Density Functional
-Theory) Analysis of experimental data and
-theory
+                <p class="section-title">PhD Thesis Overview</p>
+                <p><strong>Title:</strong> Exploration of Synergy Between Experimental and Computational Approaches for Optimized Energy Harvesting in DSSC Cells</p>
+                <p>This PhD project combines theoretical and experimental approaches to improve Dye-Sensitized Solar Cells (DSSCs) through DFT simulations and prototype synthesis...</p>
 
+                <p class="section-title">Education</p>
+                <ul>
+                    <li><strong>Master's in Physical and Chemical Sciences</strong> - ENSC, 2022-2024</li>
+                    <li><strong>Bachelor's in Physics and Chemistry</strong> - ENSM, 2019-2022</li>
+                    <li><strong>Baccalaureate in Physical Sciences</strong>, 2018</li>
+                </ul>
 
-
-
-            </p>
+                <p class="section-title">Skills</p>
+                <ul>
+                    <li>Proficiency in office software (Word, Excel, PowerPoint)</li>
+                    <li>Programming languages: C, Python</li>
+                    <li>DFT Methods (Density Functional Theory), Experimental and theoretical data analysis</li>
+                </ul>
+            </div>
         </div>
     </div>
 
