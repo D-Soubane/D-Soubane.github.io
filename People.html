@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People | </title>
+    <title>People | Dr. Soubane</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for the People page */
+        .student-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .student {
+            border: 1px solid #0077FF; /* Blue border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px;
+            width: 30%; /* Adjust width to control column size */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            text-align: center;
+            margin: 10px; /* Space between cards */
+        }
+
+        .student img {
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded image corners */
+        }
+
+        .student h2 {
+            font-size: 1.5em; /* Adjust title size */
+            margin: 10px 0; /* Space around titles */
+        }
+
+        .student p {
+            font-size: 1em; /* Adjust paragraph size */
+            color: #333; /* Dark text for readability */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,28 +56,30 @@
 
     <section class="banner">
         <h1> Our Group Members</h1>
-        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
-        <p>Currently: Three Ph.D Students </p>
+        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research</p>
+        <p>Currently: Three Ph.D Students</p>
         <h1> Opening</h1>
-        <p> Interested in joining our group to use DFT to discover and better understand the cutting-edge research realm.</p>
+        <p>Interested in joining our group to use DFT to discover and better understand the cutting edge research realm</p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <div class="features">
-        <div class="feature">
-            <img src="fz.jpg" alt="Dnaya Fatima-ezzahra" style="width: 150px; height: auto;">
+    <div class="student-container">
+        <div class="student">
+            <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
             <h2>Dnaya Fatima-ezzahra</h2>
-            <p>Brief CV: [Add brief CV details here]</p>
+            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
         </div>
-        <div class="feature">
-            <img src="ya.jpg" alt="Elajan Yassine" style="width: 150px; height: auto;">
+
+        <div class="student">
+            <img src="ya.jpg" alt="Elajan Yassine">
             <h2>Elajan Yassine</h2>
-            <p>Brief CV: [Add brief CV details here]</p>
+            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
         </div>
-        <div class="feature">
-            <img src="im.jpg" alt="Kharbouchi Imane" style="width: 150px; height: auto;">
+
+        <div class="student">
+            <img src="im.jpg" alt="Kharbouchi Imane">
             <h2>Kharbouchi Imane</h2>
-            <p>Brief CV: [Add brief CV details here]</p>
+            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
         </div>
     </div>
 
@@ -50,10 +87,9 @@
         <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
     </footer>
 
-    <!-- Blue band at the bottom -->
-    <div class="blue-band">
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
         <div class="scrolling-text">
-            Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.
+            Welcome to our Group! Exploring the Frontiers of Physics.
         </div>
     </div>
 </body>
