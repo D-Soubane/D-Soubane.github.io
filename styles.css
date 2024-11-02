@@ -1,17 +1,50 @@
-.students-container {
+/* Member Section Styling */
+.members-section {
     display: flex;
-    justify-content: space-between;
-    margin: 20px;
+    justify-content: space-around;  /* Spreads the members evenly across the section */
+    align-items: flex-start;
+    padding: 40px 5%;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures columns adjust responsively if needed */
 }
 
-.student {
-    flex: 1; /* Equal space for each student */
-    text-align: center; /* Center-align text */
-    padding: 10px; /* Add some padding */
+.member {
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
 }
 
-.student img {
-    width: 100%; /* Make images responsive */
-    max-width: 200px; /* Limit max size */
-    height: auto; /* Maintain aspect ratio */
+.member img {
+    width: 100%;
+    max-width: 200px;  /* Enforces a consistent image width */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.member h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.member p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .members-section {
+        flex-direction: column;
+        align-items: center;
+    }
 }
