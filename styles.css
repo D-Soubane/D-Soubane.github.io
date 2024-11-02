@@ -1,42 +1,102 @@
-/* Existing styles */
+/* Global styles */
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    color: black; /* Set default text color to black */
 }
 
 header {
-    background-color: #f2f2f2;
+    background-color: #333;
+    color: blue; /* Set header text color to blue */
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 50px;
+    color: black; /* Set banner text color to black */
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
     padding: 20px;
 }
 
-/* Adjustments for blue band */
-.blue-band {
-    background-color: #0056b3; /* Blue color */
-    color: white;
-    position: relative; /* Changed from absolute to relative */
-    padding: 10px 0; /* Adds padding around the text */
-    overflow: hidden; /* Ensure content doesn't overflow */
-    z-index: 1; /* Set to make sure it layers correctly */
-}
-
-/* Scrolling text within the band */
-.scrolling-text {
-    white-space: nowrap; /* Prevent line breaks */
-    overflow: hidden;
-    display: inline-block;
-    animation: scroll 10s linear infinite; /* Adjust the timing as necessary */
-}
-
-/* Adjust banner section */
-.banner {
-    padding: 60px 20px; /* Added padding to avoid overlap */
-    background-color: #fff; /* Background color for contrast */
-    z-index: 0; /* Ensure it appears below the bands */
-}
-
-/* Example of adjusting footer */
-footer {
-    background-color: #f2f2f2;
-    padding: 10px 0;
+.feature {
     text-align: center;
+    max-width: 300px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    color: white; /* Set footer text color to white */
+}
+
+/* Custom styles for specific elements */
+.banner h1 {
+    font-size: 2em;
+    color: blue;
+}
+
+/* CSS animation for scrolling the text */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    animation: marquee 20s linear infinite; /* Increase the duration to slow down the scrolling */
+    color: white;
+    background-color: blue;
+    padding: 10px;
+}
+
+/* Custom style for copyright notice */
+footer p {
+    color: white;
+}
+
+/* Styles specific for people.html */
+.people-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.student-card {
+    text-align: center;
+    max-width: 300px;
+}
+
+.student-card img {
+    width: 100%; /* Adjust the width as needed */
+    height: auto;
 }
