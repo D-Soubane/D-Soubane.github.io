@@ -83,3 +83,26 @@ footer {
 footer p {
     color: white;
 }
+
+/* ---- New styles for visitor counter and country origin ---- */
+
+/* Visitor Info Section */
+#visitor-info {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Country Display */
+#visitor-country {
+    font-weight: bold;
+    color: #0066cc;
+}
+
+/* Visitor Counter */
+#visitor-counter {
+    font-size: 1em;
+    color: #0066cc;
+    margin-top: 5px;
+}
