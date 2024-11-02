@@ -6,7 +6,48 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Your custom styles can go here, or you can keep them in styles.css */
+        /* Your custom styles can go here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .banner {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077FF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0055CC;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -36,7 +77,7 @@
     </div>
 
     <div id="visitor-count" style="text-align: center; margin-top: 20px;">
-        Loading visitor count...
+        Total Visitors by Country: Loading...
     </div>
 
     <footer>
@@ -44,64 +85,51 @@
     </footer>
 
     <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-
-        <div id="container" style="margin-top: 20px;"></div>
-
         <script src="https://cdn.counter.dev/script.js" data-id="aac078ed-7142-47fc-8fd9-01d7395afa5c" data-utcoffset="1"></script>
         
         <script>
-            const container = document.getElementById('container');
+            // Object to hold visitor count per country
+            const visitorCounts = {};
 
-            // Create a 3D laptop
-            const laptop = document.createElement('div');
-            laptop.id = 'laptop';
-            laptop.innerHTML = `
-                <div id="screen">Laptop is OFF</div>
-            `;
-            container.appendChild(laptop);
-
-            // Create a "Turn-ON" button
-            const turnOnButton = document.createElement('button');
-            turnOnButton.id = 'turnOnButton';
-            turnOnButton.textContent = 'Turn ON';
-            container.appendChild(turnOnButton);
-
-            turnOnButton.addEventListener('click', () => {
-                laptop.style.transform = 'rotateY(180deg)';
-                screen.textContent = "Welcome Folks! Exploring the Quantum Realm.";
-            });
+            // Function to update visitor count display
+            function updateVisitorCountDisplay() {
+                const visitorCountContainer = document.getElementById('visitor-count');
+                const visitorCountEntries = Object.entries(visitorCounts).map(([countryCode, count]) => {
+                    const countryNames = {
+                        'MA': 'Morocco',
+                        'CA': 'Canada',
+                        // Add more countries as needed
+                    };
+                    const countryName = countryNames[countryCode] || countryCode;
+                    const flagUrl = `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png`;
+                    return `${String(count).padStart(2, '0')} ${countryName} <img src="${flagUrl}" alt="Flag of ${countryName}" style="width: 20px; height: auto; margin-left: 5px;">`;
+                });
+                visitorCountContainer.innerHTML = `Total Visitors by Country: ${visitorCountEntries.join(', ')}`;
+            }
 
             // Fetch visitor's country and display it with a flag
             fetch('https://ipinfo.io/json?token=b9d052ce51637f')
                 .then(response => response.json())
                 .then(data => {
-                    const country = data.country; // Country code (e.g., "MA")
-                    const region = data.region; // You can also get the region or city if needed
-                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`; // URL for the country flag
+                    const countryCode = data.country; // Country code (e.g., "MA")
+                    visitorCounts[countryCode] = (visitorCounts[countryCode] || 0) + 1; // Increment count for this country
                     const countryContainer = document.getElementById('country-container');
-                    countryContainer.innerHTML = `Visitor Country: ${region} <img src="${flagUrl}" alt="Flag of ${country}" style="width: 40px; height: auto; margin-left: 10px;">`;
+                    const countryNames = {
+                        'MA': 'Morocco',
+                        'CA': 'Canada',
+                        // Add more countries as needed
+                    };
+                    const countryName = countryNames[countryCode] || countryCode;
+                    const flagUrl = `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png`; 
+                    countryContainer.innerHTML = `Visitor Country: ${countryName} <img src="${flagUrl}" alt="Flag of ${countryName}" style="width: 40px; height: auto; margin-left: 10px;">`;
+                    
+                    // Update the visitor count display
+                    updateVisitorCountDisplay();
                 })
                 .catch(err => {
                     console.error('Error fetching country info:', err);
                     const countryContainer = document.getElementById('country-container');
                     countryContainer.innerHTML = 'Could not retrieve visitor country.';
-                });
-
-            // Fetch and display visitor count from Counter.dev
-            fetch('https://counter.dev/api/v1/counters/aac078ed-7142-47fc-8fd9-01d7395afa5c')
-                .then(response => response.json())
-                .then(data => {
-                    const visitorCount = data.total; // Total visitor count
-                    const visitorCountContainer = document.getElementById('visitor-count');
-                    visitorCountContainer.innerHTML = `Total Visitors: ${visitorCount}`;
-                })
-                .catch(err => {
-                    console.error('Error fetching visitor count:', err);
-                    const visitorCountContainer = document.getElementById('visitor-count');
-                    visitorCountContainer.innerHTML = 'Could not retrieve visitor count.';
                 });
         </script>
     </div>
