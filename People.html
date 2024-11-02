@@ -25,8 +25,9 @@
         }
 
         .student img {
-            max-width: 100%;
-            height: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure image does not exceed container */
+            height: 150px; /* Set a fixed height for uniformity */
+            object-fit: cover; /* Maintain aspect ratio while covering */
             border-radius: 10px; /* Rounded image corners */
         }
 
