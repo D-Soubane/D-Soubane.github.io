@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Your styles here... */
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <ul>
@@ -20,48 +22,33 @@
         </nav>
     </header>
 
-    <!-- Main Banner Section -->
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
         <p>FPS-uca.ma</p>
-        <p>Tel.: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
-        <p>E-mail: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
+        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16</p>
+        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
         <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section -->
-    <div id="visitor-info">
-        <p id="visitor-country">Loading visitor country...</p>
-    </div>
+    <div id="country-container" style="text-align: center; margin-top: 20px;"></div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Scrolling Welcome Text -->
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
-
-    <!-- Visitor Counter Script -->
-    <script async src="https://cdn.counter.dev/script.js" 
-            data-id="YOUR_COUNTER_ID"  <!-- Replace YOUR_COUNTER_ID with your actual Counter.dev ID -->
-            data-type="pageviews" 
-            data-url="https://d-soubane.github.io/">
-    </script>
-
-    <!-- Visitor Country Script -->
     <script>
-      fetch('https://ipinfo.io/json?token=YOUR_IPINFO_TOKEN') <!-- Replace YOUR_IPINFO_TOKEN with your actual token -->
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('visitor-country').innerText = `Visitor's country: ${data.country}`;
-        })
-        .catch(error => console.error('Error fetching visitor data:', error));
+        // Fetch visitor's country and display it
+        fetch('https://ipinfo.io/json?token=b9d052ce51637f')
+            .then(response => response.json())
+            .then(data => {
+                const country = data.country;
+                const container = document.getElementById('country-container');
+                container.innerHTML = `Visitor Country: ${country}`;
+            })
+            .catch(err => {
+                console.error('Error fetching country info:', err);
+            });
     </script>
 </body>
 </html>
