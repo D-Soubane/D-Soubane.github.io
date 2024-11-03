@@ -1,185 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People | Dr. Soubane</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Custom styles for the People page */
-        .student-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px;
-        }
+<div class="student">
+    <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
+    <h2>Dnaya Fatima-ezzahra</h2>
+    <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
+    <div class="cv-content">
+        <p class="section-title">Who am I?</p>
+        <p>Currently pursuing a Ph.D in Computational Physics and Material Science with a focus on understanding silicon nanostructures using Density Functional Theory (DFT).</p>
 
-        .student {
-            border: 1px solid #0077FF;
-            border-radius: 10px;
-            padding: 15px;
-            width: 30%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            margin: 10px;
-        }
+        <p class="section-title">Education and Diplomas</p>
+        <ul>
+            <li><strong>Ph.D Student</strong> - Computational Physics and Material Science, Current</li>
+            <li><strong>2020:</strong> Postgraduate Diploma in Optics, Photonics, and Information Processing</li>
+            <li><strong>2018:</strong> Bachelor's degree in Physics, specializing in Material Science and Renewable Energy</li>
+            <li><strong>2014:</strong> Baccalaureate in Mathematical Sciences, Option B</li>
+        </ul>
 
-        .student img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+        <p class="section-title">Overview of Ph.D Thesis</p>
+        <p>My Ph.D project aims at unveiling the intriguing properties of silicon zero-dimensional nanostructures using DFT. The research focuses on light-matter interaction in nanostructured silicon to explore potential optical applications for these materials in advanced technologies.</p>
 
-        .student h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
+        <p class="section-title">Research Activities</p>
+        <p class="section-subtitle">I. Articles:</p>
+        <ul>
+            <li>"A holistic Understanding of Optical Properties in Amorphous H-Terminated Si-Nanostructures: Combining TD-DFT with AIMD." <br> F. Dnaya, D. Soubane, M. Bouhassoune, M. Bellioua, Y. Laaziz, A. Nafidi, T. Ozaki, <em>Results in Optics</em> (2024): 100694.</li>
+        </ul>
 
-        .student p {
-            font-size: 1em;
-            color: #333;
-        }
+        <p class="section-subtitle">II. Oral Communications/Talks:</p>
+        <ul>
+            <li>"Silicon for Harvesting Light: Structural, Optical, and Electronic Properties of Si-Nanostructures," 1st International Congress on Materials, Biomaterials, Environmental Sciences and Technology, May 2024, Fez, Morocco.</li>
+            <li>"Solid State Spectroscopy Fundamentals in a Nutshell," International Conference on Sustainable Energy, Mechanics, Advanced Materials, Hydrogen Innovation, and Environment Sciences, May 2024, ENSA EL-Jadida, Morocco.</li>
+            <li>"Enhancing Optical Properties in Amorphous Terminated Si-Nanostructures Through TD-DFT," Autumn School of Set-valued and Variational Analysis, November 2023, Safi, Morocco.</li>
+        </ul>
 
-        /* Scrollable area for long text in Imane’s profile */
-        .student .cv-content {
-            max-height: 200px;
-            overflow-y: auto;
-            text-align: left;
-            margin-top: 10px;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        /* Style for section headings in Imane’s profile */
-        .cv-content h3 {
-            font-size: 1.1em;
-            color: #0077FF; /* Attractive color for headings */
-            font-weight: bold;
-            margin: 10px 0 5px;
-        }
-
-        /* Styling for titles to be distinctive */
-        .cv-content .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #0055AA; /* Slightly darker blue for key titles */
-            margin: 15px 0 5px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <h1> Our Group Members</h1>
-        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
-        <p>Currently: Three Ph.D Students</p>
-        <h1> Opening</h1>
-        <p>Interested in joining our group to use DFT to discover and better understand the cutting-edge research realm.</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
-
-    <div class="student-container">
-        <div class="student">
-            <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
-            <h2>Dnaya Fatima-ezzahra</h2>
-            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.
-            
-            
-            Education and Diplomas
-Currently: Ph.D Student; Computational physics and Material science
-2020: Postgraduate Diploma; Optics, Photonics and Information Processing
-2018: Bachelor’s degree; Physics, Option: Material Science and Renewable Energy
-2014: Baccalaureate; Mathematical Sciences, Option: B
-Overview of Ph.D Thesis
-My Ph.D project aims at unveiling the intriguing properties of silicon zero-dimensional nanostructures using DFT. We probe the light-mater interaction in nanostructured silicon to provide insight into the potential optical applications of these materials in cutting-edge technologies.   
-Research Activities
-    I. Articles:
-    • A holistic Understanding of Optical Properties in Amorphous H-Terminated Si-Nanostructures: Combining TD-DFT with AIMD. 
-F. Dnaya, D. Soubane, M. Bouhassoune, M. Bellioua, Y. Laaziz, A. Nafidi, T. Ozaki
-Results in Optics (2024): 100694.
-    II. Oral Communications/ Talks:
-    • Silicon for Harvesting Light: Structural, Optical and Electronic Properties of Si-Nanostructures
-F.Dnaya, D. Soubane and Y. Laaziz
-1st International Congresss on Materials, Biomaterials, Environmental Sciences and Technology, May 29-31, 2024 at the USMBA Conference Center Fez, Morocco
-    • Solid State Spectroscopy Fundamental Functions in a Nutshell
-F.Dnaya, D. Soubane and Y. Laaziz
-International Conference on Sustainable Energy, Mechanics, Advanced Materials, Hydrogen Innovation and Environment Sciences, May 28-29, 2024 at ENSA EL-Jadida, Morocco
-    • Enhancing the Understanding of Optical Properties in Amorphous Terminated Si-   Nanostructures Through TD-DFT Analysis
-F.Dnaya, D. Soubane and Y. Laaziz
-The First Edition of Autumn School of Set-valued and Variational Analysis of Safi; Invited Session of Mathematical physics ASSVAS, November 15-16, 2023, at the Polydisciplinary faculty, Cadi Ayyad University Safi, Morocco
-    • Solar Photovoltaic Energy: Technology, Efficiency and Perspectives
-F.Dnaya, D. Soubane and Y. Laaziz
-Doctoral Day in Renewable Energy and Urban Mobility, 9th of June 2022 at EIGSI Engineering School: la Rochelle Casablanca, Morocco
-    III. Posters
-    • Straightforward Guidelines for Deriving Optical Properties from Reflection and/or Refraction Measurements in Spectroscopy
-F.Dnaya, D. Soubane and Y. Laaziz
-The First Edition of Autumn School of Set-valued and Variational Analysis of Safi: Invited Session of Mathematical Physics ASSVAS, November 15-16, 2023, at the Polydisciplinary faculty, Cadi Ayyad University Safi, Morocco
-    • Direct and Reciprocal Space Parameters Study of the as Generated versus Relaxed Hydrogenated Silicon Quantum Dots
-F.Dnaya, D. Soubane and Y. Laaziz
-The 3rd International School on Advanced Materials (InSAM’3), Main topic: Materials for Solar Energy, May 2-4, 2023, Ouarzazate, Morocco
-    • Silicon for Harvesting Light: Ways to Overcome the Indirect Bandgap Limitation
-F.Dnaya, D. Soubane and Y. Laaziz 1st Edition of the International Workshop on Industrial Technology and the Factory of the Future, the 3rd of July 2021, ENSAT, Tangier Morocco
-            
-            </p>
-        </div>
-
-        <div class="student">
-            <img src="ya.jpg" alt="Elajan Yassine">
-            <h2>Elajan Yassine</h2>
-            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
-        </div>
-
-        <div class="student">
-            <img src="im.jpg" alt="Kharbouchi Imane">
-            <h2>Kharbouchi Imane</h2>
-            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
-            <div class="cv-content">
-                <p class="section-title">Who am I?</p>
-                <p>I am a first-year PhD student specializing in Physical and Chemical Sciences, focusing on advanced materials for renewable energy applications...</p>
-
-                <p class="section-title">PhD Thesis Overview</p>
-                <p><strong>Title:</strong> Exploration of Synergy Between Experimental and Computational Approaches for Optimized Energy Harvesting in DSSC Cells</p>
-                <p>This PhD project combines theoretical and experimental approaches to improve Dye-Sensitized Solar Cells (DSSCs) through DFT simulations and prototype synthesis...</p>
-
-                <p class="section-title">Education</p>
-                <ul>
-                    <li><strong>Master's in Physical and Chemical Sciences</strong> - ENSC, 2022-2024</li>
-                    <li><strong>Bachelor's in Physics and Chemistry</strong> - ENSM, 2019-2022</li>
-                    <li><strong>Baccalaureate in Physical Sciences</strong>, 2018</li>
-                </ul>
-
-                <p class="section-title">Skills</p>
-                <ul>
-                    <li>Proficiency in office software (Word, Excel, PowerPoint)</li>
-                    <li>Programming languages: C, Python</li>
-                    <li>DFT Methods (Density Functional Theory), Experimental and theoretical data analysis</li>
-                </ul>
-            </div>
-        </div>
+        <p class="section-subtitle">III. Posters:</p>
+        <ul>
+            <li>"Guidelines for Deriving Optical Properties from Reflection/Refraction Measurements," Autumn School of Set-valued and Variational Analysis, November 2023, Safi, Morocco.</li>
+            <li>"Study of Generated vs. Relaxed Hydrogenated Silicon Quantum Dots," 3rd International School on Advanced Materials (InSAM’3), May 2023, Ouarzazate, Morocco.</li>
+            <li>"Silicon for Harvesting Light: Overcoming the Indirect Bandgap Limitation," 1st International Workshop on Industrial Technology, July 2021, ENSAT, Tangier, Morocco.</li>
+        </ul>
     </div>
-
-    <footer>
-        <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
-    </footer>
-
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
-</body>
-</html>
+</div>
