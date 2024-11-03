@@ -53,13 +53,15 @@
         function fetchVisitorCount() {
             fetch('https://counter.dev/api/get?websiteId=aac078ed-7142-47fc-8fd9-01d7395afa5c')
                 .then(response => {
+                    console.log("Counter.dev API Response:", response);
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
                     return response.json();
                 })
                 .then(data => {
-                    const count = data.total; // Counter.dev's cumulative visitor count
+                    console.log("Counter.dev Data:", data);
+                    const count = data.total; // Expected total visitor count
                     if (count) {
                         document.getElementById('counter-value').innerText = count;
                     } else {
@@ -86,12 +88,14 @@
         // Fetch visitor's IP and country info
         fetch('https://ipinfo.io?token=b9d052ce51637f')
             .then(response => {
+                console.log("IPInfo API Response:", response);
                 if (!response.ok) {
                     throw new Error('Failed to fetch IP info');
                 }
                 return response.json();
             })
             .then(data => {
+                console.log("IPInfo Data:", data);
                 const country = data.country;
                 if (country) {
                     updateVisitorCountryInfo(country);
