@@ -30,7 +30,7 @@
 
     <!-- Visitor Info Section -->
     <div id="visitor-info" style="margin-top: 20px; text-align: center;">
-        <p id="visitor-counter">Total Visitors: <span id="counter-value">Loading...</span></p>
+        <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
         <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
         <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
     </div>
@@ -45,13 +45,24 @@
         </div>
     </div>
 
+    <script src="https://cdn.counter.dev/script.js" data-id="aac078ed-7142-47fc-8fd9-01d7395afa5c" data-utcoffset="1"></script>
+
     <script>
         // Function to update visitor count
         function updateVisitorCount() {
-            let visitorCount = localStorage.getItem('visitorCount') || 0; // Retrieve count from local storage
-            visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
-            localStorage.setItem('visitorCount', visitorCount); // Store updated count
-            document.getElementById('counter-value').innerText = visitorCount; // Update the displayed count
+            // Check if visitor has been counted in this session
+            if (!sessionStorage.getItem('hasVisited')) {
+                let visitorCount = localStorage.getItem('visitorCount') || 0; // Retrieve count from local storage
+                visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
+                localStorage.setItem('visitorCount', visitorCount); // Store updated count
+                document.getElementById('counter-value').innerText = visitorCount; // Update the displayed count
+
+                // Mark this session as visited
+                sessionStorage.setItem('hasVisited', 'true');
+            } else {
+                // If the visitor has already been counted this session
+                document.getElementById('counter-value').innerText = localStorage.getItem('visitorCount');
+            }
         }
 
         // Function to fetch visitor country info
