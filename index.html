@@ -47,33 +47,41 @@
 
     <script>
         // Update Visitor Counter
-        fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('counter-value').innerText = data.value; // Set total visits
-            })
-            .catch(error => {
-                console.error('Error fetching visitor count:', error);
-                document.getElementById('counter-value').innerText = 'Error';
-            });
+        function updateVisitorCount() {
+            fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('counter-value').innerText = data.value; // Update visitor count
+                })
+                .catch(error => {
+                    console.error('Error fetching visitor count:', error);
+                    document.getElementById('counter-value').innerText = 'Error';
+                });
+        }
 
         // Fetch Visitor Country
-        fetch(`https://ipinfo.io?token=b9d052ce51637f`)
-            .then(response => response.json())
-            .then(data => {
-                const country = data.country;
-                document.getElementById('country-name').innerText = country;
+        function fetchVisitorCountry() {
+            fetch(`https://ipinfo.io?token=b9d052ce51637f`)
+                .then(response => response.json())
+                .then(data => {
+                    const country = data.country;
+                    document.getElementById('country-name').innerText = country;
 
-                // Set flag URL based on country
-                const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
-                const flagElement = document.getElementById('country-flag');
-                flagElement.src = flagUrl;
-                flagElement.style.display = 'inline'; // Show flag
-            })
-            .catch(error => {
-                console.error('Error fetching IP info:', error);
-                document.getElementById('country-name').innerText = 'Error';
-            });
+                    // Set flag URL based on country
+                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
+                    const flagElement = document.getElementById('country-flag');
+                    flagElement.src = flagUrl;
+                    flagElement.style.display = 'inline'; // Show flag
+                })
+                .catch(error => {
+                    console.error('Error fetching IP info:', error);
+                    document.getElementById('country-name').innerText = 'Error';
+                });
+        }
+
+        // Call functions to update counter and fetch country on page load
+        updateVisitorCount();
+        fetchVisitorCountry();
     </script>
 </body>
 </html>
