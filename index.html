@@ -46,11 +46,12 @@
     </div>
 
     <script>
-        // Update Visitor Counter
+        // Function to update Visitor Count
         function updateVisitorCount() {
             fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
                 .then(response => response.json())
                 .then(data => {
+                    console.log('Visitor Count Update Response:', data); // Debugging output
                     document.getElementById('counter-value').innerText = data.value; // Update visitor count
                 })
                 .catch(error => {
@@ -65,6 +66,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const country = data.country;
+                    console.log('Visitor Country Data:', data); // Debugging output
                     document.getElementById('country-name').innerText = country;
 
                     // Set flag URL based on country
