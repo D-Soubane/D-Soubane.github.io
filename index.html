@@ -31,6 +31,7 @@
     <!-- Visitor Info Section -->
     <div id="visitor-info" style="margin-top: 20px; text-align: center;">
         <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
+        <p id="unique-country-counter">Unique Countries: <span id="unique-counter-value">0</span></p>
         <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
         <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
     </div>
@@ -49,13 +50,21 @@
 
     <script>
         // Function to update visitor count
-        function updateVisitorCount() {
+        function updateVisitorCount(country) {
             // Check if visitor has been counted in this session
             if (!sessionStorage.getItem('hasVisited')) {
                 let visitorCount = localStorage.getItem('visitorCount') || 0; // Retrieve count from local storage
                 visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
                 localStorage.setItem('visitorCount', visitorCount); // Store updated count
                 document.getElementById('counter-value').innerText = visitorCount; // Update the displayed count
+
+                // Update unique countries
+                let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
+                if (!uniqueCountries[country]) {
+                    uniqueCountries[country] = true; // Add the new unique country
+                    localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique countries
+                    document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length; // Update unique country count
+                }
 
                 // Mark this session as visited
                 sessionStorage.setItem('hasVisited', 'true');
@@ -73,6 +82,9 @@
                     const country = data.country || 'Unknown';
                     document.getElementById('country-name').innerText = country;
 
+                    // Update the visitor count and unique country count
+                    updateVisitorCount(country);
+
                     // Set flag URL based on country
                     const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
                     const flagElement = document.getElementById('country-flag');
@@ -86,7 +98,6 @@
         }
 
         // Call functions to increment visitor count and fetch data
-        updateVisitorCount();
         fetchVisitorCountry();
     </script>
 </body>
