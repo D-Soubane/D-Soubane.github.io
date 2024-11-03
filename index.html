@@ -5,25 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Add some basic styles for the flags list */
-        #flags-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .flag-item {
-            display: flex;
-            align-items: center;
-            margin: 5px 0;
-        }
-        .flag-item img {
-            width: 30px; /* Adjust flag size */
-            height: auto;
-            margin-right: 10px; /* Space between flag and count */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -55,73 +36,54 @@
         <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
     </div>
 
-    <!-- Flags List Section -->
-    <div id="flags-list">
-        <h3>Visitors by Country</h3>
-        <div id="country-visitor-counts"></div>
-    </div>
-
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
-
-    <script src="https://cdn.counter.dev/script.js" data-id="aac078ed-7142-47fc-8fd9-01d7395afa5c" data-utcoffset="1"></script>
-
     <script>
-        // Function to update visitor count and flags
         function updateVisitorCount(country) {
-            let hasVisited = sessionStorage.getItem('hasVisited'); // Check if visitor is counted
-            if (!hasVisited) {
+            // Check if this visitor has already been counted in this session
+            if (!sessionStorage.getItem('hasVisited')) {
+                // Retrieve total visitor count from local storage or initialize to 0
                 let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
-                localStorage.setItem('totalVisitors', totalVisitors + 1); // Increment total visitors
-                document.getElementById('counter-value').innerText = localStorage.getItem('totalVisitors'); // Update displayed count
-                sessionStorage.setItem('hasVisited', 'true'); // Mark as visited in this session
+                totalVisitors++; // Increment the total visitor count
+
+                // Update local storage with the new total visitor count
+                localStorage.setItem('totalVisitors', totalVisitors);
+                
+                // Update displayed visitor count
+                document.getElementById('counter-value').innerText = totalVisitors;
+
+                // Mark visitor as counted in the session
+                sessionStorage.setItem('hasVisited', 'true');
             }
 
-            // Update unique countries
+            // Track unique countries
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
             if (!uniqueCountries[country]) {
-                uniqueCountries[country] = 1; // Initialize visitor count for the country
-                localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique countries
+                uniqueCountries[country] = 1; // Initialize the count for this country
+                localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique country data
             }
-            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length; // Update unique country count
-            
-            // Update the flags list
-            updateFlagsList(uniqueCountries);
+            // Update unique country count display
+            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
-        // Function to update the flags list
-        function updateFlagsList(uniqueCountries) {
-            const countryVisitorCountsElement = document.getElementById('country-visitor-counts');
-            countryVisitorCountsElement.innerHTML = ''; // Clear the current list
-
-            Object.keys(uniqueCountries).forEach(country => {
-                const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
-                const flagItem = document.createElement('div');
-                flagItem.className = 'flag-item';
-                flagItem.innerHTML = `<img src="${flagUrl}" alt="${country} Flag"> 1 from ${country}`;
-                countryVisitorCountsElement.appendChild(flagItem);
-            });
-        }
-
-        // Function to fetch visitor country info
+        // Fetch country and update visitor information
         function fetchVisitorCountry() {
             fetch(`https://ipinfo.io?token=b9d052ce51637f`)
                 .then(response => response.json())
                 .then(data => {
                     const country = data.country || 'Unknown';
                     document.getElementById('country-name').innerText = country;
-                    updateVisitorCount(country); // Update counts
+                    
+                    // Call function to update visitor count based on country
+                    updateVisitorCount(country);
+
+                    // Display the country flag
                     const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
                     const flagElement = document.getElementById('country-flag');
                     flagElement.src = flagUrl;
-                    flagElement.style.display = 'inline'; // Show flag
+                    flagElement.style.display = 'inline'; // Show the flag
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
