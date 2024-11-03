@@ -5,85 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling only for the visitor counter section */
+        #visitor-info {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9em; /* Slightly smaller font */
+            background-color: #f3f3f3;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #visitor-info p {
+            margin: 0 8px;
+            font-weight: bold;
+        }
+        #country-flag {
+            width: 20px; /* Smaller flag size */
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="banner">
-        <h1>Welcome to Prof. Soubane's Research Group</h1>
-        <p>FPS-uca.ma</p>
-        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16</p>
-        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
-        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
 
     <!-- Visitor Info Section -->
-    <div id="visitor-info" style="margin-top: 20px; text-align: center;">
-        <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
-        <p id="unique-country-counter">Unique Countries: <span id="unique-counter-value">0</span></p>
-        <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
-        <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
+    <div id="visitor-info">
+        <p>Total Visitors: <span id="counter-value">Loading...</span></p>
+        <p>Unique Countries: <span id="unique-counter-value">Loading...</span></p>
+        <p>Visitor Country: <span id="country-name">Loading...</span>
+        <img id="country-flag" src="" alt="Country Flag"></p>
     </div>
 
-    <footer>
-        <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
-    </footer>
-
     <script>
+        // Function to update visitor count
         function updateVisitorCount(country) {
-            // Check if this visitor has already been counted in this session
+            let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
+
+            // Check if user has already been counted in this session
             if (!sessionStorage.getItem('hasVisited')) {
-                // Retrieve total visitor count from local storage or initialize to 0
-                let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
-                totalVisitors++; // Increment the total visitor count
-
-                // Update local storage with the new total visitor count
+                totalVisitors++;
                 localStorage.setItem('totalVisitors', totalVisitors);
-                
-                // Update displayed visitor count
-                document.getElementById('counter-value').innerText = totalVisitors;
-
-                // Mark visitor as counted in the session
-                sessionStorage.setItem('hasVisited', 'true');
+                sessionStorage.setItem('hasVisited', 'true'); // Mark visitor as counted in the session
             }
+            document.getElementById('counter-value').innerText = totalVisitors;
 
             // Track unique countries
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
             if (!uniqueCountries[country]) {
-                uniqueCountries[country] = 1; // Initialize the count for this country
-                localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique country data
+                uniqueCountries[country] = 1;
+            } else {
+                uniqueCountries[country]++;
             }
-            // Update unique country count display
+            localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
+
+            // Update displayed unique country count
             document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
-        // Fetch country and update visitor information
+        // Function to fetch visitor country info
         function fetchVisitorCountry() {
             fetch(`https://ipinfo.io?token=b9d052ce51637f`)
                 .then(response => response.json())
                 .then(data => {
                     const country = data.country || 'Unknown';
                     document.getElementById('country-name').innerText = country;
-                    
-                    // Call function to update visitor count based on country
+
+                    // Update visitor count and country data
                     updateVisitorCount(country);
 
-                    // Display the country flag
+                    // Set flag URL based on country
                     const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
                     const flagElement = document.getElementById('country-flag');
                     flagElement.src = flagUrl;
-                    flagElement.style.display = 'inline'; // Show the flag
+                    flagElement.style.display = 'inline'; // Show flag
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
@@ -91,7 +88,7 @@
                 });
         }
 
-        // Call function to fetch visitor country on page load
+        // Fetch visitor country on page load
         fetchVisitorCountry();
     </script>
 </body>
