@@ -30,7 +30,7 @@
 
     <!-- Visitor Info Section -->
     <div id="visitor-info" style="margin-top: 20px; text-align: center;">
-        <p id="visitor-counter">Total Visitors: <span id="counter-value">Loading...</span></p>
+        <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
         <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
         <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
     </div>
@@ -45,70 +45,35 @@
         </div>
     </div>
 
-    <!-- Script Section -->
     <script>
-        // Function to fetch and display the visitor count from Counter.dev
-        function fetchVisitorCount() {
-            console.log('Fetching visitor count from Counter.dev...');
-            fetch('https://api.counter.dev/counter?id=aac078ed-7142-47fc-8fd9-01d7395afa5c')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Visitor count data:', data);
-                    if (data && data.total) {
-                        document.getElementById('counter-value').innerText = data.total;
-                    } else {
-                        document.getElementById('counter-value').innerText = 'Unavailable';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching visitor count:', error);
-                    document.getElementById('counter-value').innerText = 'Error';
-                });
-        }
+        // Update Visitor Counter
+        fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('counter-value').innerText = data.value; // Set total visits
+            })
+            .catch(error => {
+                console.error('Error fetching visitor count:', error);
+                document.getElementById('counter-value').innerText = 'Error';
+            });
 
-        // Function to update visitor info with country data
-        function updateVisitorCountryInfo(country) {
-            document.getElementById('country-name').innerText = country;
+        // Fetch Visitor Country
+        fetch(`https://ipinfo.io?token=b9d052ce51637f`)
+            .then(response => response.json())
+            .then(data => {
+                const country = data.country;
+                document.getElementById('country-name').innerText = country;
 
-            // Set the flag URL based on the country code
-            const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
-            const flagElement = document.getElementById('country-flag');
-            flagElement.src = flagUrl;
-            flagElement.style.display = 'inline'; // Show flag
-        }
-
-        // Fetch visitor country info from IPInfo API
-        function fetchVisitorCountry() {
-            console.log('Fetching visitor country info from IPInfo...');
-            fetch('https://ipinfo.io?token=b9d052ce51637f')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Visitor country data:', data);
-                    if (data && data.country) {
-                        updateVisitorCountryInfo(data.country);
-                    } else {
-                        document.getElementById('country-name').innerText = 'Unavailable';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching country info:', error);
-                    document.getElementById('country-name').innerText = 'Error';
-                });
-        }
-
-        // Call functions to fetch visitor count and country info on page load
-        fetchVisitorCount();
-        fetchVisitorCountry();
+                // Set flag URL based on country
+                const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
+                const flagElement = document.getElementById('country-flag');
+                flagElement.src = flagUrl;
+                flagElement.style.display = 'inline'; // Show flag
+            })
+            .catch(error => {
+                console.error('Error fetching IP info:', error);
+                document.getElementById('country-name').innerText = 'Error';
+            });
     </script>
 </body>
 </html>
