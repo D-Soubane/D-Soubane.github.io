@@ -76,19 +76,20 @@
     <script>
         // Function to update visitor count and flags
         function updateVisitorCount(country) {
-            let visitorCount = localStorage.getItem('visitorCount') || 0; // Retrieve count from local storage
-            visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
-            localStorage.setItem('visitorCount', visitorCount); // Store updated count
-            document.getElementById('counter-value').innerText = visitorCount; // Update the displayed count
+            let hasVisited = sessionStorage.getItem('hasVisited'); // Check if visitor is counted
+            if (!hasVisited) {
+                let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
+                localStorage.setItem('totalVisitors', totalVisitors + 1); // Increment total visitors
+                document.getElementById('counter-value').innerText = localStorage.getItem('totalVisitors'); // Update displayed count
+                sessionStorage.setItem('hasVisited', 'true'); // Mark as visited in this session
+            }
 
             // Update unique countries
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
             if (!uniqueCountries[country]) {
                 uniqueCountries[country] = 1; // Initialize visitor count for the country
-            } else {
-                uniqueCountries[country]++; // Increment visitor count for the country
+                localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique countries
             }
-            localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries)); // Store updated unique countries
             document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length; // Update unique country count
             
             // Update the flags list
@@ -101,11 +102,10 @@
             countryVisitorCountsElement.innerHTML = ''; // Clear the current list
 
             Object.keys(uniqueCountries).forEach(country => {
-                const count = uniqueCountries[country];
                 const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
                 const flagItem = document.createElement('div');
                 flagItem.className = 'flag-item';
-                flagItem.innerHTML = `<img src="${flagUrl}" alt="${country} Flag"> ${count} from ${country}`;
+                flagItem.innerHTML = `<img src="${flagUrl}" alt="${country} Flag"> 1 from ${country}`;
                 countryVisitorCountsElement.appendChild(flagItem);
             });
         }
@@ -117,11 +117,7 @@
                 .then(data => {
                     const country = data.country || 'Unknown';
                     document.getElementById('country-name').innerText = country;
-
-                    // Update the visitor count and unique country count
-                    updateVisitorCount(country);
-
-                    // Set flag URL based on country
+                    updateVisitorCount(country); // Update counts
                     const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
                     const flagElement = document.getElementById('country-flag');
                     flagElement.src = flagUrl;
