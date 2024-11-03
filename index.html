@@ -46,21 +46,7 @@
     </div>
 
     <script>
-        // Function to update Visitor Count
-        function updateVisitorCount() {
-            fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Visitor Count Update Response:', data); // Debugging output
-                    document.getElementById('counter-value').innerText = data.value; // Update visitor count
-                })
-                .catch(error => {
-                    console.error('Error fetching visitor count:', error);
-                    document.getElementById('counter-value').innerText = 'Error';
-                });
-        }
-
-        // Function to fetch initial visitor count
+        // Function to fetch the current visitor count
         function fetchInitialVisitorCount() {
             fetch('https://api.countapi.xyz/get/dr.soubane/visits')
                 .then(response => response.json())
@@ -74,7 +60,21 @@
                 });
         }
 
-        // Fetch Visitor Country
+        // Function to increment the visitor count
+        function incrementVisitorCount() {
+            fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visitor Count Increment Response:', data); // Debugging output
+                    document.getElementById('counter-value').innerText = data.value; // Update visitor count
+                })
+                .catch(error => {
+                    console.error('Error incrementing visitor count:', error);
+                    document.getElementById('counter-value').innerText = 'Error';
+                });
+        }
+
+        // Function to fetch visitor country info
         function fetchVisitorCountry() {
             fetch(`https://ipinfo.io?token=b9d052ce51637f`)
                 .then(response => response.json())
@@ -95,9 +95,9 @@
                 });
         }
 
-        // Call functions to fetch initial visitor count and update the counter on page load
+        // Call functions to fetch initial visitor count and increment it on page load
         fetchInitialVisitorCount();
-        updateVisitorCount();
+        incrementVisitorCount(); // This will add 1 to the count for the visitor
         fetchVisitorCountry();
     </script>
 </body>
