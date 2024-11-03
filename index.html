@@ -45,14 +45,20 @@
         </div>
     </div>
 
-    <!-- Fetch and display visitor count from Counter.dev -->
+    <!-- Script Section -->
     <script>
-        // Function to fetch and display the total visitor count from Counter.dev
+        // Function to fetch and display the visitor count from Counter.dev
         function fetchVisitorCount() {
+            console.log('Fetching visitor count from Counter.dev...');
             fetch('https://api.counter.dev/counter?id=aac078ed-7142-47fc-8fd9-01d7395afa5c')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Check if total is available in the response
+                    console.log('Visitor count data:', data);
                     if (data && data.total) {
                         document.getElementById('counter-value').innerText = data.total;
                     } else {
@@ -78,9 +84,16 @@
 
         // Fetch visitor country info from IPInfo API
         function fetchVisitorCountry() {
+            console.log('Fetching visitor country info from IPInfo...');
             fetch('https://ipinfo.io?token=b9d052ce51637f')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
+                    console.log('Visitor country data:', data);
                     if (data && data.country) {
                         updateVisitorCountryInfo(data.country);
                     } else {
