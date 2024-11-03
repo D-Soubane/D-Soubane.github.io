@@ -30,7 +30,7 @@
 
     <!-- Visitor Info Section -->
     <div id="visitor-info" style="margin-top: 20px; text-align: center;">
-        <p id="visitor-counter">Total Visitors: <span id="counter-value">0</span></p>
+        <p id="visitor-counter">Total Visitors: <span id="counter-value">Loading...</span></p>
         <p id="visitor-country">Visitor Country: <span id="country-name">Loading...</span></p>
         <img id="country-flag" src="" alt="Country Flag" style="width: 50px; height: auto; display: none;">
     </div>
@@ -46,32 +46,12 @@
     </div>
 
     <script>
-        // Function to fetch the current visitor count
-        function fetchInitialVisitorCount() {
-            fetch('https://api.countapi.xyz/get/dr.soubane/visits')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Initial Visitor Count:', data); // Debugging output
-                    document.getElementById('counter-value').innerText = data.value; // Display initial visitor count
-                })
-                .catch(error => {
-                    console.error('Error fetching initial visitor count:', error);
-                    document.getElementById('counter-value').innerText = 'Error';
-                });
-        }
-
-        // Function to increment the visitor count
-        function incrementVisitorCount() {
-            fetch('https://api.countapi.xyz/update/dr.soubane/visits?amount=1')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Visitor Count Increment Response:', data); // Debugging output
-                    document.getElementById('counter-value').innerText = data.value; // Update visitor count
-                })
-                .catch(error => {
-                    console.error('Error incrementing visitor count:', error);
-                    document.getElementById('counter-value').innerText = 'Error';
-                });
+        // Function to update visitor count
+        function updateVisitorCount() {
+            let visitorCount = localStorage.getItem('visitorCount') || 0; // Retrieve count from local storage
+            visitorCount = parseInt(visitorCount) + 1; // Increment visitor count
+            localStorage.setItem('visitorCount', visitorCount); // Store updated count
+            document.getElementById('counter-value').innerText = visitorCount; // Update the displayed count
         }
 
         // Function to fetch visitor country info
@@ -79,8 +59,7 @@
             fetch(`https://ipinfo.io?token=b9d052ce51637f`)
                 .then(response => response.json())
                 .then(data => {
-                    const country = data.country;
-                    console.log('Visitor Country Data:', data); // Debugging output
+                    const country = data.country || 'Unknown';
                     document.getElementById('country-name').innerText = country;
 
                     // Set flag URL based on country
@@ -95,9 +74,8 @@
                 });
         }
 
-        // Call functions to fetch initial visitor count and increment it on page load
-        fetchInitialVisitorCount();
-        incrementVisitorCount(); // This will add 1 to the count for the visitor
+        // Call functions to increment visitor count and fetch data
+        updateVisitorCount();
         fetchVisitorCountry();
     </script>
 </body>
