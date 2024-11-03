@@ -60,6 +60,20 @@
                 });
         }
 
+        // Function to fetch initial visitor count
+        function fetchInitialVisitorCount() {
+            fetch('https://api.countapi.xyz/get/dr.soubane/visits')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Initial Visitor Count:', data); // Debugging output
+                    document.getElementById('counter-value').innerText = data.value; // Display initial visitor count
+                })
+                .catch(error => {
+                    console.error('Error fetching initial visitor count:', error);
+                    document.getElementById('counter-value').innerText = 'Error';
+                });
+        }
+
         // Fetch Visitor Country
         function fetchVisitorCountry() {
             fetch(`https://ipinfo.io?token=b9d052ce51637f`)
@@ -81,7 +95,8 @@
                 });
         }
 
-        // Call functions to update counter and fetch country on page load
+        // Call functions to fetch initial visitor count and update the counter on page load
+        fetchInitialVisitorCount();
         updateVisitorCount();
         fetchVisitorCountry();
     </script>
