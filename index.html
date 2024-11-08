@@ -77,13 +77,15 @@
         function updateVisitorCount(country) {
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
+            // Check if user has already been counted in this session
             if (!sessionStorage.getItem('hasVisited')) {
                 totalVisitors++;
                 localStorage.setItem('totalVisitors', totalVisitors);
-                sessionStorage.setItem('hasVisited', 'true');
+                sessionStorage.setItem('hasVisited', 'true'); // Mark visitor as counted in the session
             }
             document.getElementById('counter-value').innerText = totalVisitors;
 
+            // Track unique countries
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
             if (!uniqueCountries[country]) {
                 uniqueCountries[country] = 1;
@@ -92,9 +94,36 @@
             }
             localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
 
+            // Update displayed unique country count
             document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
         // Function to fetch visitor country info
         function fetchVisitorCountry() {
-            fetch(`https://ipinfo.io?token=b9d052ce
+            fetch(`https://ipinfo.io?token=b9d052ce51637f`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("API Data:", data);  // Debugging line: Log the response
+                    const country = data.country || 'Unknown';
+                    document.getElementById('country-name').innerText = country;
+
+                    // Update visitor count and country data
+                    updateVisitorCount(country);
+
+                    // Set flag URL based on country
+                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
+                    const flagElement = document.getElementById('country-flag');
+                    flagElement.src = flagUrl;
+                    flagElement.style.display = 'inline'; // Show flag
+                })
+                .catch(error => {
+                    console.error('Error fetching IP info:', error);
+                    document.getElementById('country-name').innerText = 'Error';
+                });
+        }
+
+        // Fetch visitor country on page load
+        fetchVisitorCountry();
+    </script>
+</body>
+</html>
