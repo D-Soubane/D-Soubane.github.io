@@ -104,13 +104,15 @@
                 .then(data => {
                     console.log("API Data:", data);  // Debugging line: Log the response
                     const country = data.country || 'Unknown';
+                    const countryCode = data.countryCode || 'Unknown'; // Use the countryCode property for flag
+
                     document.getElementById('country-name').innerText = country;
 
                     // Update visitor count and country data
                     updateVisitorCount(country);
 
-                    // Set flag URL based on country
-                    const flagUrl = `https://flagcdn.com/w320/${data.countryCode.toLowerCase()}.png`;
+                    // Set flag URL based on countryCode (not country name)
+                    const flagUrl = `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png`;
                     const flagElement = document.getElementById('country-flag');
                     flagElement.src = flagUrl;
                     flagElement.style.display = 'inline'; // Show flag
