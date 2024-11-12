@@ -104,11 +104,11 @@
 
         // Check if the page is a refresh or a new visit and update counters
         function trackVisit() {
-            let isFirstVisit = localStorage.getItem('hasVisited') !== 'true';
+            let isFirstVisit = sessionStorage.getItem('hasVisited') !== 'true';
 
             // Update the visit count only if it is a new visit (not a refresh)
             if (isFirstVisit) {
-                localStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
+                sessionStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
                 fetchVisitorCountry(); // Fetch the visitor country and update counts
             } else {
                 // For refresh, just update the total visitors (no new country tracked)
