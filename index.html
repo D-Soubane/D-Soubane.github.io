@@ -69,9 +69,12 @@
             // Total Visitors count (track globally across all devices)
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Increment total visitor count for each new visit (on page load, not refresh)
-            totalVisitors++;
-            localStorage.setItem('totalVisitors', totalVisitors);
+            // Increment total visitor count only once per session
+            if (!sessionStorage.getItem('hasVisited')) {
+                totalVisitors++;
+                localStorage.setItem('totalVisitors', totalVisitors);
+                sessionStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
+            }
             document.getElementById('counter-value').innerText = totalVisitors;
 
             // Unique countries count (track globally across all devices)
@@ -102,24 +105,7 @@
                 });
         }
 
-        // Check if the page is a refresh or a new visit and update counters
-        function trackVisit() {
-            let isFirstVisit = sessionStorage.getItem('hasVisited') !== 'true';
-
-            // Update the visit count only if it is a new visit (not a refresh)
-            if (isFirstVisit) {
-                sessionStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
-                fetchVisitorCountry(); // Fetch the visitor country and update counts
-            } else {
-                // For refresh, just update the total visitors (no new country tracked)
-                fetchVisitorCountry();
-            }
-        }
-
-        // Track the visit every time the page is loaded
-        trackVisit();
-
-        // Fetch visitor country on page load
+        // Track the visit every time the page is loaded (not refresh)
         fetchVisitorCountry();
     </script>
 
