@@ -64,8 +64,9 @@
 
     <!-- ip-api.com Script to Track Visitors -->
     <script>
-        // Function to update visitor count
+        // Function to update visitor count and unique countries count
         function updateVisitorCount(country) {
+            // Total Visitors count
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
             // Increment total visitor count for each new visitor (session or device)
@@ -73,12 +74,11 @@
             localStorage.setItem('totalVisitors', totalVisitors);
             document.getElementById('counter-value').innerText = totalVisitors;
 
-            // Track unique countries
+            // Unique countries count (permanent across sessions and devices)
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
 
-            // Increment unique countries count based on country data
             if (country && !uniqueCountries[country]) {
-                uniqueCountries[country] = true;
+                uniqueCountries[country] = true; // Add country to the list
             }
 
             localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
