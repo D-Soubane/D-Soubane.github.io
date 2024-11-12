@@ -49,7 +49,7 @@
     <!-- Visitor Info Section -->
     <div id="visitor-info">
         <p>Total Visitors: <span id="counter-value">Loading...</span></p>
-        <p>Unique Visitors: <span id="unique-counter-value">Loading...</span></p>
+        <p>Countries Worldwide Visiting the Website: <span id="unique-counter-value">Loading...</span></p>
     </div>
 
     <footer>
@@ -65,10 +65,10 @@
     <!-- ip-api.com Script to Track Visitors -->
     <script>
         // Function to update visitor count
-        function updateVisitorCount() {
+        function updateVisitorCount(country) {
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Check if user has already been counted in this session
+            // Increment total visitor count
             if (!sessionStorage.getItem('hasVisited')) {
                 totalVisitors++;
                 localStorage.setItem('totalVisitors', totalVisitors);
@@ -76,36 +76,37 @@
             }
             document.getElementById('counter-value').innerText = totalVisitors;
 
-            // Track unique visitors by IP address
-            let uniqueVisitors = JSON.parse(localStorage.getItem('uniqueVisitors')) || {};
-            const visitorIP = sessionStorage.getItem('visitorIP');
+            // Track unique countries
+            let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
 
-            // If the IP hasn't been tracked yet, mark it as visited
-            if (!uniqueVisitors[visitorIP]) {
-                uniqueVisitors[visitorIP] = true;
+            // Increment unique countries count based on country data
+            if (country && !uniqueCountries[country]) {
+                uniqueCountries[country] = true;
             }
-            localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
 
-            // Update displayed unique visitor count
-            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueVisitors).length;
+            localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
+
+            // Update displayed unique country count
+            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
-        // Function to fetch visitor IP and set it in session storage
-        function fetchVisitorIP() {
-            fetch('https://api.ipify.org?format=json')
+        // Function to fetch visitor country info
+        function fetchVisitorCountry() {
+            fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
-                    sessionStorage.setItem('visitorIP', data.ip);
-                    updateVisitorCount();
+                    console.log("API Data:", data);  // Debugging line: Log the response
+                    const country = data.country_name || 'Unknown';  // Default to Unknown if no country found
+                    updateVisitorCount(country);
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
-                    updateVisitorCount();
+                    updateVisitorCount('Unknown');
                 });
         }
 
-        // Fetch visitor IP on page load
-        fetchVisitorIP();
+        // Fetch visitor country on page load
+        fetchVisitorCountry();
     </script>
 
 </body>
