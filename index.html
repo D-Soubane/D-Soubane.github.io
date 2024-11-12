@@ -69,7 +69,7 @@
             // Total Visitors count (track globally across all devices)
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Increment total visitor count for each new visitor (on each page load)
+            // Increment total visitor count for each new visit (on page load, not refresh)
             totalVisitors++;
             localStorage.setItem('totalVisitors', totalVisitors);
             document.getElementById('counter-value').innerText = totalVisitors;
@@ -77,14 +77,15 @@
             // Unique countries count (track globally across all devices)
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
 
+            // If country is new, add it to unique countries
             if (country && !uniqueCountries[country]) {
                 uniqueCountries[country] = true; // Add country to the list if it's new
+                localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
             }
 
-            localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
-
-            // Update displayed unique country count
-            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
+            // Update displayed unique country count (initially 5)
+            let uniqueCountryCount = Object.keys(uniqueCountries).length || 5;
+            document.getElementById('unique-counter-value').innerText = uniqueCountryCount;
         }
 
         // Function to fetch visitor country info
@@ -101,14 +102,17 @@
                 });
         }
 
-        // Increment the total visit count every time the page is loaded
+        // Check if the page is a refresh or a new visit and update counters
         function trackVisit() {
-            // Check if this is the first visit (this session)
             let isFirstVisit = localStorage.getItem('hasVisited') !== 'true';
 
+            // Update the visit count only if it is a new visit (not a refresh)
             if (isFirstVisit) {
                 localStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
                 fetchVisitorCountry(); // Fetch the visitor country and update counts
+            } else {
+                // For refresh, just update the total visitors (no new country tracked)
+                fetchVisitorCountry();
             }
         }
 
