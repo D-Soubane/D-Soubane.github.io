@@ -69,7 +69,7 @@
             // Total Visitors count (track globally across all devices)
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Increment total visitor count for each new visitor
+            // Increment total visitor count for each new visitor (on each page load)
             totalVisitors++;
             localStorage.setItem('totalVisitors', totalVisitors);
             document.getElementById('counter-value').innerText = totalVisitors;
@@ -100,6 +100,20 @@
                     updateVisitorCount('Unknown');
                 });
         }
+
+        // Increment the total visit count every time the page is loaded
+        function trackVisit() {
+            // Check if this is the first visit (this session)
+            let isFirstVisit = localStorage.getItem('hasVisited') !== 'true';
+
+            if (isFirstVisit) {
+                localStorage.setItem('hasVisited', 'true'); // Mark that the user has visited
+                fetchVisitorCountry(); // Fetch the visitor country and update counts
+            }
+        }
+
+        // Track the visit every time the page is loaded
+        trackVisit();
 
         // Fetch visitor country on page load
         fetchVisitorCountry();
