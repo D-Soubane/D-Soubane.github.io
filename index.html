@@ -68,12 +68,9 @@
         function updateVisitorCount(country) {
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Increment total visitor count
-            if (!sessionStorage.getItem('hasVisited')) {
-                totalVisitors++;
-                localStorage.setItem('totalVisitors', totalVisitors);
-                sessionStorage.setItem('hasVisited', 'true'); // Mark visitor as counted in the session
-            }
+            // Increment total visitor count for each new visitor (session or device)
+            totalVisitors++;
+            localStorage.setItem('totalVisitors', totalVisitors);
             document.getElementById('counter-value').innerText = totalVisitors;
 
             // Track unique countries
