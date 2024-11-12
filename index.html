@@ -66,19 +66,19 @@
     <script>
         // Function to update visitor count and unique countries count
         function updateVisitorCount(country) {
-            // Total Visitors count
+            // Total Visitors count (track globally across all devices)
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
-            // Increment total visitor count for each new visitor (session or device)
+            // Increment total visitor count for each new visitor
             totalVisitors++;
             localStorage.setItem('totalVisitors', totalVisitors);
             document.getElementById('counter-value').innerText = totalVisitors;
 
-            // Unique countries count (permanent across sessions and devices)
+            // Unique countries count (track globally across all devices)
             let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
 
             if (country && !uniqueCountries[country]) {
-                uniqueCountries[country] = true; // Add country to the list
+                uniqueCountries[country] = true; // Add country to the list if it's new
             }
 
             localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
@@ -92,7 +92,6 @@
             fetch('https://ipapi.co/json/')
                 .then(response => response.json())
                 .then(data => {
-                    console.log("API Data:", data);  // Debugging line: Log the response
                     const country = data.country_name || 'Unknown';  // Default to Unknown if no country found
                     updateVisitorCount(country);
                 })
