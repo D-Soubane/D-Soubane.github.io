@@ -100,34 +100,46 @@
             document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
-        // Function to fetch visitor country info
+        // Function to fetch visitor country info using multiple APIs
         function fetchVisitorCountry() {
-            fetch('https://cors-anywhere.herokuapp.com/https://ipinfo.io/json?token=b9d052ce51637f')  // Temporary proxy
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch country data');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("API Data:", data);  // Debugging line: Log the response
-                    const country = data.country || 'Unknown';
-                    document.getElementById('country-name').innerText = country;
+            const apiUrls = [
+                'https://ipinfo.io/json?token=b9d052ce51637f', // ipinfo.io
+                'https://api.ipgeolocation.io/ipgeo?apiKey=YOUR_API_KEY', // ipgeolocation.io
+                'https://ip-api.com/json', // ip-api.com
+                'https://get.geojs.io/v1/ip/country.json' // GeoJS API
+            ];
 
-                    // Update visitor count and country data
-                    updateVisitorCount(country);
-
-                    // Set flag URL based on country
-                    const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
-                    const flagElement = document.getElementById('country-flag');
-                    flagElement.src = flagUrl;
-                    flagElement.style.display = 'inline'; // Show flag
-                })
-                .catch(error => {
-                    console.error('Error fetching IP info:', error);
+            // Try each API in sequence
+            function tryApi(urls, index = 0) {
+                if (index >= urls.length) {
+                    console.error('Error fetching country data from all APIs');
                     document.getElementById('country-name').innerText = 'Error'; // Show error in UI
                     document.getElementById('country-flag').style.display = 'none'; // Hide flag if error
-                });
+                    return;
+                }
+
+                fetch(urls[index])
+                    .then(response => response.json())
+                    .then(data => {
+                        const country = data.country_code2 || data.country || 'Unknown';
+                        document.getElementById('country-name').innerText = country;
+
+                        // Update visitor count and country data
+                        updateVisitorCount(country);
+
+                        // Set flag URL based on country
+                        const flagUrl = `https://flagcdn.com/w320/${country.toLowerCase()}.png`;
+                        const flagElement = document.getElementById('country-flag');
+                        flagElement.src = flagUrl;
+                        flagElement.style.display = 'inline'; // Show flag
+                    })
+                    .catch(error => {
+                        console.error('Error fetching from API:', error);
+                        tryApi(urls, index + 1); // Try the next API if one fails
+                    });
+            }
+
+            tryApi(apiUrls); // Start with the first API
         }
 
         // Fetch visitor country on page load
