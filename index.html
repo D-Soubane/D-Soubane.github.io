@@ -22,11 +22,6 @@
             margin: 0 8px;
             font-weight: bold;
         }
-        #country-flag {
-            width: 20px;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
     </style>
 </head>
 <body>
@@ -54,10 +49,7 @@
     <!-- Visitor Info Section -->
     <div id="visitor-info">
         <p>Total Visitors: <span id="counter-value">Loading...</span></p>
-        <p>Unique Countries: <span id="unique-counter-value">Loading...</span></p>
-        <p>Visitor Country: <span id="country-name">Loading...</span>
-        <img id="country-flag" src="" alt="Country Flag">
-        </p>
+        <p>Unique Visitors: <span id="unique-counter-value">Loading...</span></p>
     </div>
 
     <footer>
@@ -73,7 +65,7 @@
     <!-- ip-api.com Script to Track Visitors -->
     <script>
         // Function to update visitor count
-        function updateVisitorCount(country) {
+        function updateVisitorCount() {
             let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
 
             // Check if user has already been counted in this session
@@ -84,47 +76,36 @@
             }
             document.getElementById('counter-value').innerText = totalVisitors;
 
-            // Track unique countries
-            let uniqueCountries = JSON.parse(localStorage.getItem('uniqueCountries')) || {};
-            if (!uniqueCountries[country]) {
-                uniqueCountries[country] = 1;
-            } else {
-                uniqueCountries[country]++;
-            }
-            localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
+            // Track unique visitors by IP address
+            let uniqueVisitors = JSON.parse(localStorage.getItem('uniqueVisitors')) || {};
+            const visitorIP = sessionStorage.getItem('visitorIP');
 
-            // Update displayed unique country count
-            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
+            // If the IP hasn't been tracked yet, mark it as visited
+            if (!uniqueVisitors[visitorIP]) {
+                uniqueVisitors[visitorIP] = true;
+            }
+            localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
+
+            // Update displayed unique visitor count
+            document.getElementById('unique-counter-value').innerText = Object.keys(uniqueVisitors).length;
         }
 
-        // Function to fetch visitor country info from ip-api.com
-        function fetchVisitorCountry() {
-            fetch('https://ip-api.com/json')
+        // Function to fetch visitor IP and set it in session storage
+        function fetchVisitorIP() {
+            fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => {
-                    console.log("API Data:", data);  // Debugging line: Log the response
-                    const country = data.country || 'Unknown';
-                    const countryCode = data.countryCode || 'Unknown'; // Use the countryCode property for flag
-
-                    document.getElementById('country-name').innerText = country;
-
-                    // Update visitor count and country data
-                    updateVisitorCount(country);
-
-                    // Set flag URL based on countryCode (not country name)
-                    const flagUrl = `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png`;
-                    const flagElement = document.getElementById('country-flag');
-                    flagElement.src = flagUrl;
-                    flagElement.style.display = 'inline'; // Show flag
+                    sessionStorage.setItem('visitorIP', data.ip);
+                    updateVisitorCount();
                 })
                 .catch(error => {
                     console.error('Error fetching IP info:', error);
-                    document.getElementById('country-name').innerText = 'Error';
+                    updateVisitorCount();
                 });
         }
 
-        // Fetch visitor country on page load
-        fetchVisitorCountry();
+        // Fetch visitor IP on page load
+        fetchVisitorIP();
     </script>
 
 </body>
