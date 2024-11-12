@@ -98,9 +98,9 @@
             document.getElementById('unique-counter-value').innerText = Object.keys(uniqueCountries).length;
         }
 
-        // Function to fetch visitor country info using ip-api (free version)
+        // Function to fetch visitor country info using ipinfo.io
         function fetchVisitorCountry() {
-            fetch('https://ip-api.com/json')  // Changed to HTTPS for security
+            fetch('https://ipinfo.io/json?token=b9d052ce51637f')  // Replace with your own token if necessary
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Failed to fetch country data');
