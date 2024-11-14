@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Dr. Soubane</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
     <style>
-        /* Global styles */
+        /* Body Styling */
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #f3f6f9;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -20,121 +20,123 @@
 
         /* Header */
         header {
-            background-color: #003366;
-            color: white;
-            padding: 15px 0;
+            background-color: #00274D;
+            color: #F5D547;
+            padding: 10px 0;
             width: 100%;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.8em;
+            font-size: 2.2em;
+            font-weight: 500;
             margin: 0;
-            font-weight: 600;
-            color: #FFCC00;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 8px 0;
             margin: 0;
-            background-color: #003366;
+            background-color: #00274D;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 12px;
         }
 
         nav ul li a {
-            color: #FFCC00;
+            color: #F5D547;
             text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 1em;
         }
 
         nav ul li a:hover {
             color: #ffffff;
-            text-decoration: underline;
         }
 
-        /* Main content styles */
+        /* Main Content */
         .content {
-            max-width: 800px;
+            max-width: 1200px;
             width: 90%;
-            padding: 20px;
+            padding: 15px;
             margin: 20px auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section {
-            margin-bottom: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         h2 {
-            font-size: 2em;
+            font-size: 1.6em;
             color: #003366;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #FFCC00;
-            padding-bottom: 5px;
-        }
-
-        p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        /* Podcast sections */
-        .podcast-section {
             margin-top: 25px;
-            padding: 20px;
-            border: 1px solid #003366;
-            border-radius: 8px;
-            background-color: #f7f9fc;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #007BFF;
         }
 
-        .podcast-section h2 {
-            font-size: 1.8em;
+        .collapsible-content {
+            display: none;
+            padding-top: 10px;
+        }
+
+        .toggle-button {
             color: #003366;
+            cursor: pointer;
+            font-weight: 500;
         }
 
         .audio-title {
             font-size: 1em;
-            margin: 10px 0;
-            color: #333;
+            color: #555;
+            margin-bottom: 8px;
         }
 
+        /* Audio Player */
         audio {
-            width: 70%; /* Narrower for more elegant display */
-            margin-top: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin: 10px auto;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .podcast-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #003366;
+            border-radius: 5px;
+            background-color: #f7f9fc;
+            text-align: center;
         }
 
         /* Footer */
         footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
+            background-color: #00274D;
+            color: #F5D547;
+            padding: 15px;
             width: 100%;
+            text-align: center;
         }
 
-        .self-promo {
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-            text-align: center;
+        /* Collapsible Sections */
+        .toggle-content {
+            cursor: pointer;
+            color: #007BFF;
+            font-weight: 500;
+            text-align: left;
         }
     </style>
+    <script>
+        // Toggle collapsible content
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </head>
 <body>
-    <!-- Header and Navigation -->
+    <!-- Header -->
     <header>
         <h1>Research</h1>
         <nav>
@@ -150,30 +152,24 @@
 
     <!-- Main Content -->
     <div class="content">
-        <div class="section">
-            <h2>Research Area</h2>
-            <p>- Silicon-based Memristor</p>
-            <p>- Density Functional Theory: Quantum Espresso</p>
-        </div>
+        <h2>Research Areas</h2>
+        <p>- Silicon-based Memristor</p>
+        <p>- Density Functional Theory: Quantum Espresso</p>
 
-        <div class="section collaboration">
-            <h2>Collaborations</h2>
-            <p>- INRS-EMT Qc Canada: Advanced Laser Light Source</p>
-            <p>- Pôle Technologique de Sud – Champagne- LRC- LASMIS, Université de Troyes France</p>
-        </div>
+        <h2>Collaborations</h2>
+        <p>- INRS-EMT Qc Canada: Advanced Laser Light Source</p>
+        <p>- Pôle Technologique de Sud – Champagne- LRC- LASMIS, Université de Troyes France</p>
 
-        <div class="section publication">
-            <h2>Publications</h2>
-            <p>- Google Scholar link: <a href="https://scholar.google.com/citations?user=tBznmskAAAAJ&hl=en" target="_blank">View Profile</a></p>
-            <p>- Review paper: <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em> - <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the paper</a></p>
-        </div>
+        <!-- Publications with Podcasts -->
+        <h2>Publications & Podcasts</h2>
 
-        <!-- Podcast Section 1 -->
+        <!-- Publication 1 -->
         <div class="podcast-section">
-            <h2>Podcast: Review Paper Discussion</h2>
-            <p>Listen to this podcast where I explain the key points of the paper, <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em>, in accessible terms.</p>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span class="audio-title">Audio Discussion of the Paper:</span>
+            <h2>Podcast: High-Entropy Alloy Films Review</h2>
+            <span class="toggle-content" onclick="toggleContent('content1')">+ Learn more</span>
+            <div id="content1" class="collapsible-content">
+                <p>Explore the review on <em>Mechanical and Functional Properties of Refractory High-Entropy Alloy Films</em> by magnetron sputtering. <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the paper</a></p>
+                <div class="audio-title">Audio Discussion:</div>
                 <audio controls>
                     <source src="em.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -181,36 +177,32 @@
             </div>
         </div>
 
-        <!-- Podcast Section 2 -->
+        <!-- Publication 2 -->
         <div class="podcast-section">
             <h2>Podcast: Renewable Energy Resources</h2>
-            <p>Listen to this podcast for an overview of the paper, <em>Renewable Energy Resources in a Nutshell: Present and Future</em>, discussing the current state and future prospects of renewable energy resources. <a href="http://ojie.um.edu.my/index.php/IJRER/article/view/15452" target="_blank">Read the paper</a></p>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span class="audio-title">Audio Discussion of the Paper:</span>
+            <span class="toggle-content" onclick="toggleContent('content2')">+ Learn more</span>
+            <div id="content2" class="collapsible-content">
+                <p>Overview of <em>Renewable Energy Resources in a Nutshell</em>: Present and Future. <a href="http://ojie.um.edu.my/index.php/IJRER/article/view/15452" target="_blank">Read the paper</a></p>
+                <div class="audio-title">Audio Discussion:</div>
                 <audio controls>
                     <source src="re.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-            <p class="self-promo">
-                Through research and outreach, I aim to make complex topics accessible to all. Stay tuned for more insights into renewable energy and materials science!
-            </p>
         </div>
 
-        <!-- Podcast Section 3 -->
+        <!-- Publication 3 -->
         <div class="podcast-section">
-            <h2>Podcast: Memristor Technology</h2>
-            <p>Listen to this podcast where I discuss the innovative device <em>Memristor Fully Compatible with CMOS Technology</em>. This technology has significant implications for advancing memory storage solutions. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf&ved=2ahUKEwjfjuO1_NuJAxUJUaQEHYLKFjcQFnoECBIQAQ&usg=AOvVaw3Znxu0Lhn-iWHkjOBXEqPb" target="_blank">Read the full patent</a></p>
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span class="audio-title">Audio Discussion of the Patent:</span>
+            <h2>Podcast: CMOS-Compatible Memristor Patent</h2>
+            <span class="toggle-content" onclick="toggleContent('content3')">+ Learn more</span>
+            <div id="content3" class="collapsible-content">
+                <p>Discussing the novel device <em>Memristor Fully Compatible with CMOS Technology</em>. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf" target="_blank">Read the patent</a></p>
+                <div class="audio-title">Audio Discussion:</div>
                 <audio controls>
                     <source src="mem.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-            <p class="self-promo">
-                By innovating and patenting new technology, we contribute to the future of memory devices in electronics. Discover more about the potential of memristor technology!
-            </p>
         </div>
     </div>
 
