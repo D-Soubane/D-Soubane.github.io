@@ -6,22 +6,21 @@
     <title>Research | Dr. Soubane</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Professional styling for the Research page */
+        /* Custom styles for the Research page */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f5f7;
+            background-color: #f2f4f6;
             color: #333;
-            line-height: 1.6;
         }
 
         header {
-            background-color: #0056b3;
-            color: #fff;
-            padding: 20px 0;
+            background-color: #0077FF;
+            color: white;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
@@ -29,115 +28,91 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            margin: 10px 0;
+            background-color: #0077FF;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
         nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            font-size: 1.1em;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            font-weight: 500;
         }
 
         nav ul li a:hover {
-            background-color: #FFD700;
-            color: #0056b3;
+            text-decoration: underline;
+            color: #FFD700;
         }
 
         h1 {
-            font-size: 2.8em;
-            margin-bottom: 0;
-            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #0077FF;
         }
 
         h2 {
-            font-size: 1.8em;
-            color: #0056b3;
-            border-bottom: 3px solid #0056b3;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        .content {
-            padding: 30px;
-            max-width: 850px;
-            margin: 30px auto;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #0077FF;
+            border-bottom: 2px solid #0077FF;
+            padding-bottom: 5px;
         }
 
         p {
-            font-size: 1.15em;
-            margin: 15px 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0;
+            padding: 0 20px;
         }
 
-        .collaboration, .publication, .podcast-section {
-            margin-top: 30px;
+        .content {
             padding: 20px;
-            border: 1px solid #0056b3;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
             border-radius: 8px;
-            background-color: #f8f9fa;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .publication h2,
-        .podcast-section h2,
-        .collaboration h2 {
-            font-size: 1.5em;
-            color: #0056b3;
-            margin-bottom: 15px;
-        }
-
-        .publication a, .podcast-section a {
-            color: #0056b3;
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .publication a:hover, .podcast-section a:hover {
-            color: #d9534f;
-        }
-
-        .podcast-section {
-            text-align: center;
-        }
-
-        .podcast-section h2 {
-            font-size: 1.7em;
-            margin-top: 10px;
-        }
-
-        /* Style for the "New Powered AI" label */
-        .ai-powered-label {
-            font-size: 0.8em;
-            color: #D9534F;
-            font-style: italic;
-            font-weight: bold;
-            margin-top: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: #0056b3;
-            color: #fff;
+            background-color: #0077FF;
+            color: white;
             text-align: center;
             padding: 15px 0;
-            font-size: 0.95em;
-            margin-top: 30px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9em;
         }
 
-        audio {
-            margin-top: 15px;
-            width: 90%;
-            max-width: 500px;
+        .collaboration, .publication, .podcast-section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #0077FF;
             border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .podcast-section h2 {
+            font-size: 1.5em;
+            color: #0077FF;
+            margin-bottom: 10px;
+        }
+
+        .audio-title {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .self-promo {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+            text-align: center;
         }
     </style>
 </head>
@@ -163,28 +138,45 @@
         <div class="collaboration">
             <h2>Collaborations</h2>
             <p>- INRS-EMT Qc Canada: Advanced Laser Light Source</p>
-            <p>- Pôle Technologique de Sud – Champagne- LRC- LASMIS, Université de Troyes France</p>
+            <p>- Pôle Technologique de Sud – Champagne- LRC- LASMIS , Université de Troyes France</p>
         </div>
 
         <div class="publication">
             <h2>Publications</h2>
-            <p>- Google Scholar link: <a href="https://scholar.google.com/citations?user=tBznmskAAAAJ&hl=en" target="_blank">View Publications on Google Scholar</a></p>
+            <p>- Google Scholar link: <a href="https://scholar.google.com/citations?user=tBznmskAAAAJ&hl=en" target="_blank">https://scholar.google.com/citations?user=tBznmskAAAAJ&hl=en</a></p>
             <p>- Review paper: <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em> <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the paper</a></p>
         </div>
 
-        <!-- Podcast Section for Paper Discussion -->
+        <!-- Podcast Section for the First Paper Discussion -->
         <div class="podcast-section">
             <h2>Podcast: Review Paper in Layman Terms</h2>
             <p>Listen to this podcast where I explain the key points of the paper, <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em>, in simple terms for everyone.</p>
             
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <span style="font-size: 1em; margin-bottom: 10px;">Audio Discussion of the Paper:</span>
+                <span class="audio-title">Audio Discussion of the Paper:</span>
                 <audio controls>
-                    <source src="em.mp3" type="audio/mp3">
+                    <source src="audio/Review_RHEF_Emergent_Materials.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
-                <span class="ai-powered-label">New Powered AI</span>
             </div>
+        </div>
+
+        <!-- Podcast Section for the Second Paper Discussion -->
+        <div class="podcast-section">
+            <h2>Podcast: Renewable Energy Paper in Layman Terms</h2>
+            <p>Listen to this podcast for an overview of the paper, <em>RENEWABLE ENERGY RESOURCES IN A NUTSHELL: PRESENT AND FUTURE</em>, which discusses the current state and future prospects of renewable energy resources.</p>
+            
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <span class="audio-title">Audio Discussion of the Paper:</span>
+                <audio controls>
+                    <source src="audio/re.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <p class="self-promo">
+                Through research and outreach, I aim to make complex topics accessible to all. Stay tuned for more insights into the world of renewable energy and materials science!
+            </p>
         </div>
     </div>
 
