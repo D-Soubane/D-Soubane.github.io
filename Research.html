@@ -89,7 +89,15 @@
             font-size: 0.9em;
         }
 
-        .collaboration, .publication, .podcast-section {
+        .collaboration, .publication {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #0077FF;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .podcast-section {
             margin-top: 20px;
             padding: 15px;
             border: 1px solid #0077FF;
@@ -101,18 +109,6 @@
             font-size: 1.5em;
             color: #0077FF;
             margin-bottom: 10px;
-        }
-
-        .audio-title {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .self-promo {
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-            text-align: center;
         }
     </style>
 </head>
@@ -147,36 +143,18 @@
             <p>- Review paper: <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em> <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the paper</a></p>
         </div>
 
-        <!-- Podcast Section for the First Paper Discussion -->
+        <!-- Podcast Section for Paper Discussion -->
         <div class="podcast-section">
             <h2>Podcast: Review Paper in Layman Terms</h2>
             <p>Listen to this podcast where I explain the key points of the paper, <em>Review on Mechanical and Functional Properties of Refractory High-Entropy Alloy Films by Magnetron Sputtering</em>, in simple terms for everyone.</p>
             
             <div style="display: flex; flex-direction: column; align-items: center;">
-                <span class="audio-title">Audio Discussion of the Paper:</span>
+                <span style="font-size: 0.9em; margin-bottom: 10px;">Audio Discussion of the Paper:</span>
                 <audio controls>
                     <source src="audio/Review_RHEF_Emergent_Materials.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-        </div>
-
-        <!-- Podcast Section for the Second Paper Discussion -->
-        <div class="podcast-section">
-            <h2>Podcast: Renewable Energy Paper in Layman Terms</h2>
-            <p>Listen to this podcast for an overview of the paper, <em>RENEWABLE ENERGY RESOURCES IN A NUTSHELL: PRESENT AND FUTURE</em>, which discusses the current state and future prospects of renewable energy resources.</p>
-            
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <span class="audio-title">Audio Discussion of the Paper:</span>
-                <audio controls>
-                    <source src="audio/re.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-
-            <p class="self-promo">
-                Through research and outreach, I aim to make complex topics accessible to all. Stay tuned for more insights into the world of renewable energy and materials science!
-            </p>
         </div>
     </div>
 
