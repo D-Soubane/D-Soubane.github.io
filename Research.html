@@ -60,7 +60,7 @@
             max-width: 1200px;
             margin: 20px auto;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* Four equal columns */
             gap: 20px;
             padding: 20px 0;
         }
@@ -73,10 +73,15 @@
             padding: 20px;
             text-align: center;
             height: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .podcast-section:hover {
+            transform: translateY(-10px);
         }
 
         .podcast-section h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #003366;
             margin-bottom: 15px;
         }
@@ -103,6 +108,11 @@
         .podcast-section a {
             color: #007bff;
             text-decoration: none;
+            font-weight: 500;
+        }
+
+        .podcast-section a:hover {
+            color: #0056b3;
         }
 
         /* Footer Styling */
@@ -165,7 +175,7 @@
 
         <!-- Podcast 3: CMOS-Compatible Memristor Patent -->
         <div class="podcast-section">
-            <h3>Podcast: Podcast: CMOS-Compatible Memristor Patent – The Master Building Block Powering the Future of Artificial Intelligence</h3>
+            <h3>Podcast: CMOS-Compatible Memristor Patent – The Master Building Block Powering the Future of Artificial Intelligence</h3>
             <p>Discussing the novel device <em>Memristor Fully Compatible with CMOS Technology</em>. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf" target="_blank">Read the full patent</a></p>
             <div class="audio-title">Audio Discussion:</div>
             <audio controls>
@@ -174,13 +184,24 @@
             </audio>
         </div>
 
-        <!-- New Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
+        <!-- Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
         <div class="podcast-section">
             <h3>Podcast: The 2010 Nobel Prize in Physics - Graphene</h3>
             <p>This podcast explores the groundbreaking discovery of Graphene, a material that revolutionized material science. The 2010 Nobel Prize in Physics was awarded for the discovery of Graphene's unique properties. <a href="https://www.nobelprize.org/prizes/physics/2010/summary/" target="_blank">Read the full Nobel Prize summary</a></p>
             <div class="audio-title">Audio Discussion:</div>
             <audio controls>
                 <source src="gr.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- New Podcast 5: Breaking the Myth of Entropy -->
+        <div class="podcast-section">
+            <h3>Podcast: Breaking the Myth of Entropy: Beyond Disorder to Information Degradation – The Link Between Disorder and Entropy is Doomed</h3>
+            <p>This podcast challenges the traditional view of entropy as pure disorder, offering a new perspective that links entropy to information loss. A must-listen for those interested in thermodynamics and information theory. <a href="https://link-to-your-paper.com" target="_blank">Read the full paper</a></p>
+            <div class="audio-title">Audio Discussion:</div>
+            <audio controls>
+                <source src="entropy.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
