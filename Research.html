@@ -54,6 +54,30 @@
             color: #ffffff;
         }
 
+        /* New Podcast Phrase Styling */
+        .new-podcast-container {
+            text-align: center;
+            padding: 10px;
+            font-size: 1em;
+            color: #003366;
+            font-weight: 500;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .new {
+            color: red;
+            font-weight: bold;
+            animation: blink 1s step-start 0s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                visibility: hidden;
+            }
+        }
+
         /* Container for main content */
         .container {
             width: 90%;
@@ -120,38 +144,9 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* New Podcast Phrase Styling */
-        .new-podcast-container {
-            background-color: #003366;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .new {
-            color: #f5d547;
-            animation: blink 1s step-start 0s infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                visibility: hidden;
-            }
-        }
     </style>
 </head>
 <body>
-
-    <!-- New Podcast Section at the Top -->
-    <div class="new-podcast-container">
-        <span class="new">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
-    </div>
 
     <!-- Header with Navigation Bar -->
     <header>
@@ -166,6 +161,11 @@
             </ul>
         </nav>
     </header>
+
+    <!-- New Podcast Phrase Below Header -->
+    <div class="new-podcast-container">
+        <span class="new">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
+    </div>
 
     <!-- Main Content Section -->
     <div class="container">
@@ -223,11 +223,13 @@
                 Your browser does not support the audio element.
             </audio>
         </div>
+
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Dr. Soubane's Research. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
