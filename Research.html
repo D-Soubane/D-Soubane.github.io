@@ -76,13 +76,13 @@
         }
 
         .podcast-section h3 {
-            font-size: 1.5em;
+            font-size: 1.3em; /* Smaller title */
             color: #003366;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .audio-title {
-            font-size: 1em;
+            font-size: 0.9em; /* Smaller audio title */
             color: #555;
             margin-top: 10px;
         }
@@ -95,7 +95,7 @@
         }
 
         .podcast-section p {
-            font-size: 1.1em;
+            font-size: 0.9em; /* Smaller description */
             color: #333;
             margin-bottom: 15px;
         }
@@ -103,6 +103,21 @@
         .podcast-section a {
             color: #007bff;
             text-decoration: none;
+        }
+
+        /* NEW blinker */
+        .new-blink {
+            font-weight: bold;
+            color: darkorange; /* Dark Yellow */
+            font-size: 1.1em;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
         }
 
         /* Footer Styling */
@@ -138,6 +153,11 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Promotional Sentence for New Podcast -->
+    <div style="text-align: center; padding: 20px; font-size: 1.1em; font-weight: bold; color: white; background-color: #003366;">
+        <span class="new-blink">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
+    </div>
 
     <!-- Main Content Section -->
     <div class="container">
