@@ -121,40 +121,36 @@
             }
         }
 
-        /* Marquee Styling for Self-Promotion Sentence */
-        .marquee-container {
+        /* New Podcast Phrase Styling */
+        .new-podcast-container {
             background-color: #003366;
-            color: #f5d547;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px;
+            color: #ffffff;
+            padding: 20px;
             text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .marquee {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
+        .new {
+            color: #f5d547;
+            animation: blink 1s step-start 0s infinite;
         }
 
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
+        @keyframes blink {
+            50% {
+                visibility: hidden;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Scrolling Marquee for Self-Promotion -->
-    <div class="marquee-container">
-        <div class="marquee">In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.</div>
+    <!-- New Podcast Section at the Top -->
+    <div class="new-podcast-container">
+        <span class="new">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
     </div>
 
     <!-- Header with Navigation Bar -->
@@ -227,13 +223,11 @@
                 Your browser does not support the audio element.
             </audio>
         </div>
-
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 D. Soubane, Ph.D. Eng. All rights reserved.</p>
+        <p>&copy; 2024 Dr. Soubane's Research. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
