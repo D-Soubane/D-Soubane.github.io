@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Dr. Soubane</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"> <!-- Added Poppins font -->
     <style>
         /* Body Styling */
         body {
-            font-family: 'Poppins', sans-serif; /* Changed font for a more elegant look */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f7f9; /* Light grey background for better contrast */
+            background-color: #f3f6f9;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -55,22 +54,13 @@
             color: #ffffff;
         }
 
-        /* Short explanatory text at the top */
-        .intro-text {
-            font-size: 0.9em;
-            color: #333;
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
         /* Container for main content */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr; /* Four equal columns */
+            grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
             gap: 20px;
             padding: 20px 0;
         }
@@ -80,51 +70,39 @@
             background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             height: 100%;
-            border: 3px solid #f5d547; /* Live color border */
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .podcast-section:hover {
-            transform: translateY(-10px);
-            border-color: #ff6600; /* Hover border color */
         }
 
         .podcast-section h3 {
-            font-size: 1.2em; /* Reduced title size */
+            font-size: 1.5em;
             color: #003366;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .audio-title {
-            font-size: 0.85em; /* Reduced text for audio label */
+            font-size: 1em;
             color: #555;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         audio {
             width: 80%;
             max-width: 350px;
-            margin: 10px auto;
+            margin: 15px auto;
             display: block;
         }
 
         .podcast-section p {
-            font-size: 0.9em; /* Reduced paragraph text */
+            font-size: 1.1em;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .podcast-section a {
             color: #007bff;
             text-decoration: none;
-            font-weight: 500;
-        }
-
-        .podcast-section a:hover {
-            color: #0056b3;
         }
 
         /* Footer Styling */
@@ -143,13 +121,40 @@
             }
         }
 
+        /* Marquee Styling for Self-Promotion Sentence */
+        .marquee-container {
+            background-color: #003366;
+            color: #f5d547;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .marquee {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Short explanatory text at the top -->
-    <div class="intro-text">
-        In this podcast series, I break down and explain my research papers in a simple, layman-friendly style, making complex concepts easier to understand.
+    <!-- Scrolling Marquee for Self-Promotion -->
+    <div class="marquee-container">
+        <div class="marquee">In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.</div>
     </div>
 
     <!-- Header with Navigation Bar -->
@@ -173,7 +178,7 @@
             <h3>Podcast: High-Entropy Alloy Films Review</h3>
             <p>Explore the review on <em>Mechanical and Functional Properties of Refractory High-Entropy Alloy Films</em> by magnetron sputtering. <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the full paper</a></p>
             <div class="audio-title">Audio Discussion:</div>
-            <audio controls controlsList="nodownload">
+            <audio controls>
                 <source src="em.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
@@ -184,7 +189,7 @@
             <h3>Podcast: Renewable Energy Resources</h3>
             <p>Overview of <em>Renewable Energy Resources in a Nutshell</em>: Present and Future. <a href="http://ojie.um.edu.my/index.php/IJRER/article/view/15452" target="_blank">Read the full paper</a></p>
             <div class="audio-title">Audio Discussion:</div>
-            <audio controls controlsList="nodownload">
+            <audio controls>
                 <source src="re.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
@@ -195,29 +200,29 @@
             <h3>Podcast: CMOS-Compatible Memristor Patent – The Master Building Block Powering the Future of Artificial Intelligence</h3>
             <p>Discussing the novel device <em>Memristor Fully Compatible with CMOS Technology</em>. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf" target="_blank">Read the full patent</a></p>
             <div class="audio-title">Audio Discussion:</div>
-            <audio controls controlsList="nodownload">
+            <audio controls>
                 <source src="mem.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
-        <!-- Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
+        <!-- New Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
         <div class="podcast-section">
             <h3>Podcast: The 2010 Nobel Prize in Physics - Graphene</h3>
             <p>This podcast explores the groundbreaking discovery of Graphene, a material that revolutionized material science. The 2010 Nobel Prize in Physics was awarded for the discovery of Graphene's unique properties. <a href="https://www.nobelprize.org/prizes/physics/2010/summary/" target="_blank">Read the full Nobel Prize summary</a></p>
             <div class="audio-title">Audio Discussion:</div>
-            <audio controls controlsList="nodownload">
+            <audio controls>
                 <source src="gr.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
-        <!-- New Podcast 5: Breaking the Myth of Entropy -->
+        <!-- New Podcast 5: Breaking the Myth of Entropy - Disorder and Information Degradation -->
         <div class="podcast-section">
-            <h3>Podcast: Breaking the Myth of Entropy – Beyond Disorder to Information Degradation</h3>
-            <p>This podcast examines how the link between disorder and entropy is misunderstood. <a href="https://www.example.com" target="_blank">Read the full paper</a></p>
+            <h3>Podcast: Breaking the Myth of Entropy: Disorder and Information Degradation</h3>
+            <p>In this episode, I explain how the traditional view of entropy as disorder is doomed. We explore a deeper interpretation of entropy focusing on information loss and data degradation. <a href="https://www.sciencedirect.com/science/article/pii/S0022103120300716" target="_blank">Read the full paper</a></p>
             <div class="audio-title">Audio Discussion:</div>
-            <audio controls controlsList="nodownload">
+            <audio controls>
                 <source src="entropy.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
