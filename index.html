@@ -9,13 +9,10 @@
         /* Blinking 'NEW' styling */
         .new-blink {
             font-weight: bold;
-            color: red; /* Red color for the blinking text */
+            color: darkred; /* Dark red color for the blinking text */
             font-size: 1.1em;
             text-transform: uppercase;
             animation: blink 1s infinite;
-            position: absolute;
-            top: 10px;
-            right: 120px; /* Adjust this to position it next to the "Research" link */
         }
 
         @keyframes blink {
@@ -46,7 +43,6 @@
         #visitor-info .flags {
             display: flex;
             align-items: center;
-            margin-left: 10px;
         }
 
         #visitor-info .flags img {
@@ -54,21 +50,10 @@
             height: 18px;
             margin-left: 5px;
         }
-
-        /* Remove any extra margins on body or other elements to adjust for flag placement */
-        body, header, footer {
-            margin: 0;
-            padding: 0;
-        }
     </style>
 </head>
 <body>
     <header>
-        <!-- "NEW" Blinking Text -->
-        <div class="new-blink">
-            NEW
-        </div>
-        
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
@@ -88,6 +73,13 @@
         <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
         <a href="#" class="btn">Learn More</a>
     </section>
+
+    <!-- New Blinking Text Section -->
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
+        <div class="new-blink">
+            NEW
+        </div>
+    </div>
 
     <!-- Visitor Info Section with Flags -->
     <div id="visitor-info">
