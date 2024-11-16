@@ -6,7 +6,67 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Styling only for the visitor counter section */
+        /* Blinking 'NEW' styling */
+        .new-blink {
+            font-weight: bold;
+            color: darkred; /* Dark red color for the blinking text */
+            font-size: 1.1em;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #f5d547;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+        }
+
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        /* Styling for the NEW text above the nav bar */
+        .new-notice {
+            background-color: #003366;
+            color: #f5d547;
+            padding: 5px;
+            text-align: center;
+            font-size: 1.1em;
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Visitor Info Section */
         #visitor-info {
             display: inline-flex;
             align-items: center;
@@ -22,9 +82,22 @@
             margin: 0 8px;
             font-weight: bold;
         }
+
+        /* Styling for the flag images */
+        #visitor-info img {
+            width: 24px;
+            height: 16px;
+            margin: 0 5px;
+        }
+
     </style>
 </head>
 <body>
+    <!-- NEW Notice Above Header -->
+    <div class="new-notice">
+        <span class="new-blink">NEW</span> Check out our latest research podcasts and insights!
+    </div>
+
     <header>
         <nav>
             <ul>
@@ -48,8 +121,15 @@
 
     <!-- Visitor Info Section -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="counter-value">Loading...</span></p>
-        <p>Countries Worldwide Visiting the Website: <span id="unique-counter-value">Loading...</span></p>
+        <p>Visitors from:</p>
+        <!-- Flags for Morocco, France, Canada, USA, Germany, UK, and Australia -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/2560px-Flag_of_Morocco.svg.png" alt="Morocco Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png" alt="France Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Flag_of_Canada.svg/2560px-Flag_of_Canada.svg.png" alt="Canada Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" alt="USA Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png" alt="Germany Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png" alt="UK Flag">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/2560px-Flag_of_Australia.svg.png" alt="Australia Flag">
     </div>
 
     <footer>
@@ -86,7 +166,7 @@
                 localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
             }
 
-            // Update displayed unique country count (initially 5)
+            // Update displayed unique country count (starting from 5)
             let uniqueCountryCount = Object.keys(uniqueCountries).length || 5;
             document.getElementById('unique-counter-value').innerText = uniqueCountryCount;
         }
