@@ -6,13 +6,16 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Blinking 'NEW' styling */
+        /* New Blinking 'NEW' text above Research */
         .new-blink {
             font-weight: bold;
-            color: darkred; /* Dark red color for the blinking text */
+            color: red; /* Red color for the blinking text */
             font-size: 1.1em;
             text-transform: uppercase;
             animation: blink 1s infinite;
+            position: absolute;
+            top: 10px;
+            right: 120px; /* Position it near the "Research" link */
         }
 
         @keyframes blink {
@@ -21,17 +24,23 @@
             }
         }
 
+        /* New Background for the Body */
+        body {
+            background-color: #f9f9f9; /* Light gray background */
+            font-family: Arial, sans-serif;
+        }
+
         /* Styling for the visitor info section */
         #visitor-info {
             display: inline-flex;
             align-items: center;
             font-size: 0.9em;
-            background-color: #f3f3f3;
-            padding: 5px;
+            background-color: #e1e1e1;
+            padding: 10px;
             border-radius: 5px;
-            border: 1px solid #ddd;
             margin-top: 10px;
             text-align: center;
+            width: 100%;
         }
 
         #visitor-info p {
@@ -43,16 +52,22 @@
         #visitor-info .flags {
             display: flex;
             align-items: center;
+            margin-left: 10px;
         }
 
         #visitor-info .flags img {
-            width: 25px;
-            height: 18px;
+            width: 20px;
+            height: 14px;
             margin-left: 5px;
+        }
+
+        header nav {
+            position: relative;
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <ul>
@@ -63,6 +78,10 @@
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
             </ul>
         </nav>
+        <!-- NEW Text above Research Link -->
+        <div class="new-blink">
+            NEW
+        </div>
     </header>
 
     <section class="banner">
@@ -74,13 +93,6 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- New Blinking Text Section -->
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="new-blink">
-            NEW
-        </div>
-    </div>
-
     <!-- Visitor Info Section with Flags -->
     <div id="visitor-info">
         <p>Total Visitors: <span id="counter-value">Loading...</span></p>
@@ -90,7 +102,6 @@
             <img src="canada-flag.png" alt="Canada">
             <img src="usa-flag.png" alt="USA">
             <img src="australia-flag.png" alt="Australia">
-            <img src="uk-flag.png" alt="UK">
             <img src="germany-flag.png" alt="Germany">
         </div>
     </div>
