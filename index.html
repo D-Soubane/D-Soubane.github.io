@@ -24,13 +24,14 @@
             }
         }
 
-        /* New Background for the Body */
-        body {
-            background-color: #f9f9f9; /* Light gray background */
-            font-family: Arial, sans-serif;
+        /* Restore Blue Background for Header */
+        header nav {
+            position: relative;
+            background-color: #0077FF; /* Blue background for header */
+            padding: 10px 0;
         }
 
-        /* Styling for the visitor info section */
+        /* Visitor Info Section */
         #visitor-info {
             display: inline-flex;
             align-items: center;
@@ -56,16 +57,12 @@
         }
 
         #visitor-info .flags img {
-            width: 20px;
-            height: 14px;
+            width: 25px; /* Size of flags */
+            height: 18px;
             margin-left: 5px;
         }
 
-        header nav {
-            position: relative;
-        }
-
-        /* Adjusted header for clean presentation */
+        /* Navigation Bar */
         nav ul {
             list-style-type: none;
             margin: 0;
@@ -80,12 +77,13 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: white;
             font-weight: bold;
+            padding: 10px 20px;
         }
 
         nav ul li a:hover {
-            color: #0077FF;
+            color: #FFCC00;
         }
     </style>
 </head>
