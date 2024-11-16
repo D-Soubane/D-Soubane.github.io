@@ -54,30 +54,6 @@
             color: #ffffff;
         }
 
-        /* New Podcast Phrase Styling */
-        .new-podcast-container {
-            text-align: center;
-            padding: 10px;
-            font-size: 1em;
-            color: #003366;
-            font-weight: 500;
-            margin-top: 10px;
-            letter-spacing: 0.5px;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .new {
-            color: red;
-            font-weight: bold;
-            animation: blink 1s step-start 0s infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                visibility: hidden;
-            }
-        }
-
         /* Container for main content */
         .container {
             width: 90%;
@@ -144,6 +120,7 @@
                 grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
 <body>
@@ -161,11 +138,6 @@
             </ul>
         </nav>
     </header>
-
-    <!-- New Podcast Phrase Below Header -->
-    <div class="new-podcast-container">
-        <span class="new">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
-    </div>
 
     <!-- Main Content Section -->
     <div class="container">
@@ -202,7 +174,7 @@
             </audio>
         </div>
 
-        <!-- New Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
+        <!-- Podcast 4: The 2010 Nobel Prize in Physics - Graphene -->
         <div class="podcast-section">
             <h3>Podcast: The 2010 Nobel Prize in Physics - Graphene</h3>
             <p>This podcast explores the groundbreaking discovery of Graphene, a material that revolutionized material science. The 2010 Nobel Prize in Physics was awarded for the discovery of Graphene's unique properties. <a href="https://www.nobelprize.org/prizes/physics/2010/summary/" target="_blank">Read the full Nobel Prize summary</a></p>
@@ -213,13 +185,13 @@
             </audio>
         </div>
 
-        <!-- New Podcast 5: Breaking the Myth of Entropy - Disorder and Information Degradation -->
+        <!-- New Podcast 5: Lessons from COVID-19 - Unraveling the Power of Human Behavior in Herd Immunity Dynamics -->
         <div class="podcast-section">
-            <h3>Podcast: Breaking the Myth of Entropy: Disorder and Information Degradation</h3>
-            <p>In this episode, I explain how the traditional view of entropy as disorder is doomed. We explore a deeper interpretation of entropy focusing on information loss and data degradation. <a href="https://www.sciencedirect.com/science/article/pii/S0022103120300716" target="_blank">Read the full paper</a></p>
+            <h3>Podcast: Lessons from COVID-19 - Unraveling the Power of Human Behavior in Herd Immunity Dynamics</h3>
+            <p>In this podcast, I delve into the critical role of human behavior in shaping the spread of COVID-19, offering innovative simulations that highlight key insights for managing herd immunity and future public health crises. <a href="https://www.example.com" target="_blank">Read the full paper</a></p>
             <div class="audio-title">Audio Discussion:</div>
             <audio controls>
-                <source src="entropy.mp3" type="audio/mpeg">
+                <source src="covid.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
@@ -228,7 +200,7 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Dr. Soubane's Research. All Rights Reserved.</p>
+        <p>&copy; 2024 D. Soubane, Ph.D. Eng. All rights reserved.</p>
     </footer>
 
 </body>
