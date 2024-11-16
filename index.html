@@ -21,52 +21,7 @@
             }
         }
 
-        /* Header Styling */
-        header {
-            background-color: #003366;
-            padding: 10px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            background-color: #003366;
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #f5d547;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1em;
-        }
-
-        nav ul li a:hover {
-            color: #ffffff;
-        }
-
-        /* Styling for the NEW text above the nav bar */
-        .new-notice {
-            background-color: #003366;
-            color: #f5d547;
-            padding: 5px;
-            text-align: center;
-            font-size: 1.1em;
-            position: absolute;
-            top: -30px;
-            width: 100%;
-            z-index: 1;
-        }
-
-        /* Visitor Info Section */
+        /* Styling for the visitor info section */
         #visitor-info {
             display: inline-flex;
             align-items: center;
@@ -78,26 +33,26 @@
             margin-top: 10px;
             text-align: center;
         }
+
         #visitor-info p {
             margin: 0 8px;
             font-weight: bold;
         }
 
-        /* Styling for the flag images */
-        #visitor-info img {
-            width: 24px;
-            height: 16px;
-            margin: 0 5px;
+        /* Flags styling */
+        #visitor-info .flags {
+            display: flex;
+            align-items: center;
         }
 
+        #visitor-info .flags img {
+            width: 25px;
+            height: 18px;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
-    <!-- NEW Notice Above Header -->
-    <div class="new-notice">
-        <span class="new-blink">NEW</span> Check out our latest research podcasts and insights!
-    </div>
-
     <header>
         <nav>
             <ul>
@@ -119,28 +74,30 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section -->
+    <!-- New Blinking Text Section -->
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
+        <div class="new-blink">
+            NEW
+        </div>
+    </div>
+
+    <!-- Visitor Info Section with Flags -->
     <div id="visitor-info">
-        <p>Visitors from:</p>
-        <!-- Flags for Morocco, France, Canada, USA, Germany, UK, and Australia -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/2560px-Flag_of_Morocco.svg.png" alt="Morocco Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png" alt="France Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Flag_of_Canada.svg/2560px-Flag_of_Canada.svg.png" alt="Canada Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png" alt="USA Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2560px-Flag_of_Germany.svg.png" alt="Germany Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png" alt="UK Flag">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/2560px-Flag_of_Australia.svg.png" alt="Australia Flag">
+        <p>Total Visitors: <span id="counter-value">Loading...</span></p>
+        <div class="flags">
+            <img src="morocco-flag.png" alt="Morocco">
+            <img src="france-flag.png" alt="France">
+            <img src="canada-flag.png" alt="Canada">
+            <img src="usa-flag.png" alt="USA">
+            <img src="australia-flag.png" alt="Australia">
+            <img src="uk-flag.png" alt="UK">
+            <img src="germany-flag.png" alt="Germany">
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
-
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
 
     <!-- ip-api.com Script to Track Visitors -->
     <script>
@@ -166,7 +123,7 @@
                 localStorage.setItem('uniqueCountries', JSON.stringify(uniqueCountries));
             }
 
-            // Update displayed unique country count (starting from 5)
+            // Update displayed unique country count (initially 5)
             let uniqueCountryCount = Object.keys(uniqueCountries).length || 5;
             document.getElementById('unique-counter-value').innerText = uniqueCountryCount;
         }
