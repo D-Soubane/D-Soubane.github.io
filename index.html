@@ -85,7 +85,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">About Us</a></li>
+                <li><a href="index.php">About Us</a></li>
                 <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
@@ -105,7 +105,11 @@
 
     <!-- Visitor Info Section with Flags -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="counter-value">Loading...</span></p>
+        <p>Total Visitors: 
+            <span id="counter-value">
+                <?php include('visitor_counter.php'); ?>
+            </span>
+        </p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
             <img src="https://flagcdn.com/w320/fr.png" alt="France">
@@ -120,20 +124,5 @@
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
-
-    <!-- Script to Fetch Global Visitor Count -->
-    <script>
-        async function fetchVisitorCount() {
-            try {
-                const response = await fetch('visitor_counter.php');
-                const data = await response.text();
-                document.getElementById('counter-value').innerText = data;
-            } catch (error) {
-                console.error('Error fetching visitor count:', error);
-            }
-        }
-
-        fetchVisitorCount();
-    </script>
 </body>
 </html>
