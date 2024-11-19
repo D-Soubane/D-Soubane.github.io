@@ -121,21 +121,19 @@
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- ip-api.com Script to Track Visitors -->
+    <!-- Script to Fetch Global Visitor Count -->
     <script>
-        // Function to update visitor count
-        function updateVisitorCount() {
-            let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
-
-            if (!sessionStorage.getItem('hasVisited')) {
-                totalVisitors++;
-                localStorage.setItem('totalVisitors', totalVisitors);
-                sessionStorage.setItem('hasVisited', 'true');
+        async function fetchVisitorCount() {
+            try {
+                const response = await fetch('visitor_counter.php');
+                const data = await response.text();
+                document.getElementById('counter-value').innerText = data;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
             }
-            document.getElementById('counter-value').innerText = totalVisitors;
         }
 
-        updateVisitorCount();
+        fetchVisitorCount();
     </script>
 </body>
 </html>
