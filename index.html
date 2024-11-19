@@ -16,81 +16,111 @@
     </script>
 
     <style>
-        /* Blinking 'NEW' styling */
-        .new-blink {
-            font-weight: bold;
-            color: darkred;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            animation: blink 1s infinite;
-            position: relative;
-            top: -10px; /* Makes it appear as superscript */
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Styling for the visitor info section */
-        #visitor-info {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.9em;
-            background-color: #f3f3f3;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        #visitor-info p {
-            margin: 0 8px;
-            font-weight: bold;
-        }
-
-        /* Flags styling */
-        #visitor-info .flags {
-            display: flex;
-            align-items: center;
-        }
-
-        #visitor-info .flags img {
-            width: 25px;
-            height: 18px;
-            margin-left: 5px;
-        }
-
-        /* Header and navigation bar styles */
-        nav ul {
-            display: flex;
-            list-style-type: none;
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
             padding: 0;
-            background-color: #0077FF; /* Blue background for nav */
+            background-color: #f4f7fc;
+            color: #333;
+        }
+
+        h1, p {
             margin: 0;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        /* Navigation Styling */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            background-color: #0077FF;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+        }
+
         nav ul li {
-            padding: 10px 15px;
+            padding: 15px 20px;
+            font-size: 1.1rem;
         }
 
         nav ul li a {
             color: white;
-            text-decoration: none;
             font-weight: bold;
         }
 
-        /* Banner styles */
+        nav ul li:hover {
+            background-color: #005bb5;
+        }
+
+        /* Banner Section */
         .banner {
-            background-color: #0077FF; /* Blue background for banner */
+            text-align: center;
+            background-color: #0077FF;
             color: white;
-            padding: 20px;
+            padding: 50px 20px;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .banner .btn {
+            background-color: #005bb5;
+            color: white;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .banner .btn:hover {
+            background-color: #004a8e;
+        }
+
+        /* Visitor Information Styling */
+        #visitor-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
             text-align: center;
         }
 
-        /* Small analytics info window at the bottom */
+        #visitor-info p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #visitor-info .flags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #visitor-info .flags img {
+            width: 30px;
+            height: 20px;
+            margin: 5px;
+        }
+
+        /* Real-time Analytics Info */
         #analytics-info {
             position: fixed;
             bottom: 20px;
@@ -98,17 +128,28 @@
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 15px;
-            border-radius: 5px;
-            font-size: 0.8em;
+            border-radius: 8px;
+            font-size: 1rem;
+            display: none; /* Hide initially */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
     <header>
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
+                <li><a href="Research.html">Research</a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -116,6 +157,7 @@
         </nav>
     </header>
 
+    <!-- Banner Section -->
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
         <p>FPS-uca.ma</p>
@@ -125,9 +167,9 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section with Flags -->
+    <!-- Visitor Info Section -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="counter-value">Real-time data will be available here shortly</span></p>
+        <p>Total Visitors: <span id="counter-value">Loading...</span></p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
             <img src="https://flagcdn.com/w320/fr.png" alt="France">
@@ -139,17 +181,18 @@
         </div>
     </div>
 
-    <!-- Analytics Data Window -->
+    <!-- Analytics Info Window -->
     <div id="analytics-info">
         <p><strong>Google Analytics:</strong></p>
-        <p>Real-time data will be available here shortly.</p>
+        <p>Real-time data will be available shortly.</p>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Google Analytics: Add tracking code -->
+    <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
