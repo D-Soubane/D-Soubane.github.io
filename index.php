@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Analytics Tracking Code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');  <!-- Replace with your GA4 Tracking ID -->
+    </script>
+    
     <style>
         /* Blinking 'NEW' styling */
         .new-blink {
@@ -103,9 +113,9 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section with Flags -->
+    <!-- Visitor Info Section with Flags (Note: This can be updated to show data from Google Analytics if needed) -->
     <div id="visitor-info">
-        <p>Total Visitors: <?php include 'visitor_counter.php'; ?></p>
+        <p>Total Visitors: Data from Google Analytics</p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
             <img src="https://flagcdn.com/w320/fr.png" alt="France">
@@ -120,5 +130,6 @@
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
