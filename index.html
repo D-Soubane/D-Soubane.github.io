@@ -26,108 +26,157 @@
         }
 
         header, footer {
-            background-color: #004080;
+            background-color: #0077FF;
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* New Tag Styling */
+        .new-badge {
+            font-size: 0.7em;
+            color: yellow;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         section.banner {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #cce7ff, #e6f7ff);
-            border-bottom: 2px solid #004080;
-        }
-
-        .visitor-counter {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 0.8em;
-            color: #004080;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .visitor-counter span {
-            font-weight: bold;
-            color: #000;
-        }
-
-        .visitor-counter .flags {
-            margin-top: 5px;
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .visitor-counter .flags div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .visitor-counter .flags img {
-            width: 20px;
-            height: 15px;
-        }
-
-        .expertise-section {
-            text-align: center;
-            margin: 30px 20px;
             padding: 20px;
             background-color: #f9f9f9;
-            border-radius: 8px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1em;
-            color: #333;
         }
 
-        .expertise-section h2 {
-            color: #004080;
-            font-weight: bold;
+        .btn {
+            background-color: #0077FF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
         }
 
         footer p {
-            font-size: 0.9em;
-            margin: 0;
+            font-size: 0.8em;
+        }
+
+        /* Visitor Information Zone */
+        .visitor-zone {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.7em;
+            text-align: center;
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        .visitor-zone img {
+            width: 25px;
+            height: 15px;
+            margin: 2px;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            background-color: #e6f7ff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .expertise-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #004080;
+        }
+
+        .expertise-section p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            color: #333;
+            margin: 10px auto;
+            max-width: 600px;
+            line-height: 1.6em;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Dr. Soubane's Research Group</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li>
+                    <a href="Research.html">Research</a>
+                    <span class="new-badge">New</span>
+                </li>
+                <li><a href="Teaching.html">Teaching</a></li>
+                <li><a href="People.html">People</a></li>
+                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="banner">
-        <h2>Expertise in Semiconductors Deposition and Density Functional Theory</h2>
-        <p>Exploring advanced nanostructures through innovative deposition techniques and rigorous computational methods.</p>
-        <p>Our focus: Fabrication, characterization, and simulation of cutting-edge semiconductor materials.</p>
+        <h1>Welcome to Prof. Soubane's Research Group</h1>
+        <p>FPS-uca.ma</p>
+        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
+        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
+        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <a href="#" class="btn">Learn More</a>
     </section>
 
-    <div class="visitor-counter" id="visitor-counter">
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <h2>About My Expertise</h2>
+        <p>As an expert in semiconductor deposition techniques and density functional theory, my research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, I am dedicated to training the next generation of researchers and fostering international collaboration.</p>
+    </section>
+
+    <!-- Visitor Zone -->
+    <div class="visitor-zone">
         <p>Total Visitors: <span id="total-visitors">313</span></p>
-        <div class="flags">
-            <div>
-                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-                <span id="visitor-ma">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/fr.png" alt="France">
-                <span id="visitor-fr">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-                <span id="visitor-ca">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/us.png" alt="USA">
-                <span id="visitor-us">0</span>
-            </div>
+        <div>
+            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco"> Morocco: <span id="visitor-ma">50</span><br>
+            <img src="https://flagcdn.com/w320/fr.png" alt="France"> France: <span id="visitor-fr">80</span><br>
+            <img src="https://flagcdn.com/w320/ca.png" alt="Canada"> Canada: <span id="visitor-ca">50</span><br>
+            <img src="https://flagcdn.com/w320/us.png" alt="USA"> USA: <span id="visitor-us">33</span><br>
+            <img src="https://flagcdn.com/w320/gb.png" alt="UK"> UK: <span id="visitor-uk">40</span><br>
+            <img src="https://flagcdn.com/w320/de.png" alt="Germany"> Germany: <span id="visitor-de">30</span><br>
+            <img src="https://flagcdn.com/w320/au.png" alt="Australia"> Australia: <span id="visitor-au">20</span><br>
+            <img src="https://flagcdn.com/w320/jp.png" alt="Japan"> Japan: <span id="visitor-jp">10</span><br>
+            <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand"> New Zealand: <span id="visitor-nz">5</span><br>
+            <img src="https://flagcdn.com/w320/nl.png" alt="Netherlands"> Netherlands: <span id="visitor-nl">5</span>
         </div>
     </div>
 
@@ -136,36 +185,30 @@
     </footer>
 
     <script>
-        // Start with a base count of 313 visitors
-        let baseTotal = 313;
-        const countries = ['ma', 'fr', 'ca', 'us'];
-        const visitorsPerCountry = {
-            ma: 150,
+        // Update visitor data dynamically using Google Analytics (mock for now)
+        const visitorData = {
+            ma: 50,
             fr: 80,
             ca: 50,
             us: 33,
+            uk: 40,
+            de: 30,
+            au: 20,
+            jp: 10,
+            nz: 5,
+            nl: 5
         };
 
-        // Fetch real-time visitors data
-        async function fetchVisitorData() {
-            // Replace this mock fetch with a real Google Analytics API call if needed
-            const response = await fetch('YOUR_REALTIME_API_ENDPOINT'); // Replace with Analytics API endpoint
-            const data = await response.json();
+        function updateVisitors() {
+            const total = Object.values(visitorData).reduce((sum, val) => sum + val, 0);
+            document.getElementById('total-visitors').innerText = total;
 
-            // Update visitor count and distribution
-            let totalVisitors = baseTotal + parseInt(data.activeUsers, 10);
-            document.getElementById('total-visitors').innerText = totalVisitors;
-
-            // Update per-country flags
-            countries.forEach(country => {
-                const count = data.countries[country] || 0;
-                visitorsPerCountry[country] += count;
-                document.getElementById(`visitor-${country}`).innerText = visitorsPerCountry[country];
-            });
+            for (const [key, value] of Object.entries(visitorData)) {
+                document.getElementById(`visitor-${key}`).innerText = value;
+            }
         }
 
-        // Simulate periodic update every 30 seconds
-        setInterval(fetchVisitorData, 30000);
+        updateVisitors();
     </script>
 </body>
 </html>
