@@ -16,95 +16,118 @@
     </script>
 
     <style>
-        /* Blinking 'NEW' styling */
-        .new-blink {
-            font-weight: bold;
-            color: darkred;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            animation: blink 1s infinite;
-            position: relative;
-            top: -10px; /* Makes it appear as superscript */
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
         }
 
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Styling for the visitor zone */
-        #visitor-info {
-            background-image: url('smart-tv.png'); /* Use a smart device background image */
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 150px; /* Compact size for smart device */
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.8em;
-            color: white;
-            border-radius: 5px;
-            margin: 10px auto;
-            padding: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        #visitor-info p {
-            margin: 2px 0;
-            font-weight: bold;
-        }
-
-        .flags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .flags img {
-            width: 20px;
-            height: 15px;
-            margin: 2px;
-        }
-
-        /* Banner styles */
-        .banner {
-            background-color: #0077FF; /* Blue background for banner */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .banner p.expertise {
-            font-style: italic;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        .banner p.promotional {
-            font-size: 1em;
-            line-height: 1.5;
-        }
-
-        /* General Styles */
+        /* Navigation Bar Styling */
         nav ul {
             display: flex;
             list-style-type: none;
-            padding: 0;
-            background-color: #0077FF;
+            padding: 10px;
             margin: 0;
+            background-color: #FFD700; /* Dark Yellow Background */
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         nav ul li {
-            padding: 10px 15px;
+            margin: 0 15px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFC107;
+            color: #333;
+        }
+
+        /* Banner Styling */
+        .banner {
+            background-color: #0077FF;
+            color: #FFD700; /* Dark Yellow Font for Welcome Text */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .banner p.expertise {
+            font-style: italic;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .banner p.promotional {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        /* Visitor Counter Zone */
+        #visitor-info {
+            background-color: #FFD700; /* Dark Yellow Background */
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 0.9em;
+        }
+
+        #visitor-info img.robot {
+            position: absolute;
+            top: -40px;
+            width: 80px;
+        }
+
+        #visitor-info p {
+            margin: 5px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #visitor-info .flags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #visitor-info .flags img {
+            width: 20px;
+            height: 15px;
+            margin: 2px;
+        }
+
+        #visitor-info .flag-info {
+            font-size: 0.7em;
+            text-align: center;
         }
 
         footer {
@@ -135,13 +158,13 @@
         <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
         <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
         <p class="promotional">
-            As an expert in semiconductor deposition techniques and density functional theory, my research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, I am dedicated to training the next generation of researchers and fostering international collaboration.
+            As an expert in semiconductor deposition techniques and density functional theory, his research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
         </p>
-        <a href="#" class="btn">Learn More</a>
     </section>
 
     <!-- Visitor Info Section -->
     <div id="visitor-info">
+        <img src="robot-icon.png" alt="Robot Holding Counter" class="robot">
         <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
@@ -151,7 +174,9 @@
             <img src="https://flagcdn.com/w320/au.png" alt="Australia">
             <img src="https://flagcdn.com/w320/gb.png" alt="UK">
             <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+            <img src="https://flagcdn.com/w320/cn.png" alt="China">
         </div>
+        <p class="flag-info">Morocco: 120 | France: 98 | Canada: 45 | USA: 50 | Australia: 30 | UK: 25 | Germany: 20 | China: 25</p>
     </div>
 
     <footer>
