@@ -4,182 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
 
     <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-M5S63MHHRH');
     </script>
 
     <style>
-        /* Styling for the visitor info section */
-        #visitor-info {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.9em;
-            background-color: #f3f3f3;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        #visitor-info p {
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        /* Flags styling */
-        #visitor-info .flags {
-            display: flex;
-            align-items: center;
-        }
-
-        #visitor-info .flags img {
-            width: 25px;
-            height: 18px;
-            margin-left: 5px;
-        }
-
-        /* Google Analytics Info Section */
-        #analytics-info {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 0.8em;
-            display: none; /* Initially hidden */
-        }
-
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         header, footer {
-            background-color: #0077FF;
+            background-color: #004080;
             color: white;
             text-align: center;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-
-        footer p {
-            font-size: 0.8em;
+            padding: 15px 0;
         }
 
         section.banner {
             text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #cce7ff, #e6f7ff);
+            border-bottom: 2px solid #004080;
+        }
+
+        .visitor-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            color: #004080;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .visitor-counter span {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .visitor-counter .flags {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .visitor-counter .flags div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .visitor-counter .flags img {
+            width: 20px;
+            height: 15px;
+        }
+
+        .expertise-section {
+            text-align: center;
+            margin: 30px 20px;
             padding: 20px;
             background-color: #f9f9f9;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            color: #333;
         }
 
-        .btn {
-            background-color: #0077FF;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
+        .expertise-section h2 {
+            color: #004080;
+            font-weight: bold;
         }
 
-        .btn:hover {
-            background-color: #005bb5;
+        footer p {
+            font-size: 0.9em;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
-                <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
-            </ul>
-        </nav>
+        <h1>Welcome to Dr. Soubane's Research Group</h1>
     </header>
 
     <section class="banner">
-        <h1>Welcome to Prof. Soubane's Research Group</h1>
-        <p>FPS-uca.ma</p>
-        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
-        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
-        <a href="#" class="btn">Learn More</a>
+        <h2>Expertise in Semiconductors Deposition and Density Functional Theory</h2>
+        <p>Exploring advanced nanostructures through innovative deposition techniques and rigorous computational methods.</p>
+        <p>Our focus: Fabrication, characterization, and simulation of cutting-edge semiconductor materials.</p>
     </section>
 
-    <!-- Visitor Info Section -->
-    <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
+    <div class="visitor-counter" id="visitor-counter">
+        <p>Total Visitors: <span id="total-visitors">313</span></p>
         <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+            <div>
+                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
+                <span id="visitor-ma">0</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/fr.png" alt="France">
+                <span id="visitor-fr">0</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                <span id="visitor-ca">0</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                <span id="visitor-us">0</span>
+            </div>
         </div>
-    </div>
-
-    <!-- Analytics Data Window -->
-    <div id="analytics-info">
-        <p><strong>Google Analytics:</strong></p>
-        <p>Real-time data will be displayed here once available.</p>
     </div>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Visitor Counter JavaScript -->
     <script>
-        // Google Analytics Visitor Fetch Simulation
-        const totalVisitorsSpan = document.getElementById('total-visitors');
+        // Start with a base count of 313 visitors
+        let baseTotal = 313;
+        const countries = ['ma', 'fr', 'ca', 'us'];
+        const visitorsPerCountry = {
+            ma: 150,
+            fr: 80,
+            ca: 50,
+            us: 33,
+        };
 
-        // Simulate fetching analytics data (Replace with real API if available)
-        function fetchVisitors() {
-            // Simulated visitor count (replace with real API calls)
-            const simulatedCount = 1234;
-            totalVisitorsSpan.innerText = simulatedCount.toLocaleString(); // Format with commas
+        // Fetch real-time visitors data
+        async function fetchVisitorData() {
+            // Replace this mock fetch with a real Google Analytics API call if needed
+            const response = await fetch('YOUR_REALTIME_API_ENDPOINT'); // Replace with Analytics API endpoint
+            const data = await response.json();
+
+            // Update visitor count and distribution
+            let totalVisitors = baseTotal + parseInt(data.activeUsers, 10);
+            document.getElementById('total-visitors').innerText = totalVisitors;
+
+            // Update per-country flags
+            countries.forEach(country => {
+                const count = data.countries[country] || 0;
+                visitorsPerCountry[country] += count;
+                document.getElementById(`visitor-${country}`).innerText = visitorsPerCountry[country];
+            });
         }
 
-        // Show visitor count on load
-        fetchVisitors();
-
-        // Simulate Google Analytics Real-Time Data (if applicable)
-        const analyticsInfo = document.getElementById('analytics-info');
-        analyticsInfo.style.display = 'block';
+        // Simulate periodic update every 30 seconds
+        setInterval(fetchVisitorData, 30000);
     </script>
 </body>
 </html>
