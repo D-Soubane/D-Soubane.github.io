@@ -15,10 +15,79 @@
         gtag('config', 'G-M5S63MHHRH');
     </script>
 
-    <!-- Google API Client Library -->
-    <script src="https://apis.google.com/js/api.js"></script>
-
     <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header, footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 1.1em;
+            padding: 5px 10px;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 0.8em;
+            color: red;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        section.banner {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #cce7ff, #e6f7ff);
+            border-bottom: 2px solid #004080;
+        }
+
+        .btn {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #003060;
+        }
+
         /* Compact Visitor Counter Section */
         .visitor-counter {
             font-size: 0.8em;
@@ -30,7 +99,7 @@
             width: 180px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .visitor-counter h3 {
             margin: 0;
             font-size: 1em;
@@ -41,7 +110,7 @@
             margin: 5px 0;
             font-size: 0.9em;
         }
-        
+
         /* Flags and table styles */
         .visitor-section {
             text-align: center;
@@ -89,6 +158,7 @@
             background-color: #004080;
             color: white;
         }
+
     </style>
 </head>
 <body>
@@ -185,31 +255,23 @@
     </footer>
 
     <script>
-        // Real-time Google Analytics data - Replace with actual API calls
+        // Real-time visitor data update (replace with actual API fetch logic)
         function updateVisitorData() {
-            // Example visitor data - you need to replace this with API data from Google Analytics
+            // Simulated real-time visitor data
             const visitorData = {
-                "ma": 150,
-                "fr": 80,
-                "ca": 50,
-                "us": 33,
-                "nl": 20,
-                "de": 25,
-                "uk": 40,
-                "au": 30,
-                "jp": 10,
-                "nz": 5
+                "ma": 150, "fr": 80, "ca": 50, "us": 33,
+                "nl": 12, "de": 22, "uk": 18, "au": 15, "jp": 10, "nz": 5
             };
 
             let total = 0;
 
-            // Update visitor count for countries and total
+            // Update counts per country
             const countries = ['ma', 'fr', 'ca', 'us', 'nl', 'de', 'uk', 'au', 'jp', 'nz'];
             countries.forEach(country => {
                 const count = visitorData[country];
                 total += count;
 
-                // Update text on page
+                // Update visitor section
                 document.getElementById(`visitor-${country}`).innerText = count;
                 document.getElementById(`table-${country}`).innerText = count;
             });
@@ -218,7 +280,7 @@
             document.getElementById('total-visitors').innerText = total;
         }
 
-        // Call the updateVisitorData function when the page loads
+        // Initialize on page load
         window.onload = () => {
             updateVisitorData();
         };
