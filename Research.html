@@ -13,10 +13,6 @@
             padding: 0;
             background-color: #f3f6f9;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: stretch;
         }
 
         /* Fixed Header Styling */
@@ -36,6 +32,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            margin: 0;
             background-color: #003366;
         }
 
@@ -54,70 +51,52 @@
             color: #ffffff;
         }
 
-        /* Container for main content */
+        /* Main Content Section */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns */
-            gap: 20px;
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
         }
 
-        /* Column Styling for Podcast Sections */
+        /* Podcast Zone Styling */
         .podcast-section {
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            text-align: center;
-            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
+            text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .podcast-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .podcast-section img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+            margin-bottom: 10px;
         }
 
         .podcast-section h3 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #003366;
-            margin: 15px 0 10px;
-        }
-
-        .podcast-icon {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .audio-title {
-            font-size: 1em;
-            color: #555;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        audio {
-            width: 90%;
-            max-width: 350px;
-            margin: 15px auto;
-            display: block;
+            margin: 10px 0;
         }
 
         .podcast-section p {
-            font-size: 1em;
-            color: #333;
-            margin-bottom: 15px;
-            line-height: 1.6;
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.4;
         }
 
         .podcast-section a {
@@ -130,11 +109,17 @@
             text-decoration: underline;
         }
 
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
         /* NEW blinker */
         .new-blink {
             font-weight: bold;
-            color: darkorange; /* Dark Yellow */
-            font-size: 1.1em;
+            color: darkorange;
+            font-size: 1em;
             text-transform: uppercase;
             animation: blink 1s infinite;
         }
@@ -149,18 +134,18 @@
         footer {
             background-color: #003366;
             color: #f5d547;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             font-size: 0.9em;
         }
 
         /* Mobile Responsiveness */
         @media screen and (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
+            .podcast-section img {
+                width: 60px;
+                height: 60px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -180,80 +165,74 @@
     </header>
 
     <!-- Promotional Sentence for New Podcast -->
-    <div style="text-align: center; padding: 20px; font-size: 1.1em; font-weight: bold; color: white; background-color: #003366;">
-        <span class="new-blink">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights. By simplifying intricate ideas, I aim to bridge the gap between advanced research and everyday understanding, making my work more relatable and engaging for a broader audience.
+    <div style="text-align: center; padding: 15px; font-size: 1em; font-weight: bold; color: white; background-color: #003366;">
+        <span class="new-blink">NEW</span> In this exclusive podcast series, I take you on a journey through my research, breaking down complex scientific concepts into clear, accessible insights.
     </div>
 
     <!-- Main Content Section -->
     <div class="container">
         <!-- Podcast 1 -->
         <div class="podcast-section">
-            <img src="face1.jpeg" alt="Podcast Icon 1" class="podcast-icon">
-            <h3>Podcast: High-Entropy Alloy Films Review</h3>
-            <p>Explore the review on <em>Mechanical and Functional Properties of Refractory High-Entropy Alloy Films</em> by magnetron sputtering. <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the full paper</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face6.jpeg" alt="Podcast Icon">
+            <h3>Podcast: Photoluminescence from Low Thermal Budget Silicon Nano-Crystals in Silica</h3>
+            <p>Delve into the photoluminescent properties of silicon nano-crystals created under low thermal budgets in silica matrices. <a href="https://iopscience.iop.org/article/10.1088/0957-4484/26/29/295201/meta" target="_blank">Read the full paper</a></p>
             <audio controls>
-                <source src="em.mp3" type="audio/mpeg">
+                <source src="pl.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <!-- Podcast 2 -->
         <div class="podcast-section">
-            <img src="face2.jpeg" alt="Podcast Icon 2" class="podcast-icon">
-            <h3>Podcast: Renewable Energy Resources</h3>
-            <p>Overview of <em>Renewable Energy Resources in a Nutshell</em>: Present and Future. <a href="http://ojie.um.edu.my/index.php/IJRER/article/view/15452" target="_blank">Read the full paper</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face1.jpeg" alt="Podcast Icon">
+            <h3>Podcast: High-Entropy Alloy Films Review</h3>
+            <p>Explore the review on <em>Mechanical and Functional Properties of Refractory High-Entropy Alloy Films</em> by magnetron sputtering. <a href="https://doi.org/10.1007/s42247-023-00607-8" target="_blank">Read the full paper</a></p>
             <audio controls>
-                <source src="re.mp3" type="audio/mpeg">
+                <source src="em.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <!-- Podcast 3 -->
         <div class="podcast-section">
-            <img src="face3.jpeg" alt="Podcast Icon 3" class="podcast-icon">
-            <h3>Podcast: CMOS-Compatible Memristor Patent</h3>
-            <p>Discussing the novel device <em>Memristor Fully Compatible with CMOS Technology</em>. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf" target="_blank">Read the full patent</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face2.jpeg" alt="Podcast Icon">
+            <h3>Podcast: Renewable Energy Resources</h3>
+            <p>Overview of <em>Renewable Energy Resources in a Nutshell</em>: Present and Future. <a href="http://ojie.um.edu.my/index.php/IJRER/article/view/15452" target="_blank">Read the full paper</a></p>
             <audio controls>
-                <source src="mem.mp3" type="audio/mpeg">
+                <source src="re.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <!-- Podcast 4 -->
         <div class="podcast-section">
-            <img src="face4.jpeg" alt="Podcast Icon 4" class="podcast-icon">
-            <h3>Podcast: The 2010 Nobel Prize in Physics - Graphene</h3>
-            <p>This podcast explores the groundbreaking discovery of Graphene, a material that revolutionized material science. <a href="https://link.springer.com/article/10.1007/s12274-010-1017-1" target="_blank">Read the full Nobel Prize summary</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face3.jpeg" alt="Podcast Icon">
+            <h3>Podcast: CMOS-Compatible Memristor Patent</h3>
+            <p>Discussing the novel device <em>Memristor Fully Compatible with CMOS Technology</em>. <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://patent.ompic.ma/publication-server/pdf-document%3FPN%3DMA40707%2520MA%252040707%26iDocId%3D14432%26iepatch%3D.pdf" target="_blank">Read the full patent</a></p>
             <audio controls>
-                <source src="gr.mp3" type="audio/mpeg">
+                <source src="mem.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <!-- Podcast 5 -->
         <div class="podcast-section">
-            <img src="face5.jpeg" alt="Podcast Icon 5" class="podcast-icon">
-            <h3>Podcast: Lessons from COVID-19 - Unraveling the Power of Human Behavior in Herd Immunity Dynamics</h3>
-            <p>In this podcast, I delve into the critical role of human behavior in shaping the spread of COVID-19. <a href="https://coronavirus.jhu.edu/" target="_blank">Read the full paper</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face4.jpeg" alt="Podcast Icon">
+            <h3>Podcast: The 2010 Nobel Prize in Physics - Graphene</h3>
+            <p>This podcast explores the groundbreaking discovery of Graphene, a material that revolutionized material science. <a href="https://link.springer.com/article/10.1007/s12274-010-1017-1" target="_blank">Read the full Nobel Prize summary</a></p>
             <audio controls>
-                <source src="covid.mp3" type="audio/mpeg">
+                <source src="gr.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <!-- Podcast 6 -->
         <div class="podcast-section">
-            <img src="face6.jpeg" alt="Podcast Icon 6" class="podcast-icon">
-            <h3>Podcast: Photoluminescence from Low Thermal Budget Silicon Nano-Crystals in Silica</h3>
-            <p>Delve into the photoluminescent properties of silicon nano-crystals created under low thermal budgets in silica matrices. <a href="https://iopscience.iop.org/article/10.1088/0957-4484/26/29/295201/meta" target="_blank">Read the full paper</a></p>
-            <div class="audio-title">Audio Discussion:</div>
+            <img src="face5.jpeg" alt="Podcast Icon">
+            <h3>Podcast: Lessons from COVID-19</h3>
+            <p>I delve into the critical role of human behavior in shaping the spread of COVID-19. <a href="https://coronavirus.jhu.edu/" target="_blank">Read the full paper</a></p>
             <audio controls>
-                <source src="pl.mp3" type="audio/mpeg">
+                <source src="covid.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
