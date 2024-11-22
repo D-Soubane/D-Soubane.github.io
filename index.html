@@ -6,7 +6,7 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Google Analytics Tag (gtag.js) -->
+    <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -16,38 +16,21 @@
     </script>
 
     <style>
-        /* Blinking 'NEW' styling */
-        .new-blink {
-            font-weight: bold;
-            color: darkred;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            animation: blink 1s infinite;
-            position: relative;
-            top: -10px; /* Makes it appear as superscript */
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
         /* Styling for the visitor info section */
         #visitor-info {
             display: inline-flex;
             align-items: center;
             font-size: 0.9em;
             background-color: #f3f3f3;
-            padding: 5px;
+            padding: 10px;
             border-radius: 5px;
             border: 1px solid #ddd;
-            margin-top: 10px;
+            margin: 20px auto;
             text-align: center;
         }
 
         #visitor-info p {
-            margin: 0 8px;
+            margin: 0 10px;
             font-weight: bold;
         }
 
@@ -63,34 +46,7 @@
             margin-left: 5px;
         }
 
-        /* Header and navigation bar styles */
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            padding: 0;
-            background-color: #0077FF; /* Blue background for nav */
-            margin: 0;
-        }
-
-        nav ul li {
-            padding: 10px 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Banner styles */
-        .banner {
-            background-color: #0077FF; /* Blue background for banner */
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Small analytics info window at the bottom */
+        /* Google Analytics Info Section */
         #analytics-info {
             position: fixed;
             bottom: 20px;
@@ -100,6 +56,63 @@
             padding: 15px;
             border-radius: 5px;
             font-size: 0.8em;
+            display: none; /* Initially hidden */
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #0077FF;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        footer p {
+            font-size: 0.8em;
+        }
+
+        section.banner {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            background-color: #0077FF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
         }
     </style>
 </head>
@@ -108,7 +121,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
+                <li><a href="Research.html">Research</a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -119,15 +132,15 @@
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
         <p>FPS-uca.ma</p>
-        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16</p>
-        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
+        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
+        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
         <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section with Flags -->
+    <!-- Visitor Info Section -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="counter-value">Real-time data will be available here shortly</span></p>
+        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
             <img src="https://flagcdn.com/w320/fr.png" alt="France">
@@ -142,21 +155,31 @@
     <!-- Analytics Data Window -->
     <div id="analytics-info">
         <p><strong>Google Analytics:</strong></p>
-        <p>Real-time data will be available here shortly.</p>
+        <p>Real-time data will be displayed here once available.</p>
     </div>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Google Analytics: Add tracking code -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
+    <!-- Visitor Counter JavaScript -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M5S63MHHRH');
-    </script>
+        // Google Analytics Visitor Fetch Simulation
+        const totalVisitorsSpan = document.getElementById('total-visitors');
 
+        // Simulate fetching analytics data (Replace with real API if available)
+        function fetchVisitors() {
+            // Simulated visitor count (replace with real API calls)
+            const simulatedCount = 1234;
+            totalVisitorsSpan.innerText = simulatedCount.toLocaleString(); // Format with commas
+        }
+
+        // Show visitor count on load
+        fetchVisitors();
+
+        // Simulate Google Analytics Real-Time Data (if applicable)
+        const analyticsInfo = document.getElementById('analytics-info');
+        analyticsInfo.style.display = 'block';
+    </script>
 </body>
 </html>
