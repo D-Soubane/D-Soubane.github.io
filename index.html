@@ -16,15 +16,33 @@
     </script>
 
     <style>
-        /* Blinking 'NEW' styling */
+        /* Styling for the navigation menu */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            background-color: #FFD700; /* Dark Yellow */
+            margin: 0;
+        }
+
+        nav ul li {
+            padding: 10px 15px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         .new-blink {
             font-weight: bold;
-            color: darkred;
+            color: orange;
             font-size: 0.8em;
             text-transform: uppercase;
             animation: blink 1s infinite;
             position: relative;
-            top: -10px; /* Makes it appear as superscript */
+            top: -10px; /* Superscript */
         }
 
         @keyframes blink {
@@ -33,27 +51,20 @@
             }
         }
 
-        /* Styling for the visitor zone */
+        /* Visitor Info Section */
         #visitor-info {
-            background-image: url('smart-tv.png'); /* Use a smart device background image */
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 150px; /* Compact size for smart device */
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.8em;
-            color: white;
-            border-radius: 5px;
-            margin: 10px auto;
-            padding: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #FFD700; /* Dark Yellow */
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            width: 150px; /* More compact */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         #visitor-info p {
-            margin: 2px 0;
+            margin: 5px 0;
+            font-size: 0.9em;
             font-weight: bold;
         }
 
@@ -61,17 +72,22 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 2px;
         }
 
         .flags img {
             width: 20px;
             height: 15px;
-            margin: 2px;
         }
 
-        /* Banner styles */
+        .flags span {
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+
+        /* Banner Section */
         .banner {
-            background-color: #0077FF; /* Blue background for banner */
+            background-color: #0077FF; /* Blue */
             color: white;
             padding: 20px;
             text-align: center;
@@ -86,25 +102,6 @@
         .banner p.promotional {
             font-size: 1em;
             line-height: 1.5;
-        }
-
-        /* General Styles */
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            padding: 0;
-            background-color: #0077FF;
-            margin: 0;
-        }
-
-        nav ul li {
-            padding: 10px 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
         }
 
         footer {
@@ -135,7 +132,7 @@
         <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
         <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
         <p class="promotional">
-            As an expert in semiconductor deposition techniques and density functional theory, my research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, I am dedicated to training the next generation of researchers and fostering international collaboration.
+            As an expert in semiconductor deposition techniques and density functional theory, my research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
         </p>
         <a href="#" class="btn">Learn More</a>
     </section>
@@ -144,13 +141,24 @@
     <div id="visitor-info">
         <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+            <div>
+                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco"> <span>12</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/fr.png" alt="France"> <span>10</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/ca.png" alt="Canada"> <span>8</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/us.png" alt="USA"> <span>5</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/cn.png" alt="China"> <span>7</span>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/jp.png" alt="Japan"> <span>6</span>
+            </div>
         </div>
     </div>
 
@@ -162,10 +170,9 @@
         // Real-time Visitor Counter using Google Analytics
         const totalVisitorsSpan = document.getElementById('total-visitors');
 
-        // Fetch visitor data (simulation; replace with API integration)
         function updateVisitorCount() {
-            // Mock Google Analytics response (Replace this section with API calls)
-            const simulatedVisitorCount = Math.floor(313 + Math.random() * 50); // Replace with actual data from Google Analytics
+            // Replace with actual Google Analytics data
+            const simulatedVisitorCount = Math.floor(313 + Math.random() * 50);
             totalVisitorsSpan.textContent = simulatedVisitorCount.toLocaleString();
         }
 
