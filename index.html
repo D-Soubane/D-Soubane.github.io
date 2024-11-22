@@ -88,69 +88,50 @@
             background-color: #003060;
         }
 
-        /* Compact Visitor Counter Section */
-        .visitor-counter {
-            font-size: 0.8em;
-            text-align: center;
-            margin: 0 auto;
-            padding: 8px;
-            border-radius: 8px;
-            background-color: #e6f7ff;
-            width: 180px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .visitor-counter h3 {
-            margin: 0;
-            font-size: 1em;
-            color: #004080;
-        }
-
-        .visitor-counter p {
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-
-        /* Flags and table styles */
         .visitor-section {
             text-align: center;
             margin: 20px auto;
             padding: 15px;
             background-color: #f9f9f9;
             border-radius: 8px;
-            width: 60%;
+            max-width: 500px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .visitor-section h3 {
+            margin-bottom: 15px;
+            color: #004080;
         }
 
         .visitor-section .flags {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
+            gap: 5px;
             flex-wrap: wrap;
         }
 
         .visitor-section .flags div {
             text-align: center;
-            margin: 5px;
         }
 
         .visitor-section .flags img {
-            width: 30px;
-            height: 20px;
+            width: 20px;
+            height: 15px;
             margin-bottom: 5px;
         }
 
         #analytics-table {
             margin: 20px auto;
-            width: 90%;
-            max-width: 500px;
+            width: 70%;
+            max-width: 400px;
             border-collapse: collapse;
             text-align: left;
             background-color: white;
-            font-size: 0.9em;
+            font-size: 0.8em;
         }
 
         #analytics-table th, #analytics-table td {
-            padding: 8px;
+            padding: 5px;
             border: 1px solid #ddd;
         }
 
@@ -159,6 +140,29 @@
             color: white;
         }
 
+        footer p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
+
+            .visitor-section {
+                width: 90%;
+            }
+
+            #analytics-table {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -179,23 +183,55 @@
         <p>FPS-uca.ma</p>
         <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
         <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p>Expertise in the Experimental Investigation of Semiconductors Deposition, Characterization of Nanostructures, and Advanced Fabrication Techniques. Specializing in Density Functional Theory for Nano-Device Simulations and Design.</p>
+        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Counter in a Small Zone -->
-    <div class="visitor-counter">
-        <h3>Total Visitors</h3>
-        <p id="total-visitors">Loading...</p>
-        <p>Morocco: <span id="visitor-ma">Loading...</span></p>
-        <p>France: <span id="visitor-fr">Loading...</span></p>
-        <p>Canada: <span id="visitor-ca">Loading...</span></p>
-        <p>USA: <span id="visitor-us">Loading...</span></p>
-        <p>Netherlands: <span id="visitor-nl">Loading...</span></p>
-        <p>Germany: <span id="visitor-de">Loading...</span></p>
-        <p>UK: <span id="visitor-uk">Loading...</span></p>
-        <p>Australia: <span id="visitor-au">Loading...</span></p>
-        <p>Japan: <span id="visitor-jp">Loading...</span></p>
-        <p>New Zealand: <span id="visitor-nz">Loading...</span></p>
+    <!-- Visitor Section -->
+    <div class="visitor-section">
+        <h3>Total Visitors: <span id="total-visitors">Loading...</span></h3>
+        <div class="flags">
+            <div>
+                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
+                <p id="visitor-ma">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/fr.png" alt="France">
+                <p id="visitor-fr">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                <p id="visitor-ca">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                <p id="visitor-us">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/nl.png" alt="Netherlands">
+                <p id="visitor-nl">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+                <p id="visitor-de">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/gb.png" alt="UK">
+                <p id="visitor-uk">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/au.png" alt="Australia">
+                <p id="visitor-au">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
+                <p id="visitor-jp">0</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand">
+                <p id="visitor-nz">0</p>
+            </div>
+        </div>
     </div>
 
     <!-- Google Analytics Table -->
@@ -255,35 +291,44 @@
     </footer>
 
     <script>
-        // Real-time visitor data update (replace with actual API fetch logic)
-        function updateVisitorData() {
-            // Simulated real-time visitor data
-            const visitorData = {
-                "ma": 150, "fr": 80, "ca": 50, "us": 33,
-                "nl": 12, "de": 22, "uk": 18, "au": 15, "jp": 10, "nz": 5
-            };
+        const totalVisitorsSpan = document.getElementById('total-visitors');
+        const countries = ['ma', 'fr', 'ca', 'us', 'nl', 'de', 'gb', 'au', 'jp', 'nz'];
 
+        // Mock visitor data
+        const visitorData = {
+            "ma": 150,
+            "fr": 80,
+            "ca": 50,
+            "us": 33,
+            "nl": 12,
+            "de": 22,
+            "gb": 18,
+            "au": 15,
+            "jp": 10,
+            "nz": 5
+        };
+
+        function updateVisitorData() {
             let total = 0;
 
             // Update counts per country
-            const countries = ['ma', 'fr', 'ca', 'us', 'nl', 'de', 'uk', 'au', 'jp', 'nz'];
             countries.forEach(country => {
                 const count = visitorData[country];
                 total += count;
 
                 // Update visitor section
                 document.getElementById(`visitor-${country}`).innerText = count;
+
+                // Update analytics table
                 document.getElementById(`table-${country}`).innerText = count;
             });
 
-            // Update total visitors on page
-            document.getElementById('total-visitors').innerText = total;
+            // Update total
+            totalVisitorsSpan.innerText = total;
         }
 
-        // Initialize on page load
-        window.onload = () => {
-            updateVisitorData();
-        };
+        // Load data
+        updateVisitorData();
     </script>
 </body>
 </html>
