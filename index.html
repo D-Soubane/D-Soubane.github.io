@@ -4,34 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-M5S63MHHRH');
     </script>
 
     <style>
+        /* Styling for the visitor info section */
+        #visitor-info {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9em;
+            background-color: #f3f3f3;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #visitor-info p {
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        /* Flags styling */
+        #visitor-info .flags {
+            display: flex;
+            align-items: center;
+        }
+
+        #visitor-info .flags img {
+            width: 25px;
+            height: 18px;
+            margin-left: 5px;
+        }
+
+        /* Google Analytics Info Section */
+        #analytics-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            display: none; /* Initially hidden */
+        }
+
         /* General Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
         }
 
         header, footer {
-            background-color: #004080;
+            background-color: #0077FF;
             color: white;
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
         }
 
-        header nav ul {
+        nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
@@ -39,129 +81,38 @@
             margin: 0;
         }
 
-        header nav ul li {
-            position: relative;
+        nav ul li {
             margin: 0 15px;
         }
 
-        header nav ul li a {
+        nav ul li a {
             text-decoration: none;
             color: white;
-            font-weight: 500;
-            font-size: 1.1em;
-            padding: 5px 10px;
+            font-weight: bold;
         }
 
-        .new-badge {
-            position: absolute;
-            top: -10px;
-            right: -10px;
+        footer p {
             font-size: 0.8em;
-            color: red;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
         }
 
         section.banner {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #cce7ff, #e6f7ff);
-            border-bottom: 2px solid #004080;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
 
         .btn {
-            background-color: #004080;
+            background-color: #0077FF;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             display: inline-block;
             margin-top: 10px;
-            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #003060;
-        }
-
-        .visitor-section {
-            text-align: center;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            max-width: 500px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .visitor-section h3 {
-            margin-bottom: 15px;
-            color: #004080;
-        }
-
-        .visitor-section .flags {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .visitor-section .flags div {
-            text-align: center;
-        }
-
-        .visitor-section .flags img {
-            width: 20px;
-            height: 15px;
-            margin-bottom: 5px;
-        }
-
-        #analytics-table {
-            margin: 20px auto;
-            width: 70%;
-            max-width: 400px;
-            border-collapse: collapse;
-            text-align: left;
-            background-color: white;
-            font-size: 0.8em;
-        }
-
-        #analytics-table th, #analytics-table td {
-            padding: 5px;
-            border: 1px solid #ddd;
-        }
-
-        #analytics-table th {
-            background-color: #004080;
-            color: white;
-        }
-
-        footer p {
-            font-size: 0.9em;
-            margin: 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header nav ul {
-                flex-direction: column;
-            }
-
-            header nav ul li {
-                margin: 10px 0;
-            }
-
-            .visitor-section {
-                width: 90%;
-            }
-
-            #analytics-table {
-                width: 90%;
-            }
+            background-color: #005bb5;
         }
     </style>
 </head>
@@ -170,7 +121,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a><span class="new-badge">New</span></li>
+                <li><a href="Research.html">Research</a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -187,148 +138,48 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Section -->
-    <div class="visitor-section">
-        <h3>Total Visitors: <span id="total-visitors">Loading...</span></h3>
+    <!-- Visitor Info Section -->
+    <div id="visitor-info">
+        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
-            <div>
-                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-                <p id="visitor-ma">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/fr.png" alt="France">
-                <p id="visitor-fr">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-                <p id="visitor-ca">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/us.png" alt="USA">
-                <p id="visitor-us">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/nl.png" alt="Netherlands">
-                <p id="visitor-nl">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-                <p id="visitor-de">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-                <p id="visitor-uk">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-                <p id="visitor-au">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-                <p id="visitor-jp">0</p>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/nz.png" alt="New Zealand">
-                <p id="visitor-nz">0</p>
-            </div>
+            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
+            <img src="https://flagcdn.com/w320/fr.png" alt="France">
+            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+            <img src="https://flagcdn.com/w320/us.png" alt="USA">
+            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
+            <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom">
+            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
         </div>
     </div>
 
-    <!-- Google Analytics Table -->
-    <table id="analytics-table">
-        <thead>
-            <tr>
-                <th>Country</th>
-                <th>Visitors</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Morocco</td>
-                <td id="table-ma">Loading...</td>
-            </tr>
-            <tr>
-                <td>France</td>
-                <td id="table-fr">Loading...</td>
-            </tr>
-            <tr>
-                <td>Canada</td>
-                <td id="table-ca">Loading...</td>
-            </tr>
-            <tr>
-                <td>USA</td>
-                <td id="table-us">Loading...</td>
-            </tr>
-            <tr>
-                <td>Netherlands</td>
-                <td id="table-nl">Loading...</td>
-            </tr>
-            <tr>
-                <td>Germany</td>
-                <td id="table-de">Loading...</td>
-            </tr>
-            <tr>
-                <td>UK</td>
-                <td id="table-uk">Loading...</td>
-            </tr>
-            <tr>
-                <td>Australia</td>
-                <td id="table-au">Loading...</td>
-            </tr>
-            <tr>
-                <td>Japan</td>
-                <td id="table-jp">Loading...</td>
-            </tr>
-            <tr>
-                <td>New Zealand</td>
-                <td id="table-nz">Loading...</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Analytics Data Window -->
+    <div id="analytics-info">
+        <p><strong>Google Analytics:</strong></p>
+        <p>Real-time data will be displayed here once available.</p>
+    </div>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
+    <!-- Visitor Counter JavaScript -->
     <script>
+        // Google Analytics Visitor Fetch Simulation
         const totalVisitorsSpan = document.getElementById('total-visitors');
-        const countries = ['ma', 'fr', 'ca', 'us', 'nl', 'de', 'gb', 'au', 'jp', 'nz'];
 
-        // Mock visitor data
-        const visitorData = {
-            "ma": 150,
-            "fr": 80,
-            "ca": 50,
-            "us": 33,
-            "nl": 12,
-            "de": 22,
-            "gb": 18,
-            "au": 15,
-            "jp": 10,
-            "nz": 5
-        };
-
-        function updateVisitorData() {
-            let total = 0;
-
-            // Update counts per country
-            countries.forEach(country => {
-                const count = visitorData[country];
-                total += count;
-
-                // Update visitor section
-                document.getElementById(`visitor-${country}`).innerText = count;
-
-                // Update analytics table
-                document.getElementById(`table-${country}`).innerText = count;
-            });
-
-            // Update total
-            totalVisitorsSpan.innerText = total;
+        // Simulate fetching analytics data (Replace with real API if available)
+        function fetchVisitors() {
+            // Simulated visitor count (replace with real API calls)
+            const simulatedCount = 1234;
+            totalVisitorsSpan.innerText = simulatedCount.toLocaleString(); // Format with commas
         }
 
-        // Load data
-        updateVisitorData();
+        // Show visitor count on load
+        fetchVisitors();
+
+        // Simulate Google Analytics Real-Time Data (if applicable)
+        const analyticsInfo = document.getElementById('analytics-info');
+        analyticsInfo.style.display = 'block';
     </script>
 </body>
 </html>
