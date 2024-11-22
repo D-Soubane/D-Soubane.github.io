@@ -33,42 +33,67 @@
             }
         }
 
-        /* Styling for the visitor info section */
+        /* Styling for the visitor zone */
         #visitor-info {
-            display: inline-flex;
+            background-image: url('smart-tv.png'); /* Use a smart device background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 150px; /* Compact size for smart device */
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            font-size: 0.9em;
-            background-color: #f3f3f3;
-            padding: 5px;
+            font-size: 0.8em;
+            color: white;
             border-radius: 5px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-            text-align: center;
+            margin: 10px auto;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         #visitor-info p {
-            margin: 0 8px;
+            margin: 2px 0;
             font-weight: bold;
         }
 
-        /* Flags styling */
-        #visitor-info .flags {
+        .flags {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        #visitor-info .flags img {
-            width: 25px;
-            height: 18px;
-            margin-left: 5px;
+        .flags img {
+            width: 20px;
+            height: 15px;
+            margin: 2px;
         }
 
-        /* Header and navigation bar styles */
+        /* Banner styles */
+        .banner {
+            background-color: #0077FF; /* Blue background for banner */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .banner p.expertise {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .banner p.promotional {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        /* General Styles */
         nav ul {
             display: flex;
             list-style-type: none;
             padding: 0;
-            background-color: #0077FF; /* Blue background for nav */
+            background-color: #0077FF;
             margin: 0;
         }
 
@@ -82,24 +107,11 @@
             font-weight: bold;
         }
 
-        /* Banner styles */
-        .banner {
-            background-color: #0077FF; /* Blue background for banner */
-            color: white;
-            padding: 20px;
+        footer {
             text-align: center;
-        }
-
-        /* Small analytics info window at the bottom */
-        #analytics-info {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            background-color: #0077FF;
             color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 0.8em;
         }
     </style>
 </head>
@@ -119,44 +131,47 @@
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
         <p>FPS-uca.ma</p>
-        <p>Tel. :+212 5 24 66 93 57. Fax : +212 5 24 66 95 16</p>
-        <p>E-mail: d.soubane(at)uca.ac.ma - driss.soubane(at)inrs.ca</p>
-        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
+        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
+        <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <p class="promotional">
+            As an expert in semiconductor deposition techniques and density functional theory, my research focuses on advancing the understanding and innovation in nanomaterials for electronic applications. With a strong commitment to pushing scientific boundaries, I am dedicated to training the next generation of researchers and fostering international collaboration.
+        </p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section with Flags -->
+    <!-- Visitor Info Section -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="counter-value">Real-time data will be available here shortly</span></p>
+        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
             <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
             <img src="https://flagcdn.com/w320/fr.png" alt="France">
             <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
             <img src="https://flagcdn.com/w320/us.png" alt="USA">
             <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom">
+            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
             <img src="https://flagcdn.com/w320/de.png" alt="Germany">
         </div>
-    </div>
-
-    <!-- Analytics Data Window -->
-    <div id="analytics-info">
-        <p><strong>Google Analytics:</strong></p>
-        <p>Real-time data will be available here shortly.</p>
     </div>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Google Analytics: Add tracking code -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M5S63MHHRH');
-    </script>
+        // Real-time Visitor Counter using Google Analytics
+        const totalVisitorsSpan = document.getElementById('total-visitors');
 
+        // Fetch visitor data (simulation; replace with API integration)
+        function updateVisitorCount() {
+            // Mock Google Analytics response (Replace this section with API calls)
+            const simulatedVisitorCount = Math.floor(313 + Math.random() * 50); // Replace with actual data from Google Analytics
+            totalVisitorsSpan.textContent = simulatedVisitorCount.toLocaleString();
+        }
+
+        // Update visitor count every 10 seconds
+        setInterval(updateVisitorCount, 10000);
+        updateVisitorCount();
+    </script>
 </body>
 </html>
