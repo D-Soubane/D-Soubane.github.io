@@ -16,12 +16,12 @@
     </script>
 
     <style>
-        /* Styling for the navigation menu */
+        /* Navigation menu styling */
         nav ul {
             display: flex;
             list-style-type: none;
             padding: 0;
-            background-color: #FFD700; /* Dark Yellow */
+            background-color: #87CEEB; /* Sky blue */
             margin: 0;
         }
 
@@ -51,9 +51,33 @@
             }
         }
 
+        /* Banner Section */
+        .banner {
+            background-color: #0077FF; /* Blue */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            color: #DAA520; /* Dark Orange Yellow */
+            font-weight: bold;
+        }
+
+        .banner p.expertise {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .banner p.promotional {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
         /* Visitor Info Section */
         #visitor-info {
-            background-color: #FFD700; /* Dark Yellow */
+            background-color: #E6F7FF; /* Very Light Blue */
             border-radius: 10px;
             padding: 10px;
             margin: 20px auto;
@@ -85,23 +109,19 @@
             margin-left: 5px;
         }
 
-        /* Banner Section */
-        .banner {
-            background-color: #0077FF; /* Blue */
-            color: white;
-            padding: 20px;
+        /* Analog Clock */
+        #clock-container {
+            margin: 10px auto;
             text-align: center;
         }
 
-        .banner p.expertise {
-            font-style: italic;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        .banner p.promotional {
-            font-size: 1em;
-            line-height: 1.5;
+        #analog-clock {
+            margin: 0 auto;
+            background-color: #F0F8FF; /* Light background */
+            border: 2px solid #0077FF;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
         }
 
         footer {
@@ -162,6 +182,11 @@
         </div>
     </div>
 
+    <!-- Analog Clock Section -->
+    <div id="clock-container">
+        <canvas id="analog-clock" width="100" height="100"></canvas>
+    </div>
+
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
@@ -179,6 +204,65 @@
         // Update visitor count every 10 seconds
         setInterval(updateVisitorCount, 10000);
         updateVisitorCount();
+
+        // Analog Clock Script
+        const canvas = document.getElementById("analog-clock");
+        const ctx = canvas.getContext("2d");
+
+        function drawClock() {
+            const now = new Date();
+
+            // Montreal timezone adjustment
+            const montrealOffset = -5; // GMT-5
+            const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            const montrealTime = new Date(utc + montrealOffset * 3600000);
+
+            const sec = montrealTime.getSeconds();
+            const min = montrealTime.getMinutes();
+            const hr = montrealTime.getHours() % 12;
+
+            // Clear Canvas
+            ctx.clearRect(0, 0, 100, 100);
+
+            // Draw clock face
+            ctx.beginPath();
+            ctx.arc(50, 50, 48, 0, 2 * Math.PI);
+            ctx.fillStyle = "#F0F8FF";
+            ctx.fill();
+            ctx.strokeStyle = "#0077FF";
+            ctx.stroke();
+
+            // Draw hands
+            const secAngle = (Math.PI / 30) * sec;
+            const minAngle = (Math.PI / 30) * min + secAngle / 60;
+            const hrAngle = (Math.PI / 6) * hr + minAngle / 12;
+
+            function drawHand(angle, length, width, color) {
+                ctx.save();
+                ctx.translate(50, 50);
+                ctx.rotate(angle - Math.PI / 2);
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(length, 0);
+                ctx.lineWidth = width;
+                ctx.strokeStyle = color;
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            drawHand(hrAngle, 25, 4, "black"); // Hour hand
+            drawHand(minAngle, 35, 2, "black"); // Minute hand
+            drawHand(secAngle, 40, 1, "red"); // Second hand
+
+            // Draw clock center
+            ctx.beginPath();
+            ctx.arc(50, 50, 2, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+        }
+
+        setInterval(drawClock, 1000);
+        drawClock();
     </script>
 </body>
 </html>
