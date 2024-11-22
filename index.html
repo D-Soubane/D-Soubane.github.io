@@ -147,6 +147,18 @@
             margin: 0;
         }
 
+        /* Compact Visitor Counter Styles */
+        .visitor-counter {
+            font-size: 0.8em;
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            width: 200px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header nav ul {
@@ -185,7 +197,7 @@
         <p>FPS-uca.ma</p>
         <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
         <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p>Expertise in Semiconductors Deposition and Density Functional Theory</p>
+        <p>Expertise in the Experimental Investigation of Semiconductors Deposition, Characterization of Nanostructures, and Advanced Fabrication Techniques. Specializing in Density Functional Theory for Nano-Device Simulations and Design.</p>
         <a href="#" class="btn">Learn More</a>
     </section>
 
@@ -245,47 +257,35 @@
     </footer>
 
     <script>
-        const totalVisitorsSpan = document.getElementById('total-visitors');
-        const countries = ['ma', 'fr', 'ca', 'us'];
-
-        // Initial visitor data distribution
-        const initialVisitorData = {
-            "ma": 150,
-            "fr": 80,
-            "ca": 50,
-            "us": 33
-        };
-
-        // Mock data representing incremental data from Google Analytics
-        const analyticsIncrementData = {
-            "ma": 20, // Morocco
-            "fr": 15, // France
-            "ca": 10, // Canada
-            "us": 8   // USA
-        };
-
+        // Update the visitor count based on real or simulated data
         function updateVisitorData() {
+            const countries = ['ma', 'fr', 'ca', 'us'];
+            const visitorData = {
+                "ma": 150,
+                "fr": 80,
+                "ca": 50,
+                "us": 33
+            };
+
             let total = 0;
 
-            // Update counts per country and simulate increment from Google Analytics
+            // Update counts per country
             countries.forEach(country => {
-                const initialCount = initialVisitorData[country];
-                const incrementCount = analyticsIncrementData[country];
-                const updatedCount = initialCount + incrementCount;
-                total += updatedCount;
+                const count = visitorData[country];
+                total += count;
 
                 // Update visitor section
-                document.getElementById(`visitor-${country}`).innerText = updatedCount;
+                document.getElementById(`visitor-${country}`).innerText = count;
 
                 // Update analytics table
-                document.getElementById(`table-${country}`).innerText = updatedCount;
+                document.getElementById(`table-${country}`).innerText = count;
             });
 
-            // Update total visitors count
-            totalVisitorsSpan.innerText = total;
+            // Update total
+            document.getElementById('total-visitors').innerText = total;
         }
 
-        // Simulate the page load and data update
+        // Simulate page load and update the counter
         window.onload = () => {
             updateVisitorData();
         };
