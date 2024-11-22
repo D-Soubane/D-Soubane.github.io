@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
     <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
@@ -15,49 +15,48 @@
         gtag('config', 'G-M5S63MHHRH');
     </script>
 
-    <!-- Custom Styles -->
     <style>
-        /* Styling for the visitor info section */
-        #visitor-info {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1em;
-            background-color: #f3f3f3;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        #visitor-info p {
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        /* Flags styling */
-        #visitor-info .flags {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        #visitor-info .flags img {
-            width: 25px;
-            height: 18px;
-            margin: 5px;
-        }
-
-        #visitor-info .flags span {
-            font-size: 0.8em;
-            margin-left: 5px;
-        }
-
-        /* "New" superscript blinking */
-        .new-badge {
+        /* General Styles */
+        body {
             font-family: 'Roboto', sans-serif;
-            font-size: 2em;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header, footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 1.1em;
+            padding: 5px 10px;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 0.8em;
             color: red;
             animation: blink 1s infinite;
         }
@@ -67,60 +66,92 @@
             50% { opacity: 0; }
         }
 
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header, footer {
-            background-color: #0077FF;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-
-        footer p {
-            font-size: 0.8em;
-        }
-
         section.banner {
             text-align: center;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #cce7ff, #e6f7ff);
+            border-bottom: 2px solid #004080;
         }
 
         .btn {
-            background-color: #0077FF;
+            background-color: #004080;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             display: inline-block;
             margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #005bb5;
+            background-color: #003060;
+        }
+
+        .visitor-section {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .visitor-section h3 {
+            margin-bottom: 15px;
+            color: #004080;
+        }
+
+        .visitor-section .flags {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .visitor-section .flags div {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .visitor-section .flags img {
+            width: 40px;
+            height: 30px;
+        }
+
+        #analytics-table {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: white;
+        }
+
+        #analytics-table th, #analytics-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        #analytics-table th {
+            background-color: #004080;
+            color: white;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+            }
+
+            header nav ul li {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
@@ -129,10 +160,10 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a><sup class="new-badge"> font-size: 0.3 em New</sup></li>
+                <li><a href="Research.html">Research</a><span class="new-badge">New</span></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a> </li>
+                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
             </ul>
         </nav>
     </header>
@@ -146,74 +177,94 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section -->
-    <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
+    <!-- Visitor Section -->
+    <div class="visitor-section">
+        <h3>Total Visitors: <span id="total-visitors">Loading...</span></h3>
         <div class="flags">
             <div>
                 <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-                <span id="visitor-ma">0</span>
+                <p id="visitor-ma">0</p>
             </div>
             <div>
                 <img src="https://flagcdn.com/w320/fr.png" alt="France">
-                <span id="visitor-fr">0</span>
+                <p id="visitor-fr">0</p>
             </div>
             <div>
                 <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-                <span id="visitor-ca">0</span>
+                <p id="visitor-ca">0</p>
             </div>
             <div>
                 <img src="https://flagcdn.com/w320/us.png" alt="USA">
-                <span id="visitor-us">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-                <span id="visitor-au">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom">
-                <span id="visitor-gb">0</span>
-            </div>
-            <div>
-                <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-                <span id="visitor-de">0</span>
+                <p id="visitor-us">0</p>
             </div>
         </div>
     </div>
+
+    <!-- Google Analytics Table -->
+    <table id="analytics-table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Visitors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Morocco</td>
+                <td id="table-ma">Loading...</td>
+            </tr>
+            <tr>
+                <td>France</td>
+                <td id="table-fr">Loading...</td>
+            </tr>
+            <tr>
+                <td>Canada</td>
+                <td id="table-ca">Loading...</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td id="table-us">Loading...</td>
+            </tr>
+        </tbody>
+    </table>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
-    <!-- Visitor Counter JavaScript -->
     <script>
         const totalVisitorsSpan = document.getElementById('total-visitors');
+        const countries = ['ma', 'fr', 'ca', 'us'];
 
-        // Simulated visitor count (replace with real API calls)
-        const simulatedCount = 1234;
-
-        const visitorDistribution = {
-            "ma": 25,
-            "fr": 20,
-            "ca": 15,
-            "us": 20,
-            "au": 5,
-            "gb": 10,
-            "de": 5
+        // Mock visitor data
+        const visitorData = {
+            "ma": 300,
+            "fr": 250,
+            "ca": 200,
+            "us": 400
         };
 
-        function updateVisitorCounts() {
-            totalVisitorsSpan.innerText = simulatedCount.toLocaleString();
+        function updateVisitorData() {
+            let total = 0;
 
-            for (let country in visitorDistribution) {
-                const percentage = visitorDistribution[country];
-                const count = Math.round((simulatedCount * percentage) / 100);
-                document.getElementById(`visitor-${country}`).innerText = count.toLocaleString();
-            }
+            // Update counts per country
+            countries.forEach(country => {
+                const count = visitorData[country];
+                total += count;
+
+                // Update visitor section
+                document.getElementById(`visitor-${country}`).innerText = count;
+
+                // Update analytics table
+                document.getElementById(`table-${country}`).innerText = count;
+            });
+
+            // Update total
+            totalVisitorsSpan.innerText = total;
         }
 
-        // Show visitor count on load
-        updateVisitorCounts();
+        // Load data
+        updateVisitorData();
     </script>
 </body>
 </html>
