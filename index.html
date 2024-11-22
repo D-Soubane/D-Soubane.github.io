@@ -101,6 +101,38 @@
             border-radius: 5px;
             font-size: 0.8em;
         }
+
+        /* Podcast section styles */
+        .podcast-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #ddd;
+        }
+
+        .podcast-section h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .podcast-item {
+            margin-bottom: 20px;
+        }
+
+        .podcast-item a {
+            color: #0077FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .podcast-item a:hover {
+            text-decoration: underline;
+        }
+
+        .podcast-item audio {
+            margin-top: 10px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -138,6 +170,22 @@
             <img src="https://flagcdn.com/w320/de.png" alt="Germany">
         </div>
     </div>
+
+    <!-- Podcast Section -->
+    <section class="podcast-section">
+        <h2>Podcasts</h2>
+
+        <div class="podcast-item">
+            <p><strong>Photoluminescence from low thermal budget silicon nano-crystals in silica</strong></p>
+            <p><a href="https://iopscience.iop.org/article/10.1088/0957-4484/26/29/295201/meta" target="_blank">Read the full paper</a></p>
+            <audio controls>
+                <source src="pl.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Add more podcasts here -->
+    </section>
 
     <!-- Analytics Data Window -->
     <div id="analytics-info">
