@@ -60,23 +60,10 @@
             margin-bottom: 15px;
         }
 
-        .banner p.expertise {
-            font-style: italic;
-            font-size: 1.2em;
-            font-family: 'Georgia', serif; /* Readable serif font */
-            margin-bottom: 15px;
-        }
-
-        .banner p.promotional {
-            font-size: 1em;
-            line-height: 1.5;
-            font-family: 'Verdana', sans-serif;
-        }
-
         /* Visitor Zone Styling */
         #visitor-info {
             background-color: #e3f2fd; /* Very light blue background */
-            width: 200px; /* Adjusted for compact view */
+            width: 220px; /* Adjusted for compact view */
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9em;
@@ -91,15 +78,21 @@
         }
 
         .flags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            justify-items: center;
         }
 
         .flags img {
             width: 20px;
             height: 15px;
             margin: 2px;
+        }
+
+        .visitor-count {
+            font-size: 0.8em;
+            color: #555;
         }
 
         /* Analog Clock Styles */
@@ -110,9 +103,9 @@
         }
 
         canvas {
-            background-color: #f5f5f5;
+            background: radial-gradient(circle, #ffffff, #cccccc);
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -139,34 +132,42 @@
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
         <p>FPS-uca.ma</p>
-        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
-        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
-        <p class="promotional">
-            As an expert in semiconductor deposition and characterization techniques and density functional theory, his research focuses on advancing the understanding and innovation in nanomaterials for photonic and electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
-        </p>
-        <a href="#" class="btn">Learn More</a>
     </section>
 
     <!-- Visitor Info Section -->
     <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
+        <p>Total Visitors: <span id="total-visitors">313</span></p>
         <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-            <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-            <img src="https://flagcdn.com/w320/cn.png" alt="China">
+            <div>
+                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
+                <p class="visitor-count">50</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/fr.png" alt="France">
+                <p class="visitor-count">40</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                <p class="visitor-count">30</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/us.png" alt="USA">
+                <p class="visitor-count">25</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
+                <p class="visitor-count">10</p>
+            </div>
+            <div>
+                <img src="https://flagcdn.com/w320/cn.png" alt="China">
+                <p class="visitor-count">8</p>
+            </div>
         </div>
     </div>
 
     <!-- Analog Clock -->
     <div id="clock-container">
-        <canvas id="analog-clock" width="200" height="200"></canvas>
+        <canvas id="analog-clock" width="150" height="150"></canvas>
     </div>
 
     <footer>
@@ -215,6 +216,15 @@
         };
 
         setInterval(drawClock, 1000);
+
+        // Visitor Count Updates
+        let totalVisitors = 313;
+        const updateVisitors = () => {
+            totalVisitors++;
+            document.getElementById("total-visitors").innerText = totalVisitors;
+        };
+
+        setInterval(updateVisitors, 5000); // Simulates real-time increase every 5 seconds
     </script>
 </body>
 </html>
