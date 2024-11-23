@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+file <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
             font-style: italic;
             font-size: 1.2em;
             font-family: 'Georgia', serif; /* Readable serif font */
-            margin-bottom: 15px.
+            margin-bottom: 15px;
         }
 
         .banner p.promotional {
@@ -76,7 +76,7 @@
         /* Visitor Zone Styling */
         #visitor-info {
             background-color: #e3f2fd; /* Very light blue background */
-            width: 250px;
+            width: 200px; /* Adjusted for compact view */
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9em;
@@ -91,21 +91,15 @@
         }
 
         .flags {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-        }
-
-        .flag-item {
-            text-align: center;
-            font-size: 0.8em;
         }
 
         .flags img {
-            width: 25px;
-            height: 18px;
+            width: 20px;
+            height: 15px;
+            margin: 2px;
         }
 
         /* Analog Clock Styles */
@@ -116,8 +110,6 @@
         }
 
         canvas {
-            width: 100px !important;
-            height: 100px !important;
             background-color: #f5f5f5;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -160,48 +152,21 @@
     <div id="visitor-info">
         <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
         <div class="flags">
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-                <p id="visitors-ma">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/fr.png" alt="France">
-                <p id="visitors-fr">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-                <p id="visitors-ca">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/us.png" alt="USA">
-                <p id="visitors-us">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-                <p id="visitors-au">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-                <p id="visitors-gb">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-                <p id="visitors-de">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-                <p id="visitors-jp">0</p>
-            </div>
-            <div class="flag-item">
-                <img src="https://flagcdn.com/w320/cn.png" alt="China">
-                <p id="visitors-cn">0</p>
-            </div>
+            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
+            <img src="https://flagcdn.com/w320/fr.png" alt="France">
+            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+            <img src="https://flagcdn.com/w320/us.png" alt="USA">
+            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
+            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
+            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+            <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
+            <img src="https://flagcdn.com/w320/cn.png" alt="China">
         </div>
     </div>
 
     <!-- Analog Clock -->
     <div id="clock-container">
-        <canvas id="analog-clock"></canvas>
+        <canvas id="analog-clock" width="200" height="200"></canvas>
     </div>
 
     <footer>
@@ -244,12 +209,12 @@
                 ctx.stroke();
             };
 
-            drawHand(hour % 12 + minute / 60, radius * 0.4, 6); // Hour hand
-            drawHand(minute, radius * 0.7, 4); // Minute hand
+            drawHand(hour % 12 + minute / 60, radius * 0.5, 6); // Hour hand
+            drawHand(minute, radius * 0.8, 4); // Minute hand
             drawHand(second, radius * 0.9, 2); // Second hand
         };
 
         setInterval(drawClock, 1000);
     </script>
 </body>
-</html>
+</html> 
