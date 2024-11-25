@@ -21,7 +21,7 @@
             display: flex;
             list-style-type: none;
             padding: 0;
-            background-color: #0077FF; /* Sky blue background */
+            background-color: #0077FF;
             margin: 0;
         }
 
@@ -30,64 +30,22 @@
         }
 
         nav ul li a {
-            color: darkyellow; /* Dark yellow text */
+            color: darkyellow;
             text-decoration: none;
             font-weight: bold;
             font-size: 1em;
         }
 
-        .new-blink {
-            font-weight: bold;
-            color: white; /* White blinking NEW */
-            font-size: 0.8em;
-            text-transform: uppercase;
-            animation: blink 1s infinite;
-            position: relative;
-            top: -10px; /* Makes it appear as superscript */
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Banner Text Styling */
-        .banner h1 {
-            color: black; /* Dark black text */
-            font-size: 2.5em;
-            font-family: 'Arial Black', sans-serif; /* Modern, stylish font */
-            margin-bottom: 15px;
-        }
-
-        .banner p.expertise {
-            font-style: italic;
-            font-size: 1.2em;
-            font-family: 'Georgia', serif; /* Readable serif font */
-            margin-bottom: 15px;
-        }
-
-        .banner p.promotional {
-            font-size: 1em;
-            line-height: 1.5;
-            font-family: 'Verdana', sans-serif;
-        }
-
-        /* Visitor Zone Styling */
+        /* Visitor Info Styling */
         #visitor-info {
-            background-color: #e3f2fd; /* Very light blue background */
-            width: 300px; /* Adjusted for compact view */
+            background-color: #e3f2fd;
+            width: 300px;
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9em;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 10px auto;
             text-align: center;
-        }
-
-        #visitor-info p {
-            margin: 5px 0;
-            font-weight: bold;
         }
 
         .flags {
@@ -102,29 +60,26 @@
             margin: 2px;
         }
 
-        .flags .flag-info {
-            display: flex;
-            align-items: center;
-            margin: 5px;
-        }
-
-        .flags .flag-info span {
-            margin-left: 5px;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-
-        /* Analog Clock Styles */
         #clock-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin: 20px auto;
         }
 
         canvas {
+            position: relative;
             background-color: #f5f5f5;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #canada-icon {
+            position: absolute;
+            top: 90px;
+            left: 90px;
+            width: 20px;
+            height: 20px;
         }
 
         footer {
@@ -140,7 +95,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
+                <li><a href="Research.html">Research</a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -150,14 +105,7 @@
 
     <section class="banner">
         <h1>Welcome to Prof. Soubane's Research Group</h1>
-        <p>FPS-uca.ma</p>
-        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
-        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
-        <p class="promotional">
-            As an expert in semiconductor deposition and characterization techniques and density functional theory, his research focuses on advancing the understanding and innovation in nanomaterials for photonic and electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
-        </p>
-        <a href="#" class="btn">Learn More</a>
+        <p>Email: d.soubane(at)uca.ac.ma</p>
     </section>
 
     <!-- Visitor Info Section -->
@@ -169,7 +117,14 @@
     <!-- Analog Clock -->
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
+        <img id="canada-icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/CN_Tower_tiny.png" alt="Canada Icon">
     </div>
+
+    <!-- Physics Podcast Section -->
+    <section id="physics-podcast">
+        <h2>Physics Podcast Recommendation</h2>
+        <p>Listen to fascinating discussions about physics on <a href="https://www.physicscentral.com/explore/podcast/" target="_blank">Physics Central Podcast</a>.</p>
+    </section>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
@@ -178,41 +133,31 @@
     <script>
         const GEO_API = "https://api.ipgeolocation.io/ipgeo?apiKey=b330d2b363544a6ebabae5777c8d0456";
 
-        const visitors = {}; // Stores visitor counts per country
+        const visitors = {};
 
-        // Fetch visitor's country using IP Geolocation API
         async function trackVisitor() {
             try {
                 const response = await fetch(GEO_API);
                 const data = await response.json();
                 const country = data.country_name || "Unknown";
 
-                // Update visitor count
-                if (!visitors[country]) {
-                    visitors[country] = 1;
-                } else {
-                    visitors[country]++;
-                }
+                if (!visitors[country]) visitors[country] = 1;
+                else visitors[country]++;
 
-                // Update Total Visitors
                 const totalVisitors = Object.values(visitors).reduce((a, b) => a + b, 0);
                 document.getElementById("total-visitors").textContent = totalVisitors;
 
-                // Update Flags and Visitor Counts
                 const flagsContainer = document.getElementById("country-flags");
-                flagsContainer.innerHTML = ""; // Clear previous flags
+                flagsContainer.innerHTML = "";
 
                 for (const [country, count] of Object.entries(visitors)) {
-                    const countryCode = country.slice(0, 2).toLowerCase(); // Guess country code
-                    const flagElement = document.createElement("div");
-                    flagElement.className = "flag-info";
-
-                    flagElement.innerHTML = `
-                        <img src="https://flagcdn.com/w40/${countryCode}.png" alt="${country}" title="${country}">
-                        <span>${country}: ${count}</span>
+                    const countryCode = country.slice(0, 2).toLowerCase();
+                    flagsContainer.innerHTML += `
+                        <div>
+                            <img src="https://flagcdn.com/w40/${countryCode}.png" alt="${country}">
+                            ${country}: ${count}
+                        </div>
                     `;
-
-                    flagsContainer.appendChild(flagElement);
                 }
             } catch (error) {
                 console.error("Error tracking visitor:", error);
@@ -220,6 +165,53 @@
         }
 
         trackVisitor();
+
+        // Analog Clock Script
+        const canvas = document.getElementById('analog-clock');
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.height / 2;
+        const cities = ['Toronto', 'Vancouver', 'Montreal', 'Calgary', 'Ottawa'];
+
+        ctx.translate(radius, radius);
+        const drawClock = () => {
+            const now = new Date();
+            const city = cities[now.getSeconds() % cities.length];
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+
+            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = "#0077FF";
+            ctx.stroke();
+
+            const drawHand = (value, length, width) => {
+                const angle = (value * Math.PI) / 30 - Math.PI / 2;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(length * Math.cos(angle), length * Math.sin(angle));
+                ctx.lineWidth = width;
+                ctx.strokeStyle = "#333";
+                ctx.stroke();
+            };
+
+            drawHand(hour % 12, radius * 0.5, 6);
+            drawHand(minute, radius * 0.8, 4);
+            drawHand(second, radius * 0.9, 2);
+
+            // Display city name
+            ctx.font = "10px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText(city, 0, radius * 0.6);
+        };
+
+        setInterval(drawClock, 1000);
     </script>
 </body>
 </html>
