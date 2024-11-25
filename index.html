@@ -115,6 +115,24 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Podcast Buttons */
+        #podcast-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        #podcast-links button {
+            background-color: #0077FF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
         footer {
             text-align: center;
             padding: 10px 0;
@@ -167,6 +185,14 @@
     <!-- Analog Clock -->
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
+    </div>
+
+    <!-- Podcast Links Section -->
+    <div id="podcast-links">
+        <button onclick="window.open('https://phdcareerstories.com/', '_self')">PhD Career Stories</button>
+        <button onclick="window.open('https://podcasts.apple.com/us/podcast/the-phd-life-raft-podcast/id1536042603', '_self')">The PhD Life Raft Podcast</button>
+        <button onclick="window.open('https://www.nature.com/nature/articles?type=nature-podcast', '_self')">Nature Podcast</button>
+        <button onclick="window.open('https://www.howtoacademy.com/', '_self')">How to Academy: Science</button>
     </div>
 
     <footer>
