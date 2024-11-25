@@ -76,7 +76,7 @@
         /* Visitor Zone Styling */
         #visitor-info {
             background-color: #e3f2fd; /* Very light blue background */
-            width: 200px; /* Adjusted for compact view */
+            width: 300px; /* Adjusted for compact view */
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9em;
@@ -100,6 +100,18 @@
             width: 20px;
             height: 15px;
             margin: 2px;
+        }
+
+        .flags .flag-info {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+
+        .flags .flag-info span {
+            margin-left: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
         }
 
         /* Analog Clock Styles */
@@ -151,17 +163,7 @@
     <!-- Visitor Info Section -->
     <div id="visitor-info">
         <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
-        <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-            <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-            <img src="https://flagcdn.com/w320/cn.png" alt="China">
-        </div>
+        <div class="flags" id="country-flags"></div>
     </div>
 
     <!-- Analog Clock -->
@@ -174,47 +176,50 @@
     </footer>
 
     <script>
-        // Analog Clock Script
-        const canvas = document.getElementById('analog-clock');
-        const ctx = canvas.getContext('2d');
-        const radius = canvas.height / 2;
+        const GEO_API = "https://api.ipgeolocation.io/ipgeo?apiKey=b330d2b363544a6ebabae5777c8d0456";
 
-        ctx.translate(radius, radius); // Center the clock
-        const drawClock = () => {
-            const now = new Date();
-            const hour = now.getUTCHours() - 5; // Adjust for Montreal (UTC-5)
-            const minute = now.getUTCMinutes();
-            const second = now.getUTCSeconds();
+        const visitors = {}; // Stores visitor counts per country
 
-            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+        // Fetch visitor's country using IP Geolocation API
+        async function trackVisitor() {
+            try {
+                const response = await fetch(GEO_API);
+                const data = await response.json();
+                const country = data.country_name || "Unknown";
 
-            // Draw clock face
-            ctx.beginPath();
-            ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
-            ctx.fillStyle = "#ffffff";
-            ctx.fill();
+                // Update visitor count
+                if (!visitors[country]) {
+                    visitors[country] = 1;
+                } else {
+                    visitors[country]++;
+                }
 
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = "#0077FF";
-            ctx.stroke();
+                // Update Total Visitors
+                const totalVisitors = Object.values(visitors).reduce((a, b) => a + b, 0);
+                document.getElementById("total-visitors").textContent = totalVisitors;
 
-            // Draw clock hands
-            const drawHand = (value, length, width, offset = 0) => {
-                const angle = ((value + offset) * Math.PI) / 30 - Math.PI / 2;
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(length * Math.cos(angle), length * Math.sin(angle));
-                ctx.lineWidth = width;
-                ctx.strokeStyle = "#333";
-                ctx.stroke();
-            };
+                // Update Flags and Visitor Counts
+                const flagsContainer = document.getElementById("country-flags");
+                flagsContainer.innerHTML = ""; // Clear previous flags
 
-            drawHand(hour % 12 + minute / 60, radius * 0.5, 6); // Hour hand
-            drawHand(minute, radius * 0.8, 4); // Minute hand
-            drawHand(second, radius * 0.9, 2); // Second hand
-        };
+                for (const [country, count] of Object.entries(visitors)) {
+                    const countryCode = country.slice(0, 2).toLowerCase(); // Guess country code
+                    const flagElement = document.createElement("div");
+                    flagElement.className = "flag-info";
 
-        setInterval(drawClock, 1000);
+                    flagElement.innerHTML = `
+                        <img src="https://flagcdn.com/w40/${countryCode}.png" alt="${country}" title="${country}">
+                        <span>${country}: ${count}</span>
+                    `;
+
+                    flagsContainer.appendChild(flagElement);
+                }
+            } catch (error) {
+                console.error("Error tracking visitor:", error);
+            }
+        }
+
+        trackVisitor();
     </script>
 </body>
 </html>
