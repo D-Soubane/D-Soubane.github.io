@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-
     <style>
         /* General Styles */
         body {
@@ -14,7 +13,7 @@
             background-color: #f9f9f9;
         }
 
-        /* Navigation Bar */
+        /* Header and Footer Bars */
         nav ul {
             display: flex;
             justify-content: space-around;
@@ -22,8 +21,8 @@
             padding: 10px 0;
             margin: 0;
             background-color: #0077FF; /* Blue background */
-            border-top: 2px solid black; /* Black line above */
-            border-bottom: 2px solid black; /* Black line below */
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
         nav ul li {
@@ -53,17 +52,16 @@
             }
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 10px 0;
             background-color: #0077FF; /* Blue background */
             color: white;
-            border-top: 2px solid black; /* Black line above */
-            border-bottom: 2px solid black; /* Black line below */
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
-        /* Main Section Styles */
+        /* Main Section */
         .main-section {
             text-align: center;
             padding: 20px;
@@ -71,15 +69,9 @@
 
         .main-section h1 {
             font-size: 2.5em;
-            color: #0077FF; /* Blue font */
-            font-family: 'Arial Black', sans-serif; /* Enhanced bold font */
+            color: #0077FF;
+            font-family: 'Arial Black', sans-serif;
             margin-bottom: 20px;
-        }
-
-        .main-section p {
-            font-size: 1.1em;
-            line-height: 1.5em;
-            color: #555;
         }
 
         .contact-list {
@@ -105,18 +97,17 @@
             color: #333;
             line-height: 1.8em;
             font-style: italic;
-            font-family: 'Georgia', serif; /* Stylish, elegant font */
+            font-family: 'Georgia', serif;
             border-left: 4px solid #0077FF;
             padding-left: 15px;
         }
 
-        /* Analog Clock Styles */
+        /* Analog Clock */
         #clock-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 20px auto;
-            flex-direction: column;
         }
 
         canvas {
@@ -125,7 +116,19 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* 3D Button Styles */
+        /* Visitor Section */
+        .visitor-stats {
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .visitor-stats img {
+            height: 30px;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        /* Podcast Button */
         .play-podcast-btn {
             display: block;
             margin: 10px auto;
@@ -140,17 +143,12 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
-            width: 80px; /* Smaller button */
+            width: 80px;
         }
 
         .play-podcast-btn:hover {
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 4px 6px rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-        }
-
-        .play-podcast-btn:active {
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-            transform: translateY(2px);
         }
     </style>
 </head>
@@ -183,35 +181,37 @@
         </p>
     </section>
 
-    <!-- Analog Clock -->
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
     </div>
 
-    <!-- Podcast Button -->
+    <div class="visitor-stats">
+        <p>Total Visitors:</p>
+        <img src="flag1.png" alt="Country 1" />
+        <img src="flag2.png" alt="Country 2" />
+        <img src="flag3.png" alt="Country 3" />
+    </div>
+
     <p style="text-align: center; font-size: 1em; font-weight: bold;">Bärbel Tress Interview: PhD Career Stories</p>
-    <button class="play-podcast-btn" onclick="openPodcastPlayer()">Play</button>
+    <button class="play-podcast-btn" onclick="alert('Podcast playing!')">Play</button>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
 
     <script>
-        // Analog Clock Script
         const canvas = document.getElementById('analog-clock');
         const ctx = canvas.getContext('2d');
         const radius = canvas.height / 2;
+        ctx.translate(radius, radius);
 
-        ctx.translate(radius, radius); // Center the clock
-        const drawClock = () => {
+        function drawClock() {
             const now = new Date();
-            const hour = now.getUTCHours() - 5; // Adjust for Eastern Standard Time (UTC-5)
+            const hour = now.getUTCHours() - 5; // UTC-5 for Eastern Standard Time
             const minute = now.getUTCMinutes();
             const second = now.getUTCSeconds();
-
             ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
 
-            // Draw clock face
             ctx.beginPath();
             ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
             ctx.fillStyle = "#ffffff";
@@ -220,29 +220,8 @@
             ctx.lineWidth = 4;
             ctx.strokeStyle = "#0077FF";
             ctx.stroke();
-
-            // Draw clock hands
-            const drawHand = (value, length, width, offset = 0) => {
-                const angle = ((value + offset) * Math.PI) / 30 - Math.PI / 2;
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(length * Math.cos(angle), length * Math.sin(angle));
-                ctx.lineWidth = width;
-                ctx.strokeStyle = "#333";
-                ctx.stroke();
-            };
-
-            drawHand(hour % 12 + minute / 60, radius * 0.5, 6); // Hour hand
-            drawHand(minute, radius * 0.8, 4); // Minute hand
-            drawHand(second, radius * 0.9, 2); // Second hand
-        };
-
-        setInterval(drawClock, 1000);
-
-        // Podcast Player Script
-        function openPodcastPlayer() {
-            alert("Podcast playing!");
         }
+        setInterval(drawClock, 1000);
     </script>
 </body>
 </html>
