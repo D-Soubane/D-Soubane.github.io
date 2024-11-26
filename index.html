@@ -48,22 +48,6 @@
             font-size: 1em;
         }
 
-        .new-blink {
-            font-weight: bold;
-            color: white;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            animation: blink 1s infinite;
-            position: relative;
-            top: -10px;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
         /* Banner Styling */
         .banner {
             text-align: center;
@@ -129,48 +113,6 @@
             color: white;
         }
 
-        /* Visitor Info Section */
-        #visitor-info {
-            background-color: #e3f2fd;
-            width: 200px;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px auto;
-            text-align: center;
-        }
-
-        #visitor-info p {
-            margin: 5px 0;
-            font-weight: bold;
-        }
-
-        .flags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .flags img {
-            width: 20px;
-            height: 15px;
-            margin: 2px;
-        }
-
-        /* Analog Clock Styling */
-        #clock-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px auto;
-        }
-
-        canvas {
-            background-color: #f5f5f5;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
     </style>
 </head>
 <body>
@@ -178,7 +120,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
+                <li><a href="Research.html">Research</a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -195,32 +137,10 @@
         <p class="promotional">
             As an expert in semiconductor deposition and characterization techniques and density functional theory, his research focuses on advancing the understanding and innovation in nanomaterials for photonic and electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
         </p>
-        <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Visitor Info Section -->
-    <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
-        <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-            <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-            <img src="https://flagcdn.com/w320/cn.png" alt="China">
-        </div>
-    </div>
-
-    <!-- Analog Clock -->
-    <div id="clock-container">
-        <canvas id="analog-clock" width="200" height="200"></canvas>
-    </div>
-
     <!-- Podcast Buttons -->
-    <div id="podcast-buttons">
+    <div id="podcast-buttons" style="text-align:center;">
         <!-- PhD Career Stories Podcast Button -->
         <a href="#" class="podcast-btn" onclick="togglePodcastPlayer('phd-career-stories')">Play PhD Career Stories Podcast</a>
         <!-- Math and Physics Podcast Button -->
@@ -243,14 +163,16 @@
     <script>
         // Function to toggle the podcast player
         function togglePodcastPlayer(podcastId) {
+            // Hide all players
             const players = document.querySelectorAll('.podcast-player');
             players.forEach(player => {
-                player.style.display = 'none'; // Hide all players
+                player.style.display = 'none';
             });
 
+            // Show the selected player
             const selectedPlayer = document.getElementById(podcastId);
             if (selectedPlayer) {
-                selectedPlayer.style.display = 'block'; // Show the selected player
+                selectedPlayer.style.display = 'block'; // Display the selected podcast player
             }
         }
     </script>
