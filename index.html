@@ -4,19 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Analytics Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-M5S63MHHRH');
-    </script>
-
     <style>
-        /* General Styling */
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -24,63 +13,100 @@
             background-color: #f9f9f9;
         }
 
+        /* Header and Footer Bars */
         nav ul {
             display: flex;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            background-color: #0077FF;
-            color: white;
             justify-content: space-around;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            background-color: #0077FF; /* Blue background */
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
         nav ul li {
-            padding: 10px;
+            position: relative;
         }
 
         nav ul li a {
+            color: yellow; /* Yellow text */
             text-decoration: none;
-            color: yellow;
             font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .new-blink {
+            font-weight: bold;
+            color: white; /* White blinking NEW */
+            font-size: 0.8em;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            position: absolute;
+            top: -10px; /* Superscript effect */
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
         }
 
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #0077FF;
+            padding: 10px 0;
+            background-color: #0077FF; /* Blue background */
             color: white;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
-        #visitor-info {
-            background-color: #e3f2fd;
-            width: 200px;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px auto;
+        /* Main Section */
+        .main-section {
             text-align: center;
+            padding: 20px;
         }
 
-        #visitor-info p {
+        .main-section h1 {
+            font-size: 2.5em;
+            color: #0077FF;
+            font-family: 'Arial Black', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: fit-content;
+            text-align: left;
+        }
+
+        .contact-list li {
+            font-size: 1em;
             margin: 5px 0;
             font-weight: bold;
+            color: #333;
         }
 
-        .flags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .expertise {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.8em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            border-left: 4px solid #0077FF;
+            padding-left: 15px;
         }
 
-        .flags img {
-            width: 20px;
-            height: 15px;
-            margin: 2px;
-        }
-
+        /* Analog Clock */
         #clock-container {
             display: flex;
             justify-content: center;
+            align-items: center;
             margin: 20px auto;
         }
 
@@ -89,15 +115,42 @@
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Visitor Section */
+        .visitor-stats {
+            margin: 30px auto;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .flags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .flags img {
+            height: 30px;
+            width: 45px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Podcast Player */
+        .podcast-player {
+            text-align: center;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <header>
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
+                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -105,33 +158,45 @@
         </nav>
     </header>
 
-    <!-- Visitor Info -->
-    <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
-        <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-        </div>
-    </div>
+    <section class="main-section">
+        <h1>Welcome to Prof. Soubane's Research Group</h1>
+        <ul class="contact-list">
+            <li>Website: FPS-uca.ma</li>
+            <li>Phone: +212 5 24 66 93 57</li>
+            <li>Fax: +212 5 24 66 95 16</li>
+            <li>Email: d.soubane(at)uca.ac.ma</li>
+            <li>Email: driss.soubane(at)inrs.ca</li>
+        </ul>
+        <p class="expertise">
+            Expertise in semiconductor deposition and characterization techniques and density functional theory.
+            Our research focuses on advancing nanomaterials for photonic and electronic applications. We are committed
+            to training the next generation of researchers and fostering international collaboration.
+        </p>
+    </section>
 
-    <!-- Analog Clock -->
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
     </div>
 
-    <!-- Podcast Player -->
-    <div style="text-align:center;">
+    <div class="visitor-stats">
+        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
+        <div class="flags">
+            <img src="https://flagcdn.com/w40/ma.png" alt="Morocco" title="Morocco">
+            <img src="https://flagcdn.com/w40/fr.png" alt="France" title="France">
+            <img src="https://flagcdn.com/w40/ca.png" alt="Canada" title="Canada">
+            <img src="https://flagcdn.com/w40/us.png" alt="USA" title="USA">
+            <img src="https://flagcdn.com/w40/au.png" alt="Australia" title="Australia">
+            <img src="https://flagcdn.com/w40/gb.png" alt="UK" title="United Kingdom">
+        </div>
+    </div>
+
+    <div class="podcast-player">
         <audio controls>
             <source src="podcast.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
@@ -148,9 +213,7 @@
             const now = new Date();
             const offset = now.getTimezoneOffset() / 60;
             const montrealOffset = -5; // UTC-5 for Montreal
-            const dstAdjustment = offset - montrealOffset;
-
-            const hours = now.getUTCHours() + montrealOffset + dstAdjustment;
+            const hours = (now.getUTCHours() + montrealOffset + offset) % 24;
             const minutes = now.getUTCMinutes();
             const seconds = now.getUTCSeconds();
 
