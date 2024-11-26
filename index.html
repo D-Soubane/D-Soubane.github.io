@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="styles.css">
 
     <style>
         /* General Styles */
@@ -60,6 +59,49 @@
             color: white;
         }
 
+        /* Main Section Styles */
+        .main-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-section h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .main-section p {
+            font-size: 1.1em;
+            line-height: 1.5em;
+            color: #555;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: fit-content;
+            text-align: left;
+        }
+
+        .contact-list li {
+            font-size: 1em;
+            margin: 5px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .expertise {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+            font-size: 1em;
+            color: #333;
+            line-height: 1.8em;
+            font-style: italic;
+        }
+
         /* Analog Clock Styles */
         #clock-container {
             display: flex;
@@ -73,13 +115,18 @@
             background-color: #f5f5f5;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         #clock-label {
-            margin-top: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+            color: #666;
+            font-family: 'Courier New', Courier, monospace;
+            pointer-events: none;
         }
 
         /* 3D Button Styles */
@@ -109,52 +156,6 @@
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
             transform: translateY(2px);
         }
-
-        /* Popup Window Styles */
-        #podcast-player {
-            display: none;
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-            width: 300px;
-            height: 180px;
-            background: linear-gradient(135deg, #5a8fdb, #3b75c4);
-            border-radius: 12px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            z-index: 1000;
-        }
-
-        #podcast-player .nature-animation {
-            height: 80px;
-            background: url('nature-animation.gif') no-repeat center center/cover;
-        }
-
-        #podcast-player audio {
-            width: 100%;
-            background: #ffffff;
-            border-top: 1px solid #ddd;
-            border-radius: 0 0 12px 12px;
-        }
-
-        #close-player {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #ff5e57;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        #close-player:hover {
-            background: #ff7b72;
-        }
     </style>
 </head>
 <body>
@@ -169,6 +170,22 @@
             </ul>
         </nav>
     </header>
+
+    <section class="main-section">
+        <h1>Welcome to Prof. Soubane's Research Group</h1>
+        <ul class="contact-list">
+            <li>Website: FPS-uca.ma</li>
+            <li>Phone: +212 5 24 66 93 57</li>
+            <li>Fax: +212 5 24 66 95 16</li>
+            <li>Email: d.soubane(at)uca.ac.ma</li>
+            <li>Email: driss.soubane(at)inrs.ca</li>
+        </ul>
+        <p class="expertise">
+            Expertise in semiconductor deposition and characterization techniques and density functional theory.
+            Our research focuses on advancing nanomaterials for photonic and electronic applications. We are committed
+            to training the next generation of researchers and fostering international collaboration.
+        </p>
+    </section>
 
     <!-- Analog Clock -->
     <div id="clock-container">
@@ -218,6 +235,13 @@
             ctx.lineWidth = 4;
             ctx.strokeStyle = "#0077FF";
             ctx.stroke();
+
+            // Add clock label
+            ctx.font = "10px 'Courier New'";
+            ctx.fillStyle = "#666";
+            ctx.textAlign = "center";
+            ctx.fillText("Canadian Eastern", 0, -radius / 2);
+            ctx.fillText("Standard Time", 0, -radius / 2 + 12);
 
             // Draw clock hands
             const drawHand = (value, length, width, offset = 0) => {
