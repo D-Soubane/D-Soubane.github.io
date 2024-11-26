@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Soubane | Physicist</title>
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Analytics Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M5S63MHHRH');
-    </script>
-
     <style>
         /* General Styles */
         body {
@@ -24,7 +13,7 @@
             background-color: #f9f9f9;
         }
 
-        /* Navigation Bar */
+        /* Header and Footer Bars */
         nav ul {
             display: flex;
             justify-content: space-around;
@@ -32,6 +21,8 @@
             padding: 10px 0;
             margin: 0;
             background-color: #0077FF; /* Blue background */
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
         nav ul li {
@@ -61,21 +52,62 @@
             }
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 10px 0;
             background-color: #0077FF; /* Blue background */
             color: white;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
-        /* Analog Clock Styles */
+        /* Main Section */
+        .main-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-section h1 {
+            font-size: 2.5em;
+            color: #0077FF;
+            font-family: 'Arial Black', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: fit-content;
+            text-align: left;
+        }
+
+        .contact-list li {
+            font-size: 1em;
+            margin: 5px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .expertise {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.8em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            border-left: 4px solid #0077FF;
+            padding-left: 15px;
+        }
+
+        /* Analog Clock */
         #clock-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 20px auto;
-            flex-direction: column;
         }
 
         canvas {
@@ -84,43 +116,19 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        #clock-label {
-            margin-top: 10px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* Visitor Zone Styling */
-        #visitor-info {
-            background-color: #e3f2fd; /* Light blue */
-            width: 200px;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px auto;
+        /* Visitor Section */
+        .visitor-stats {
+            margin: 30px auto;
             text-align: center;
         }
 
-        #visitor-info p {
-            margin: 5px 0;
-            font-weight: bold;
+        .visitor-stats img {
+            height: 30px;
+            margin: 0 10px;
+            vertical-align: middle;
         }
 
-        .flags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .flags img {
-            width: 20px;
-            height: 15px;
-            margin: 2px;
-        }
-
-        /* 3D Button Styles */
+        /* Podcast Button */
         .play-podcast-btn {
             display: block;
             margin: 10px auto;
@@ -142,57 +150,6 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), inset 0 4px 6px rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-
-        .play-podcast-btn:active {
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-            transform: translateY(2px);
-        }
-
-        /* Popup Window Styles */
-        #podcast-player {
-            display: none;
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-            width: 300px;
-            height: 180px;
-            background: linear-gradient(135deg, #5a8fdb, #3b75c4);
-            border-radius: 12px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            z-index: 1000;
-        }
-
-        #podcast-player .nature-animation {
-            height: 80px;
-            background: url('nature-animation.gif') no-repeat center center/cover;
-        }
-
-        #podcast-player audio {
-            width: 100%;
-            background: #ffffff;
-            border-top: 1px solid #ddd;
-            border-radius: 0 0 12px 12px;
-        }
-
-        #close-player {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #ff5e57;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        #close-player:hover {
-            background: #ff7b72;
-        }
     </style>
 </head>
 <body>
@@ -208,42 +165,63 @@
         </nav>
     </header>
 
-    <!-- Analog Clock -->
+    <section class="main-section">
+        <h1>Welcome to Prof. Soubane's Research Group</h1>
+        <ul class="contact-list">
+            <li>Website: FPS-uca.ma</li>
+            <li>Phone: +212 5 24 66 93 57</li>
+            <li>Fax: +212 5 24 66 95 16</li>
+            <li>Email: d.soubane(at)uca.ac.ma</li>
+            <li>Email: driss.soubane(at)inrs.ca</li>
+        </ul>
+        <p class="expertise">
+            Expertise in semiconductor deposition and characterization techniques and density functional theory.
+            Our research focuses on advancing nanomaterials for photonic and electronic applications. We are committed
+            to training the next generation of researchers and fostering international collaboration.
+        </p>
+    </section>
+
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
-        <p id="clock-label">Montreal Time (Eastern Time)</p>
     </div>
 
-    <!-- Visitor Info -->
-    <div id="visitor-info">
-        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
-        <div class="flags">
-            <img src="https://flagcdn.com/w320/ma.png" alt="Morocco">
-            <img src="https://flagcdn.com/w320/fr.png" alt="France">
-            <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
-            <img src="https://flagcdn.com/w320/us.png" alt="USA">
-            <img src="https://flagcdn.com/w320/au.png" alt="Australia">
-            <img src="https://flagcdn.com/w320/gb.png" alt="UK">
-            <img src="https://flagcdn.com/w320/de.png" alt="Germany">
-            <img src="https://flagcdn.com/w320/jp.png" alt="Japan">
-            <img src="https://flagcdn.com/w320/cn.png" alt="China">
-        </div>
+    <div class="visitor-stats">
+        <p>Total Visitors:</p>
+        <img src="flag1.png" alt="Country 1" />
+        <img src="flag2.png" alt="Country 2" />
+        <img src="flag3.png" alt="Country 3" />
     </div>
 
-    <!-- Podcast Button -->
     <p style="text-align: center; font-size: 1em; font-weight: bold;">Bärbel Tress Interview: PhD Career Stories</p>
-    <button class="play-podcast-btn" onclick="openPodcastPlayer()">Play</button>
-
-    <!-- Podcast Player -->
-    <div id="podcast-player">
-        <div class="nature-animation"></div>
-        <button id="close-player" onclick="closePodcastPlayer()">×</button>
-        <audio controls autoplay>
-            <source src="podcast.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+    <button class="play-podcast-btn" onclick="alert('Podcast playing!')">Play</button>
 
     <footer>
         <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
-    </
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('analog-clock');
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+
+        function drawClock() {
+            const now = new Date();
+            const hour = now.getUTCHours() - 5; // UTC-5 for Eastern Standard Time
+            const minute = now.getUTCMinutes();
+            const second = now.getUTCSeconds();
+            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = "#0077FF";
+            ctx.stroke();
+        }
+        setInterval(drawClock, 1000);
+    </script>
+</body>
+</html>
