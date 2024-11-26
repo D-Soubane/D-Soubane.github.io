@@ -6,15 +6,6 @@
     <title>Dr. Soubane | Physicist</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Google Analytics Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5S63MHHRH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M5S63MHHRH');
-    </script>
-
     <style>
         /* General Styles */
         body {
@@ -24,21 +15,89 @@
             background-color: #f9f9f9;
         }
 
+        /* Navigation Bar */
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            background-color: #0077FF; /* Blue background */
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: yellow; /* Yellow text */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .new-blink {
+            font-weight: bold;
+            color: white; /* White blinking NEW */
+            font-size: 0.8em;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            position: absolute;
+            top: -10px; /* Superscript effect */
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #0077FF; /* Blue background */
+            color: white;
+        }
+
+        /* Analog Clock Styles */
+        #clock-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            flex-direction: column;
+        }
+
+        canvas {
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #clock-label {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
         /* 3D Button Styles */
         .play-podcast-btn {
             display: block;
-            margin: 20px auto;
-            padding: 8px 15px;
-            font-size: 1em;
+            margin: 10px auto;
+            padding: 6px 12px;
+            font-size: 0.9em;
             font-weight: bold;
             color: white;
             background: linear-gradient(145deg, #007BFF, #0056b3);
-            border-radius: 12px;
+            border-radius: 8px;
             border: none;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.2);
             cursor: pointer;
             text-align: center;
             transition: all 0.3s ease;
+            width: 80px; /* Smaller button */
         }
 
         .play-podcast-btn:hover {
@@ -111,24 +170,15 @@
         </nav>
     </header>
 
-    <section class="banner">
-        <h1>Welcome to Prof. Soubane's Research Group</h1>
-        <p>FPS-uca.ma</p>
-        <p>Tel: +212 5 24 66 93 57 | Fax: +212 5 24 66 95 16</p>
-        <p>Email: d.soubane(at)uca.ac.ma | driss.soubane(at)inrs.ca</p>
-        <p class="expertise">Expertise in Semiconductors Deposition and Density Functional Theory</p>
-        <p class="promotional">
-            As an expert in semiconductor deposition and characterization techniques and density functional theory, his research focuses on advancing the understanding and innovation in nanomaterials for photonic and electronic applications. With a strong commitment to pushing scientific boundaries, he is dedicated to training the next generation of researchers and fostering international collaboration.
-        </p>
-    </section>
-
     <!-- Analog Clock -->
     <div id="clock-container">
         <canvas id="analog-clock" width="200" height="200"></canvas>
+        <p id="clock-label">Canadian Eastern Standard Time</p>
     </div>
 
     <!-- Podcast Button -->
-    <button class="play-podcast-btn" onclick="openPodcastPlayer()">Play Bärbel Tress Interview: PhD Career Stories</button>
+    <p style="text-align: center; font-size: 1em; font-weight: bold;">Bärbel Tress Interview: PhD Career Stories</p>
+    <button class="play-podcast-btn" onclick="openPodcastPlayer()">Play</button>
 
     <!-- Podcast Player -->
     <div id="podcast-player">
@@ -153,7 +203,7 @@
         ctx.translate(radius, radius); // Center the clock
         const drawClock = () => {
             const now = new Date();
-            const hour = now.getUTCHours() - 5; // Adjust for Montreal (UTC-5)
+            const hour = now.getUTCHours() - 5; // Adjust for Eastern Standard Time (UTC-5)
             const minute = now.getUTCMinutes();
             const second = now.getUTCSeconds();
 
