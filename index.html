@@ -16,12 +16,24 @@
     </script>
 
     <style>
-        /* Navigation Styles */
+        /* General Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0077FF;
+            padding: 10px 0;
+        }
+
         nav ul {
             display: flex;
             list-style-type: none;
+            justify-content: center;
             padding: 0;
-            background-color: #0077FF; /* Sky blue background */
             margin: 0;
         }
 
@@ -30,7 +42,7 @@
         }
 
         nav ul li a {
-            color: darkyellow; /* Dark yellow text */
+            color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 1em;
@@ -38,12 +50,12 @@
 
         .new-blink {
             font-weight: bold;
-            color: white; /* White blinking NEW */
+            color: white;
             font-size: 0.8em;
             text-transform: uppercase;
             animation: blink 1s infinite;
             position: relative;
-            top: -10px; /* Makes it appear as superscript */
+            top: -10px;
         }
 
         @keyframes blink {
@@ -52,31 +64,75 @@
             }
         }
 
-        /* Banner Text Styling */
+        /* Banner Styling */
+        .banner {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #0077FF;
+            color: white;
+        }
+
         .banner h1 {
-            color: black; /* Dark black text */
             font-size: 2.5em;
-            font-family: 'Arial Black', sans-serif; /* Modern, stylish font */
-            margin-bottom: 15px;
+            font-family: 'Arial Black', sans-serif;
         }
 
         .banner p.expertise {
             font-style: italic;
             font-size: 1.2em;
-            font-family: 'Georgia', serif; /* Readable serif font */
-            margin-bottom: 15px;
+            font-family: 'Georgia', serif;
+            margin-top: 10px;
         }
 
-        .banner p.promotional {
-            font-size: 1em;
-            line-height: 1.5;
-            font-family: 'Verdana', sans-serif;
+        /* Stylish Buttons */
+        .podcast-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #0077FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            margin: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        /* Visitor Zone Styling */
+        .podcast-btn:hover {
+            background-color: #005bb5;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .podcast-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Podcast Player Container */
+        .podcast-player {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #0077FF;
+            color: white;
+        }
+
+        /* Visitor Info Section */
         #visitor-info {
-            background-color: #e3f2fd; /* Very light blue background */
-            width: 200px; /* Adjusted for compact view */
+            background-color: #e3f2fd;
+            width: 200px;
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9em;
@@ -102,7 +158,7 @@
             margin: 2px;
         }
 
-        /* Analog Clock Styles */
+        /* Analog Clock Styling */
         #clock-container {
             display: flex;
             justify-content: center;
@@ -113,42 +169,6 @@
             background-color: #f5f5f5;
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #0077FF;
-            color: white;
-        }
-
-        /* Podcast Button Styling */
-        .podcast-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0077FF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .podcast-btn:hover {
-            background-color: #005bb5;
-        }
-
-        .podcast-player {
-            display: none;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
     </style>
@@ -221,48 +241,6 @@
     </footer>
 
     <script>
-        // Analog Clock Script
-        const canvas = document.getElementById('analog-clock');
-        const ctx = canvas.getContext('2d');
-        const radius = canvas.height / 2;
-
-        ctx.translate(radius, radius); // Center the clock
-        const drawClock = () => {
-            const now = new Date();
-            const hour = now.getUTCHours() - 5; // Adjust for Montreal (UTC-5)
-            const minute = now.getUTCMinutes();
-            const second = now.getUTCSeconds();
-
-            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
-
-            // Draw clock face
-            ctx.beginPath();
-            ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
-            ctx.fillStyle = "#ffffff";
-            ctx.fill();
-
-            ctx.lineWidth = 4;
-            ctx.strokeStyle = "#0077FF";
-            ctx.stroke();
-
-            // Draw clock hands
-            const drawHand = (value, length, width, offset = 0) => {
-                const angle = ((value + offset) * Math.PI) / 30 - Math.PI / 2;
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(length * Math.cos(angle), length * Math.sin(angle));
-                ctx.lineWidth = width;
-                ctx.strokeStyle = "#333";
-                ctx.stroke();
-            };
-
-            drawHand(hour % 12 + minute / 60, radius * 0.5, 6); // Hour hand
-            drawHand(minute, radius * 0.8, 4); // Minute hand
-            drawHand(second, radius * 0.9, 2); // Second hand
-        };
-
-        setInterval(drawClock, 1000);
-
         // Function to toggle the podcast player
         function togglePodcastPlayer(podcastId) {
             const players = document.querySelectorAll('.podcast-player');
