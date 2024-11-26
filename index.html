@@ -16,103 +16,86 @@
     </script>
 
     <style>
-        /* General Layout */
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
 
-        header {
-            background-color: #0077FF;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            padding: 10px 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1em;
-        }
-
-        /* Banner Styling */
-        .banner {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #0077FF;
-            color: white;
-        }
-
-        .banner h1 {
-            font-size: 2.5em;
-            font-family: 'Arial Black', sans-serif;
-        }
-
-        .banner p.expertise {
-            font-style: italic;
-            font-size: 1.2em;
-            font-family: 'Georgia', serif;
-            margin-top: 10px;
-        }
-
-        /* Stylish Buttons */
-        .podcast-btn {
+        /* 3D Button Styles */
+        .play-podcast-btn {
             display: inline-block;
-            padding: 12px 25px;
-            background-color: #0077FF;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.1em;
-            margin: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .podcast-btn:hover {
-            background-color: #005bb5;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .podcast-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Podcast Player Container */
-        .podcast-player {
-            display: none;
-            width: 100%;
-            max-width: 600px;
             margin: 20px auto;
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #0077FF;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
             color: white;
+            background: linear-gradient(145deg, #4CAF50, #3E8E41);
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), inset 0 4px 6px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
+        .play-podcast-btn:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), inset 0 6px 8px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .play-podcast-btn:active {
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+
+        /* Popup Window Styles */
+        #podcast-player {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        #podcast-player .nature-animation {
+            height: 100px;
+            background: url('nature-animation.gif') no-repeat center center/cover;
+        }
+
+        #podcast-player audio {
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 12px 12px;
+        }
+
+        #close-player {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #ff5e57;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #close-player:hover {
+            background: #ff7b72;
+        }
     </style>
 </head>
 <body>
@@ -120,7 +103,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
+                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
                 <li><a href="People.html">People</a></li>
                 <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
@@ -139,21 +122,22 @@
         </p>
     </section>
 
-    <!-- Podcast Buttons -->
-    <div id="podcast-buttons" style="text-align:center;">
-        <!-- PhD Career Stories Podcast Button -->
-        <a href="#" class="podcast-btn" onclick="togglePodcastPlayer('phd-career-stories')">Play PhD Career Stories Podcast</a>
-        <!-- Math and Physics Podcast Button -->
-        <a href="#" class="podcast-btn" onclick="togglePodcastPlayer('math-physics-podcast')">Play Math & Physics Podcast</a>
+    <!-- Analog Clock -->
+    <div id="clock-container">
+        <canvas id="analog-clock" width="200" height="200"></canvas>
     </div>
 
-    <!-- Podcast Players -->
-    <div id="phd-career-stories" class="podcast-player">
-        <iframe src="https://phdcareerstories.com/pub/nn4786r3/release/4" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-    </div>
-    
-    <div id="math-physics-podcast" class="podcast-player">
-        <iframe src="https://goodpods.com/podcasts/math-and-physics-podcast-197298/episode-1-math-and-physics-at-uoft-19380316" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <!-- Podcast Button -->
+    <button class="play-podcast-btn" onclick="openPodcastPlayer()">Play Bärbel Tress Interview: PhD Career Stories</button>
+
+    <!-- Podcast Player -->
+    <div id="podcast-player">
+        <div class="nature-animation"></div>
+        <button id="close-player" onclick="closePodcastPlayer()">×</button>
+        <audio controls autoplay>
+            <source src="podcast.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <footer>
@@ -161,19 +145,13 @@
     </footer>
 
     <script>
-        // Function to toggle the podcast player
-        function togglePodcastPlayer(podcastId) {
-            // Hide all players
-            const players = document.querySelectorAll('.podcast-player');
-            players.forEach(player => {
-                player.style.display = 'none';
-            });
+        // Podcast Player Script
+        function openPodcastPlayer() {
+            document.getElementById('podcast-player').style.display = 'block';
+        }
 
-            // Show the selected player
-            const selectedPlayer = document.getElementById(podcastId);
-            if (selectedPlayer) {
-                selectedPlayer.style.display = 'block'; // Display the selected podcast player
-            }
+        function closePodcastPlayer() {
+            document.getElementById('podcast-player').style.display = 'none';
         }
     </script>
 </body>
