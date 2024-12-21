@@ -4,7 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pick-ups & Highlights | Our Research Group</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #004080;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #004080, #0073e6);
+            color: #fff;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .banner p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .content h2 {
+            color: #004080;
+            margin-bottom: 1rem;
+        }
+        .content p {
+            margin-bottom: 1rem;
+        }
+        .audio-player {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .audio-player audio {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px auto;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #004080;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        .blue-band {
+            background: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            position: sticky;
+            top: 0;
+        }
+        .scrolling-text {
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,6 +120,20 @@
     <section class="banner">
         <h1>Pick-ups & Highlights</h1>
         <p>This section highlights important news and achievements from our research group.</p>
+    </section>
+
+    <section class="content">
+        <h2>Exploring the Future: THz Technology Insights and Conclusions</h2>
+        <p>(Part of the upcoming book: <em>Quantum Optics Devices on a Chip</em> by Wiley-Scrivener)</p>
+        <p>This audio provides a brief, original summary of the key insights and future outlooks discussed in our chapter - Myself and My Supervisor Prof. Tsuneyuki Ozaki, an eminent expert on THz Technology. It is intended solely as a personal reflection and preview of the broader work. The full chapter will be available exclusively in the published book by Wiley-Scrivener. This summary respects copyright policies by avoiding any verbatim excerpts or detailed reproductions from the chapter.</p>
+        <p>Stay tuned for the release of the full book!</p>
+        
+        <div class="audio-player">
+            <audio controls>
+                <source src="thz.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </section>
 
     <footer>
