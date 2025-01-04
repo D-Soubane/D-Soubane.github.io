@@ -86,7 +86,8 @@
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: scroll-text 15s linear infinite;
+            animation: scroll-text 30s linear infinite; /* Slower scrolling speed */
+            transition: none; /* Ensure no transition on hover */
         }
 
         /* Scrolling animation effect */
@@ -97,6 +98,11 @@
             100% {
                 transform: translateX(-100%);
             }
+        }
+
+        /* Pause the animation on hover */
+        .scrolling-announcement:hover .scrolling-text {
+            animation-play-state: paused;
         }
     </style>
 </head>
