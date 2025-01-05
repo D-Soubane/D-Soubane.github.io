@@ -76,15 +76,8 @@
             justify-content: center;
         }
 
-        .new-label {
-            color: yellow;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.1em;
-        }
-
         .breaking-news-container {
-            background-color: #FF0000;
+            background-color: #87CEFA; /* Sky blue background */
             color: white;
             text-align: center;
             padding: 8px 15px;
@@ -94,18 +87,24 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
             width: auto;
-            animation: blink 26s step-start 0s infinite; /* 26s: Total duration for the full cycle */
+            animation: blink 26s step-start 0s infinite; /* Total duration for the full cycle */
+        }
+
+        .breaking-news-container .new-label {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            vertical-align: super;
         }
 
         @keyframes blink {
-            0%, 96% {
-                opacity: 1; /* Text visible for 96% of the time (25 seconds) */
+            0%, 95% {
+                opacity: 1; /* Text visible for most of the time (25 seconds) */
             }
             50%, 100% {
-                opacity: 0; /* Text is invisible briefly for 1 second */
+                opacity: 0; /* Text is invisible briefly for a short time (1 second) */
             }
         }
-
     </style>
 </head>
 <body>
@@ -132,8 +131,8 @@
 
     <!-- Breaking News Banner -->
     <div class="breaking-news-wrapper">
-        <div class="new-label">New</div>
         <div class="breaking-news-container">
+            <span class="new-label">New</span> 
             We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
         </div>
     </div>
