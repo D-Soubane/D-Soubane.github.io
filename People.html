@@ -78,31 +78,32 @@
 
         .breaking-news-container {
             background-color: #87CEFA; /* Sky blue background */
-            color: white;
+            color: yellow;
             text-align: center;
             padding: 8px 15px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.2em;
             margin-top: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
             width: auto;
-            animation: blink 26s step-start 0s infinite; /* Total duration for the full cycle */
+            animation: blink 3s step-start 0s infinite; /* Flash every 3 seconds */
         }
 
         .breaking-news-container .new-label {
             color: white;
-            font-size: 1.2em;
+            font-size: 1.4em;
             font-weight: bold;
             vertical-align: super;
+            text-transform: uppercase;
         }
 
         @keyframes blink {
-            0%, 95% {
-                opacity: 1; /* Text visible for most of the time (25 seconds) */
+            0%, 100% {
+                opacity: 1; /* Text visible */
             }
-            50%, 100% {
-                opacity: 0; /* Text is invisible briefly for a short time (1 second) */
+            50% {
+                opacity: 0.7; /* Flash effect: dim the text */
             }
         }
     </style>
@@ -132,7 +133,7 @@
     <!-- Breaking News Banner -->
     <div class="breaking-news-wrapper">
         <div class="breaking-news-container">
-            <span class="new-label">New</span> 
+            <span class="new-label">News</span> 
             We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
         </div>
     </div>
