@@ -66,27 +66,25 @@
             margin: 15px 0 5px;
         }
 
-        /* Thin band for announcement */
+        /* Announcement band styles */
         .announcement {
             background-color: #FFEB3B;
             color: #333;
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2em;
-            font-weight: bold;
             text-align: center;
             padding: 10px;
-            border: 1px solid #FFD700;
-            margin: 20px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 1.1em;
+            font-weight: bold;
+            border-bottom: 2px solid #FF9800;
         }
 
         .announcement a {
-            color: #0055AA;
-            text-decoration: underline;
+            color: #FF5722;
+            text-decoration: none;
+            font-weight: bold;
         }
 
         .announcement a:hover {
-            color: #003377;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -103,15 +101,6 @@
         </nav>
     </header>
 
-    <!-- Announcement Section -->
-    <div class="announcement">
-        We are thrilled to announce that <strong>Imane Kharbouchi</strong>, a PhD student in our research group, 
-        has been awarded the prestigious <strong>PhD Associate Scholarship</strong> under the PASS Program, 
-        providing <strong>7,000 MAD/month</strong> for three years. 
-        Follow her journey and more updates on our <a href="Research.html">research group website</a>. 
-        <strong>Congratulations, Imane!</strong>
-    </div>
-
     <section class="banner">
         <h1>Our Group Members</h1>
         <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
@@ -121,30 +110,31 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
+    <!-- Announcement Band -->
+    <div class="announcement">
+        We are thrilled to announce that <strong>Imane Kharbouchi</strong>, a PhD student in our research group, has been awarded the prestigious 
+        <strong>PhD Associate Scholarship</strong> under the PASS Program, providing <strong>7,000 MAD/month</strong> for three years. 
+        Follow her journey and more updates on our <a href="#">research group website</a>. Congratulations, Imane!
+    </div>
+
     <div class="student-container">
         <div class="student">
             <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
             <h2>Dnaya Fatima-ezzahra</h2>
             <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
             <div class="cv-content">
-                <!-- Content of the first student -->
+                <p class="section-title">Education and Diplomas</p>
+                <ul>
+                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
+                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
+                    <li>2018: Bachelor’s degree; Physics, Option: Material Science and Renewable Energy</li>
+                    <li>2014: Baccalaureate; Mathematical Sciences, Option: B</li>
+                </ul>
+                <!-- More content here -->
             </div>
         </div>
 
-        <div class="student">
-            <img src="ya.jpg" alt="Elajan Yassine">
-            <h2>Elajan Yassine</h2>
-            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
-        </div>
-
-        <div class="student">
-            <img src="im.jpg" alt="Kharbouchi Imane">
-            <h2>Kharbouchi Imane</h2>
-            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
-            <div class="cv-content">
-                <!-- Content of the third student -->
-            </div>
-        </div>
+        <!-- Other students -->
     </div>
 
     <footer>
