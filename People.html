@@ -15,13 +15,20 @@
         }
 
         .student {
-            border: 1px solid #0077FF;
+            border: 2px solid #0077FF; /* More visible border */
             border-radius: 10px;
             padding: 15px;
             width: 30%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
             text-align: center;
-            margin: 10px;
+            margin: 15px;
+            background-color: #f9f9f9; /* Light background */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effect */
+        }
+
+        .student:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         .student img {
@@ -29,19 +36,20 @@
             height: 150px;
             object-fit: cover;
             border-radius: 10px;
+            border: 1px solid #ddd; /* Frame for image */
         }
 
         .student h2 {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin: 10px 0;
+            color: #003366;
         }
 
         .student p {
             font-size: 1em;
-            color: #333;
+            color: #444;
         }
 
-        /* Scrollable area for long text in profiles */
         .student .cv-content {
             max-height: 200px;
             overflow-y: auto;
@@ -50,48 +58,43 @@
             padding: 10px;
             border-top: 1px solid #ddd;
             font-size: 0.95em;
-            line-height: 1.5;
+            line-height: 1.6;
+            background-color: #fff; /* Contrast for CV */
+            border-radius: 5px;
         }
 
-        /* Style for section headings in profiles */
         .cv-content h3 {
             font-size: 1.1em;
-            color: #0077FF; /* Attractive color for headings */
+            color: #0077FF;
             font-weight: bold;
             margin: 10px 0 5px;
         }
 
-        /* Styling for titles to be distinctive */
         .cv-content .section-title {
             font-size: 1.2em;
             font-weight: bold;
-            color: #0055AA; /* Slightly darker blue for key titles */
+            color: #0055AA;
             margin: 15px 0 5px;
         }
 
         /* Custom styles for the Scrolling Announcement Band */
         .scrolling-announcement {
-            background-color: #003366; /* Navy blue background */
+            background-color: #0077FF;
             color: white;
             text-align: center;
             padding: 10px;
             position: relative;
             width: 100%;
             font-size: 1em;
-            z-index: 10; /* Ensure the band is above other content */
-            overflow: hidden; /* Hide overflow to make sure the text stays in the band */
+            z-index: 10;
+            overflow: hidden;
         }
 
         .scrolling-text {
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: scroll-text 30s linear infinite; /* Slower scrolling speed */
-        }
-
-        /* Blinking animation */
-        .scrolling-text {
-            animation: scroll-text 30s linear infinite, blink 1s step-start infinite;
+            animation: scroll-text 20s linear infinite;
         }
 
         @keyframes scroll-text {
@@ -103,21 +106,80 @@
             }
         }
 
-        @keyframes blink {
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        /* Pause the animation on hover */
         .scrolling-announcement:hover .scrolling-text {
             animation-play-state: paused;
         }
 
-        /* Banner text style adjustments */
-        .banner h1, .banner p {
-            font-size: 1.2em; /* Smaller font size for professional look */
-            margin: 10px 0;
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f5;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            background-color: #003366;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 0;
+        }
+
+        header nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        header nav ul li a:hover {
+            background-color: #0055AA;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 20px;
+            background-color: #0077FF;
+            color: white;
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .banner p {
+            font-size: 1.1em;
+        }
+
+        .banner a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: #0077FF;
+            text-decoration: none;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .banner a:hover {
+            background-color: #0055AA;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003366;
+            color: white;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -151,7 +213,30 @@
     </section>
 
     <div class="student-container">
-        <!-- Student profiles remain unchanged -->
+        <div class="student">
+            <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
+            <h2>Dnaya Fatima-ezzahra</h2>
+            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
+            <div class="cv-content">
+                <p class="section-title">Education and Diplomas</p>
+                <ul>
+                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
+                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="student">
+            <img src="ya.jpg" alt="Elajan Yassine">
+            <h2>Elajan Yassine</h2>
+            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
+        </div>
+
+        <div class="student">
+            <img src="im.jpg" alt="Kharbouchi Imane">
+            <h2>Kharbouchi Imane</h2>
+            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
+        </div>
     </div>
 
     <footer>
