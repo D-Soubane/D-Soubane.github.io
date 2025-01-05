@@ -48,16 +48,19 @@
             text-align: center;
             padding: 10px 0;
             font-weight: bold;
-            font-size: 0.9em; /* Make the text a bit smaller */
+            font-size: 0.9em; /* Smaller font for professionalism */
             margin-top: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 80px; /* Fixed height for the breaking news frame */
+            overflow: hidden; /* Hide the content that's outside of the frame */
+            position: relative;
         }
 
         .breaking-news-text {
-            animation: scroll-text 15s linear infinite; /* Slower scroll speed */
-            display: inline-block;
+            animation: scroll-text 20s linear infinite; /* Slower scroll speed */
             white-space: nowrap;
+            display: inline-block;
             padding-left: 100%;
         }
 
@@ -68,6 +71,16 @@
             100% {
                 transform: translateX(-100%);
             }
+        }
+
+        .breaking-news-content {
+            overflow-y: auto; /* Enable scrolling inside the breaking news */
+            height: 60px; /* Allow users to scroll */
+        }
+
+        .breaking-news-text p {
+            margin: 0;
+            padding: 5px;
         }
 
         /* Style for section headings in profiles */
@@ -103,8 +116,10 @@
 
     <!-- Breaking News Banner -->
     <div class="breaking-news-container">
-        <div class="breaking-news-text">
-            We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
+        <div class="breaking-news-content">
+            <div class="breaking-news-text">
+                <p>We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!</p>
+            </div>
         </div>
     </div>
 
