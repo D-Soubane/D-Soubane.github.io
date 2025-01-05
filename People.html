@@ -3,106 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People | Dr. Soubane</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dr. Soubane | Physicist</title>
     <style>
-        /* Custom styles for the People page */
-        .student-container {
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header and Footer Bars */
+        nav ul {
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            background-color: #0077FF; /* Blue background */
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
-        .student {
-            border: 1px solid #0077FF;
-            border-radius: 10px;
-            padding: 15px;
-            width: 30%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: yellow; /* Yellow text */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .new-blink {
+            font-weight: bold;
+            color: yellow; /* Yellow text */
+            font-size: 0.8em;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+            position: absolute;
+            top: -10px; /* Superscript effect */
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        footer {
             text-align: center;
-            margin: 10px;
+            padding: 10px 0;
+            background-color: #0077FF; /* Blue background */
+            color: white;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
         }
 
-        .student img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
+        /* Main Section */
+        .main-section {
+            text-align: center;
+            padding: 20px;
         }
 
-        .student h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
+        .main-section h1 {
+            font-size: 2.5em;
+            color: #0077FF;
+            font-family: 'Arial Black', sans-serif;
+            margin-bottom: 20px;
         }
 
-        .student p {
+        .contact-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: fit-content;
+            text-align: left;
+        }
+
+        .contact-list li {
             font-size: 1em;
+            margin: 5px 0;
+            font-weight: bold;
             color: #333;
         }
 
-        /* Scrollable area for long text in profiles */
-        .student .cv-content {
-            max-height: 200px;
-            overflow-y: auto;
-            text-align: left;
-            margin-top: 10px;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        /* Style for section headings in profiles */
-        .cv-content h3 {
+        .expertise {
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
             font-size: 1.1em;
-            color: #0077FF; /* Attractive color for headings */
-            font-weight: bold;
-            margin: 10px 0 5px;
+            color: #333;
+            line-height: 1.8em;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            border-left: 4px solid #0077FF;
+            padding-left: 15px;
         }
 
-        /* Styling for titles to be distinctive */
-        .cv-content .section-title {
+        /* Congratulatory Banner */
+        .congrats-banner {
+            background-color: #222; /* Dark background for contrast */
+            color: #FFD700; /* Gold color for the text */
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+            animation: blink-banner 1.5s infinite; /* Blinking effect */
+        }
+
+        @keyframes blink-banner {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Analog Clock */
+        #clock-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        canvas {
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Visitor Section */
+        .visitor-stats {
+            margin: 30px auto;
+            text-align: center;
             font-size: 1.2em;
             font-weight: bold;
-            color: #0055AA; /* Slightly darker blue for key titles */
-            margin: 15px 0 5px;
         }
 
-        /* Custom styles for the Scrolling Announcement Band */
-        .scrolling-announcement {
-            background-color: #0077FF; /* Blue background */
-            color: white;
+        .flags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .flags img {
+            height: 30px;
+            width: 45px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Podcast Player */
+        .podcast-player {
             text-align: center;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            font-size: 1em;
-            z-index: 10; /* Ensure the band is above other content */
-            overflow: hidden; /* Hide overflow to make sure the text stays in the band */
-        }
-
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: scroll-text 30s linear infinite; /* Slower scrolling speed */
-            transition: none; /* Ensure no transition on hover */
-        }
-
-        /* Scrolling animation effect */
-        @keyframes scroll-text {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Pause the animation on hover */
-        .scrolling-announcement:hover .scrolling-text {
-            animation-play-state: paused;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -111,107 +170,105 @@
         <nav>
             <ul>
                 <li><a href="index.html">About Us</a></li>
-                <li><a href="Research.html">Research</a></li>
+                <li><a href="Research.html">Research<span class="new-blink">NEW</span></a></li>
                 <li><a href="Teaching.html">Teaching</a></li>
-                <li><a href="People.html">People</a></li>
-                <li><a href="Pickup.html">Pick-ups & Highlights</a></li>
+                <li><a href="People.html">People<span class="new-blink">NEW</span></a></li>
+                <li><a href="Pickup.html">Pick-ups & Highlights<span class="new-blink">NEW 2025 Chapter in a Book</span></a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Scrolling Announcement Band -->
-    <div class="scrolling-announcement">
-        <div class="scrolling-text">
-            We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
+    <!-- Congratulatory Banner -->
+    <div class="congrats-banner">
+        Congratulations to Imane on receiving the prestigious PASS scholarship!
+    </div>
+
+    <section class="main-section">
+        <h1>Welcome to Prof. Soubane's Research Group</h1>
+        <ul class="contact-list">
+            <li>Website: FPS-uca.ma</li>
+            <li>Phone: +212 5 24 66 93 57</li>
+            <li>Fax: +212 5 24 66 95 16</li>
+            <li>Email: d.soubane(at)uca.ac.ma</li>
+            <li>Email: driss.soubane(at)inrs.ca</li>
+        </ul>
+        <p class="expertise">
+            Expertise in semiconductor deposition and characterization techniques and density functional theory.
+            Our research focuses on advancing nanomaterials for photonic and electronic applications. We are committed
+            to training the next generation of researchers and fostering international collaboration.
+        </p>
+    </section>
+
+    <div id="clock-container">
+        <canvas id="analog-clock" width="200" height="200"></canvas>
+    </div>
+
+    <div class="visitor-stats">
+        <p>Total Visitors: <span id="total-visitors">Loading...</span></p>
+        <div class="flags">
+            <img src="https://flagcdn.com/w40/ma.png" alt="Morocco" title="Morocco">
+            <img src="https://flagcdn.com/w40/fr.png" alt="France" title="France">
+            <img src="https://flagcdn.com/w40/ca.png" alt="Canada" title="Canada">
+            <img src="https://flagcdn.com/w40/us.png" alt="USA" title="USA">
+            <img src="https://flagcdn.com/w40/au.png" alt="Australia" title="Australia">
+            <img src="https://flagcdn.com/w40/gb.png" alt="UK" title="United Kingdom">
         </div>
     </div>
 
-    <section class="banner">
-        <h1>Our Group Members</h1>
-        <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
-        <p>Currently: Three Ph.D Students</p>
-        <h1>Opening</h1>
-        <p>Interested in joining our group to use DFT to discover and better understand the cutting-edge research realm.</p>
-        <a href="#" class="btn">Learn More</a>
-    </section>
-
-    <div class="student-container">
-        <div class="student">
-            <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
-            <h2>Dnaya Fatima-ezzahra</h2>
-            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
-            <div class="cv-content">
-                <p class="section-title">Education and Diplomas</p>
-                <ul>
-                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
-                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
-                    <li>2018: Bachelor’s degree; Physics, Option: Material Science and Renewable Energy</li>
-                    <li>2014: Baccalaureate; Mathematical Sciences, Option: B</li>
-                </ul>
-
-                <p class="section-title">Overview of Ph.D Thesis</p>
-                <p>My Ph.D project aims at unveiling the intriguing properties of silicon zero-dimensional nanostructures using DFT. We probe the light-matter interaction in nanostructured silicon to provide insight into the potential optical applications of these materials in cutting-edge technologies.</p>
-
-                <p class="section-title">Research Activities</p>
-                <h3>Articles</h3>
-                <ul>
-                    <li>A holistic Understanding of Optical Properties in Amorphous H-Terminated Si-Nanostructures: Combining TD-DFT with AIMD. F. Dnaya, D. Soubane, M. Bouhassoune, M. Bellioua, Y. Laaziz, A. Nafidi, T. Ozaki, <em>Results in Optics</em> (2024): 100694.</li>
-                </ul>
-
-                <h3>Oral Communications/ Talks</h3>
-                <ul>
-                    <li>Silicon for Harvesting Light: Structural, Optical and Electronic Properties of Si-Nanostructures – F. Dnaya, D. Soubane, Y. Laaziz, at the 1st International Congress on Materials, Biomaterials, Environmental Sciences and Technology, Fez, Morocco (May 29-31, 2024)</li>
-                    <li>Solid State Spectroscopy Fundamental Functions in a Nutshell – F. Dnaya, D. Soubane, Y. Laaziz, at the International Conference on Sustainable Energy, ENSA EL-Jadida, Morocco (May 28-29, 2024)</li>
-                    <li>Enhancing the Understanding of Optical Properties in Amorphous Terminated Si-Nanostructures Through TD-DFT Analysis – F. Dnaya, D. Soubane, Y. Laaziz, at the Autumn School of Set-valued and Variational Analysis, Safi, Morocco (Nov 15-16, 2023)</li>
-                    <li>Solar Photovoltaic Energy: Technology, Efficiency and Perspectives – F. Dnaya, D. Soubane, Y. Laaziz, Doctoral Day in Renewable Energy, EIGSI Engineering School, Casablanca (June 9, 2022)</li>
-                </ul>
-
-                <h3>Posters</h3>
-                <ul>
-                    <li>Straightforward Guidelines for Deriving Optical Properties from Reflection and/or Refraction Measurements in Spectroscopy – F. Dnaya, D. Soubane, Y. Laaziz, ASSVAS, Safi, Morocco (Nov 15-16, 2023)</li>
-                    <li>Direct and Reciprocal Space Parameters Study of the as Generated versus Relaxed Hydrogenated Silicon Quantum Dots – F. Dnaya, D. Soubane, Y. Laaziz, InSAM’3, Ouarzazate, Morocco (May 2-4, 2023)</li>
-                    <li>Silicon for Harvesting Light: Ways to Overcome the Indirect Bandgap Limitation – F. Dnaya, D. Soubane, Y. Laaziz, International Workshop on Industrial Technology, Tangier, Morocco (July 3, 2021)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="student">
-            <img src="ya.jpg" alt="Elajan Yassine">
-            <h2>Elajan Yassine</h2>
-            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
-        </div>
-
-        <div class="student">
-            <img src="im.jpg" alt="Kharbouchi Imane">
-            <h2>Kharbouchi Imane</h2>
-            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
-            <div class="cv-content">
-                <p class="section-title">Who am I?</p>
-                <p>I am a first-year PhD student specializing in Physical and Chemical Sciences, focusing on advanced materials for renewable energy applications...</p>
-
-                <p class="section-title">PhD Thesis Overview</p>
-                <p><strong>Title:</strong> Exploration of Synergy Between Experimental and Computational Approaches for Optimized Energy Harvesting in DSSC Cells</p>
-                <p>This PhD project combines theoretical and experimental approaches to improve Dye-Sensitized Solar Cells (DSSCs) through DFT simulations and prototype synthesis...</p>
-
-                <p class="section-title">Education</p>
-                <ul>
-                    <li><strong>Master's in Physical and Chemical Sciences</strong> - ENSC, 2022-2024</li>
-                    <li><strong>Bachelor's in Physics and Chemistry</strong> - ENSM, 2019-2022</li>
-                    <li><strong>Baccalaureate in Physical Sciences</strong>, 2018</li>
-                </ul>
-
-                <p class="section-title">Skills</p>
-                <ul>
-                    <li>Proficiency in office software (Word, Excel, PowerPoint)</li>
-                    <li>Programming languages: C, Python</li>
-                    <li>DFT Methods (Density Functional Theory), Experimental and theoretical data analysis</li>
-                </ul>
-            </div>
-        </div>
+    <div class="podcast-player">
+        <audio controls>
+            <source src="podcast.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <footer>
-        <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
+        <p>&copy; 2023 Dr. Soubane. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Analog Clock Script
+        const canvas = document.getElementById('analog-clock');
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.height / 2;
+
+        ctx.translate(radius, radius);
+
+        function drawClock() {
+            const now = new Date();
+            const offset = now.getTimezoneOffset() / 60;
+            const montrealOffset = -5; // UTC-5 for Montreal
+            const hours = (now.getUTCHours() + montrealOffset + offset) % 24;
+            const minutes = now.getUTCMinutes();
+            const seconds = now.getUTCSeconds();
+
+            ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.arc(0, 0, radius - 5, 0, 2 * Math.PI);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = "#0077FF";
+            ctx.stroke();
+
+            function drawHand(pos, length, width) {
+                const angle = ((pos % 60) * Math.PI) / 30 - Math.PI / 2;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(length * Math.cos(angle), length * Math.sin(angle));
+                ctx.lineWidth = width;
+                ctx.strokeStyle = "#333";
+                ctx.stroke();
+            }
+
+            drawHand(hours % 12 + minutes / 60, radius * 0.5, 6);
+            drawHand(minutes, radius * 0.8, 4);
+            drawHand(seconds, radius * 0.9, 2);
+        }
+
+        setInterval(drawClock, 1000);
+    </script>
 </body>
 </html>
