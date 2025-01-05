@@ -74,24 +74,25 @@
             background-color: #FF0000;
             color: white;
             text-align: center;
-            padding: 8px 15px; /* Slightly adjusted padding for better design */
+            padding: 8px 15px;
             font-weight: bold;
-            font-size: 1em; /* Slightly bigger font size for more readability */
-            margin-top: 10px; /* Adjusted top margin */
+            font-size: 1em;
+            margin-top: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             display: inline-block;
             width: auto;
-            animation: blink 12s step-start 0s infinite; /* Extended visibility time (3x longer) */
+            animation: blink 22s step-start 0s infinite; /* 22s: Total duration for the full cycle */
         }
 
         @keyframes blink {
-            0%, 85% {
-                opacity: 1;
+            0%, 95% {
+                opacity: 1; /* Text visible for 95% of the time (21 seconds) */
             }
             50%, 100% {
-                opacity: 0;
+                opacity: 0; /* Text is invisible briefly for each flash (1 second) */
             }
         }
+
     </style>
 </head>
 <body>
@@ -107,11 +108,6 @@
         </nav>
     </header>
 
-    <!-- Breaking News Band -->
-    <div class="breaking-news-container">
-        We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
-    </div>
-
     <section class="banner">
         <h1>Our Group Members</h1>
         <p>Welcome to our Group! We are a team of passionate individuals committed to providing high-quality research.</p>
@@ -120,6 +116,11 @@
         <p>Interested in joining our group to use DFT to discover and better understand the cutting-edge research realm.</p>
         <a href="#" class="btn">Learn More</a>
     </section>
+
+    <!-- Breaking News Banner -->
+    <div class="breaking-news-container">
+        We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
+    </div>
 
     <div class="student-container">
         <div class="student">
@@ -199,5 +200,6 @@
     <footer>
         <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
