@@ -15,20 +15,13 @@
         }
 
         .student {
-            border: 2px solid #0077FF; /* More visible border */
+            border: 1px solid #0077FF;
             border-radius: 10px;
             padding: 15px;
             width: 30%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             text-align: center;
-            margin: 15px;
-            background-color: #f9f9f9; /* Light background */
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effect */
-        }
-
-        .student:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin: 10px;
         }
 
         .student img {
@@ -36,21 +29,19 @@
             height: 150px;
             object-fit: cover;
             border-radius: 10px;
-            border: 1px solid #ddd; /* Frame for image */
         }
 
         .student h2 {
-            font-size: 1.4em;
+            font-size: 1.5em;
             margin: 10px 0;
-            color: #003366;
         }
 
         .student p {
             font-size: 1em;
-            color: #444;
+            color: #333;
         }
 
-        .student .cv-content {
+        .cv-content {
             max-height: 200px;
             overflow-y: auto;
             text-align: left;
@@ -58,9 +49,7 @@
             padding: 10px;
             border-top: 1px solid #ddd;
             font-size: 0.95em;
-            line-height: 1.6;
-            background-color: #fff; /* Contrast for CV */
-            border-radius: 5px;
+            line-height: 1.5;
         }
 
         .cv-content h3 {
@@ -77,109 +66,27 @@
             margin: 15px 0 5px;
         }
 
-        /* Custom styles for the Scrolling Announcement Band */
-        .scrolling-announcement {
-            background-color: #0077FF;
-            color: white;
+        /* Thin band for announcement */
+        .announcement {
+            background-color: #FFEB3B;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em;
+            font-weight: bold;
             text-align: center;
             padding: 10px;
-            position: relative;
-            width: 100%;
-            font-size: 1em;
-            z-index: 10;
-            overflow: hidden;
+            border: 1px solid #FFD700;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: scroll-text 20s linear infinite;
+        .announcement a {
+            color: #0055AA;
+            text-decoration: underline;
         }
 
-        @keyframes scroll-text {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .scrolling-announcement:hover .scrolling-text {
-            animation-play-state: paused;
-        }
-
-        /* General Page Styles */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #eef2f5;
-        }
-
-        header nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            background-color: #003366;
-            margin: 0;
-        }
-
-        header nav ul li {
-            margin: 0;
-        }
-
-        header nav ul li a {
-            display: block;
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1em;
-        }
-
-        header nav ul li a:hover {
-            background-color: #0055AA;
-        }
-
-        .banner {
-            text-align: center;
-            padding: 20px;
-            background-color: #0077FF;
-            color: white;
-        }
-
-        .banner h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .banner p {
-            font-size: 1.1em;
-        }
-
-        .banner a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: white;
-            color: #0077FF;
-            text-decoration: none;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
-        .banner a:hover {
-            background-color: #0055AA;
-            color: white;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #003366;
-            color: white;
-            font-size: 0.9em;
+        .announcement a:hover {
+            color: #003377;
         }
     </style>
 </head>
@@ -196,11 +103,13 @@
         </nav>
     </header>
 
-    <!-- Scrolling Announcement Band -->
-    <div class="scrolling-announcement">
-        <div class="scrolling-text">
-            We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
-        </div>
+    <!-- Announcement Section -->
+    <div class="announcement">
+        We are thrilled to announce that <strong>Imane Kharbouchi</strong>, a PhD student in our research group, 
+        has been awarded the prestigious <strong>PhD Associate Scholarship</strong> under the PASS Program, 
+        providing <strong>7,000 MAD/month</strong> for three years. 
+        Follow her journey and more updates on our <a href="Research.html">research group website</a>. 
+        <strong>Congratulations, Imane!</strong>
     </div>
 
     <section class="banner">
@@ -218,11 +127,7 @@
             <h2>Dnaya Fatima-ezzahra</h2>
             <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
             <div class="cv-content">
-                <p class="section-title">Education and Diplomas</p>
-                <ul>
-                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
-                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
-                </ul>
+                <!-- Content of the first student -->
             </div>
         </div>
 
@@ -236,11 +141,20 @@
             <img src="im.jpg" alt="Kharbouchi Imane">
             <h2>Kharbouchi Imane</h2>
             <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
+            <div class="cv-content">
+                <!-- Content of the third student -->
+            </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
     </footer>
+
+    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
+        <div class="scrolling-text">
+            Welcome to our Group! Exploring the Frontiers of Physics.
+        </div>
+    </div>
 </body>
 </html>
