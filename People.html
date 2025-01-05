@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Custom styles for the People page */
+        body {
+            background-color: #E6F7FF; /* Light blue sky background */
+            font-family: Arial, sans-serif;
+        }
+
         .student-container {
             display: flex;
             justify-content: space-around;
@@ -22,6 +27,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             text-align: center;
             margin: 10px;
+            background-color: white;
         }
 
         .student img {
@@ -32,7 +38,7 @@
         }
 
         .student h2 {
-            font-size: 1.5em;
+            font-size: 1.4em;
             margin: 10px 0;
         }
 
@@ -48,8 +54,8 @@
             margin-top: 10px;
             padding: 10px;
             border-top: 1px solid #ddd;
-            font-size: 0.95em;
-            line-height: 1.5;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
 
         .cv-content h3 {
@@ -60,7 +66,7 @@
         }
 
         .cv-content .section-title {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             color: #0055AA;
             margin: 15px 0 5px;
@@ -68,23 +74,93 @@
 
         /* Announcement band styles */
         .announcement {
-            background-color: #FFEB3B;
-            color: #333;
+            background-color: #0077FF;
+            color: white;
             text-align: center;
-            padding: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
-            border-bottom: 2px solid #FF9800;
+            padding: 5px 10px; /* Thinner band */
+            font-size: 0.9em; /* Smaller text */
         }
 
         .announcement a {
-            color: #FF5722;
+            color: #FFD700;
             text-decoration: none;
-            font-weight: bold;
         }
 
         .announcement a:hover {
             text-decoration: underline;
+        }
+
+        header {
+            background-color: #0077FF;
+            padding: 15px 0;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, #00AEEF, #0077FF);
+            color: white;
+        }
+
+        .banner h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 1.2em;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            color: #0077FF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #E6F7FF;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #0077FF;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .scrolling-text {
+            font-size: 1em;
+            font-weight: bold;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
@@ -112,29 +188,29 @@
 
     <!-- Announcement Band -->
     <div class="announcement">
-        We are thrilled to announce that <strong>Imane Kharbouchi</strong>, a PhD student in our research group, has been awarded the prestigious 
-        <strong>PhD Associate Scholarship</strong> under the PASS Program, providing <strong>7,000 MAD/month</strong> for three years. 
-        Follow her journey and more updates on our <a href="#">research group website</a>. Congratulations, Imane!
+        🎉 Exciting News: <strong>Imane Kharbouchi</strong> has been awarded the prestigious 
+        <strong>PhD Associate Scholarship</strong> under the PASS Program, providing <strong>7,000 MAD/month</strong> for three years! 
+        <a href="#">Learn more.</a>
     </div>
 
     <div class="student-container">
         <div class="student">
             <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
             <h2>Dnaya Fatima-ezzahra</h2>
-            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
-            <div class="cv-content">
-                <p class="section-title">Education and Diplomas</p>
-                <ul>
-                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
-                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
-                    <li>2018: Bachelor’s degree; Physics, Option: Material Science and Renewable Energy</li>
-                    <li>2014: Baccalaureate; Mathematical Sciences, Option: B</li>
-                </ul>
-                <!-- More content here -->
-            </div>
+            <p>Ph.D Student specializing in Quantum Mechanics and Material Science.</p>
         </div>
 
-        <!-- Other students -->
+        <div class="student">
+            <img src="ya.jpg" alt="Elajan Yassine">
+            <h2>Elajan Yassine</h2>
+            <p>Ph.D Student focused on Computational Physics and Data Analysis.</p>
+        </div>
+
+        <div class="student">
+            <img src="im.jpg" alt="Kharbouchi Imane">
+            <h2>Kharbouchi Imane</h2>
+            <p>Ph.D Student with a concentration in Semiconductor Physics.</p>
+        </div>
     </div>
 
     <footer>
