@@ -41,16 +41,18 @@
             color: #333;
         }
 
-        /* Scrollable area for long text in profiles */
-        .student .cv-content {
-            max-height: 200px;
-            overflow-y: auto;
-            text-align: left;
-            margin-top: 10px;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-            font-size: 0.95em;
-            line-height: 1.5;
+        /* Breaking news banner */
+        .breaking-news {
+            background-color: #FF0000;
+            color: white;
+            padding: 15px;
+            font-size: 1em;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Style for section headings in profiles */
@@ -69,28 +71,6 @@
             margin: 15px 0 5px;
         }
 
-        /* Emergency news ticker styles */
-        .emergency-news {
-            background-color: #FF0000;
-            color: white;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            font-weight: bold;
-            animation: ticker 10s linear infinite;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -106,8 +86,8 @@
         </nav>
     </header>
 
-    <!-- Emergency News Ticker -->
-    <div class="emergency-news">
+    <!-- Breaking News Banner -->
+    <div class="breaking-news">
         We are thrilled to announce that Imane Kharbouchi, a PhD student in our research group, has been awarded the prestigious PhD Associate Scholarship under the PASS Program, providing 7,000 MAD/month for three years. Follow her journey and more updates on our research group website. Congratulations, Imane!
     </div>
 
@@ -199,10 +179,5 @@
         <p>&copy; 2023 D.Soubane Ph.D Eng. All rights reserved.</p>
     </footer>
 
-    <div style="background-color: #0077FF; color: white; text-align: center; padding: 10px;">
-        <div class="scrolling-text">
-            Welcome to our Group! Exploring the Frontiers of Physics.
-        </div>
-    </div>
 </body>
 </html>
