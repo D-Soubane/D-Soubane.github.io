@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Custom styles for the People page */
-        body {
-            background-color: #E6F7FF; /* Light blue sky background */
-            font-family: Arial, sans-serif;
-        }
-
         .student-container {
             display: flex;
             justify-content: space-around;
@@ -27,7 +22,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             text-align: center;
             margin: 10px;
-            background-color: white;
         }
 
         .student img {
@@ -38,7 +32,7 @@
         }
 
         .student h2 {
-            font-size: 1.4em;
+            font-size: 1.5em;
             margin: 10px 0;
         }
 
@@ -47,120 +41,32 @@
             color: #333;
         }
 
-        .cv-content {
+        /* Scrollable area for long text in profiles */
+        .student .cv-content {
             max-height: 200px;
             overflow-y: auto;
             text-align: left;
             margin-top: 10px;
             padding: 10px;
             border-top: 1px solid #ddd;
-            font-size: 0.9em;
-            line-height: 1.4;
+            font-size: 0.95em;
+            line-height: 1.5;
         }
 
+        /* Style for section headings in profiles */
         .cv-content h3 {
             font-size: 1.1em;
-            color: #0077FF;
+            color: #0077FF; /* Attractive color for headings */
             font-weight: bold;
             margin: 10px 0 5px;
         }
 
+        /* Styling for titles to be distinctive */
         .cv-content .section-title {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #0055AA;
-            margin: 15px 0 5px;
-        }
-
-        /* Announcement band styles */
-        .announcement {
-            background-color: #0077FF;
-            color: white;
-            text-align: center;
-            padding: 5px 10px; /* Thinner band */
-            font-size: 0.9em; /* Smaller text */
-        }
-
-        .announcement a {
-            color: #FFD700;
-            text-decoration: none;
-        }
-
-        .announcement a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            background-color: #0077FF;
-            padding: 15px 0;
-            color: white;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .banner {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(to bottom, #00AEEF, #0077FF);
-            color: white;
-        }
-
-        .banner h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .banner p {
             font-size: 1.2em;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: white;
-            color: #0077FF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
             font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: #E6F7FF;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #0077FF;
-            color: white;
-            margin-top: 20px;
-        }
-
-        .scrolling-text {
-            font-size: 1em;
-            font-weight: bold;
-            animation: scroll 10s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            color: #0055AA; /* Slightly darker blue for key titles */
+            margin: 15px 0 5px;
         }
     </style>
 </head>
@@ -186,30 +92,78 @@
         <a href="#" class="btn">Learn More</a>
     </section>
 
-    <!-- Announcement Band -->
-    <div class="announcement">
-        🎉 Exciting News: <strong>Imane Kharbouchi</strong> has been awarded the prestigious 
-        <strong>PhD Associate Scholarship</strong> under the PASS Program, providing <strong>7,000 MAD/month</strong> for three years! 
-        <a href="#">Learn more.</a>
-    </div>
-
     <div class="student-container">
         <div class="student">
             <img src="fz.jpg" alt="Dnaya Fatima-ezzahra">
             <h2>Dnaya Fatima-ezzahra</h2>
-            <p>Ph.D Student specializing in Quantum Mechanics and Material Science.</p>
+            <p>Ph.D Student specializing in Quantum Mechanics and Material Science. Passionate about exploring the intersection of technology and physics.</p>
+            <div class="cv-content">
+                <p class="section-title">Education and Diplomas</p>
+                <ul>
+                    <li>Currently: Ph.D Student; Computational physics and Material science</li>
+                    <li>2020: Postgraduate Diploma; Optics, Photonics and Information Processing</li>
+                    <li>2018: Bachelor’s degree; Physics, Option: Material Science and Renewable Energy</li>
+                    <li>2014: Baccalaureate; Mathematical Sciences, Option: B</li>
+                </ul>
+
+                <p class="section-title">Overview of Ph.D Thesis</p>
+                <p>My Ph.D project aims at unveiling the intriguing properties of silicon zero-dimensional nanostructures using DFT. We probe the light-matter interaction in nanostructured silicon to provide insight into the potential optical applications of these materials in cutting-edge technologies.</p>
+
+                <p class="section-title">Research Activities</p>
+                <h3>Articles</h3>
+                <ul>
+                    <li>A holistic Understanding of Optical Properties in Amorphous H-Terminated Si-Nanostructures: Combining TD-DFT with AIMD. F. Dnaya, D. Soubane, M. Bouhassoune, M. Bellioua, Y. Laaziz, A. Nafidi, T. Ozaki, <em>Results in Optics</em> (2024): 100694.</li>
+                </ul>
+
+                <h3>Oral Communications/ Talks</h3>
+                <ul>
+                    <li>Silicon for Harvesting Light: Structural, Optical and Electronic Properties of Si-Nanostructures – F. Dnaya, D. Soubane, Y. Laaziz, at the 1st International Congress on Materials, Biomaterials, Environmental Sciences and Technology, Fez, Morocco (May 29-31, 2024)</li>
+                    <li>Solid State Spectroscopy Fundamental Functions in a Nutshell – F. Dnaya, D. Soubane, Y. Laaziz, at the International Conference on Sustainable Energy, ENSA EL-Jadida, Morocco (May 28-29, 2024)</li>
+                    <li>Enhancing the Understanding of Optical Properties in Amorphous Terminated Si-Nanostructures Through TD-DFT Analysis – F. Dnaya, D. Soubane, Y. Laaziz, at the Autumn School of Set-valued and Variational Analysis, Safi, Morocco (Nov 15-16, 2023)</li>
+                    <li>Solar Photovoltaic Energy: Technology, Efficiency and Perspectives – F. Dnaya, D. Soubane, Y. Laaziz, Doctoral Day in Renewable Energy, EIGSI Engineering School, Casablanca (June 9, 2022)</li>
+                </ul>
+
+                <h3>Posters</h3>
+                <ul>
+                    <li>Straightforward Guidelines for Deriving Optical Properties from Reflection and/or Refraction Measurements in Spectroscopy – F. Dnaya, D. Soubane, Y. Laaziz, ASSVAS, Safi, Morocco (Nov 15-16, 2023)</li>
+                    <li>Direct and Reciprocal Space Parameters Study of the as Generated versus Relaxed Hydrogenated Silicon Quantum Dots – F. Dnaya, D. Soubane, Y. Laaziz, InSAM’3, Ouarzazate, Morocco (May 2-4, 2023)</li>
+                    <li>Silicon for Harvesting Light: Ways to Overcome the Indirect Bandgap Limitation – F. Dnaya, D. Soubane, Y. Laaziz, International Workshop on Industrial Technology, Tangier, Morocco (July 3, 2021)</li>
+                </ul>
+            </div>
         </div>
 
         <div class="student">
             <img src="ya.jpg" alt="Elajan Yassine">
             <h2>Elajan Yassine</h2>
-            <p>Ph.D Student focused on Computational Physics and Data Analysis.</p>
+            <p>Ph.D Student focused on Computational Physics and Data Analysis. Committed to leveraging advanced simulations in research.</p>
         </div>
 
         <div class="student">
             <img src="im.jpg" alt="Kharbouchi Imane">
             <h2>Kharbouchi Imane</h2>
-            <p>Ph.D Student with a concentration in Semiconductor Physics.</p>
+            <p>Ph.D Student with a concentration in Semiconductor Physics. Aiming to develop innovative materials for future technologies.</p>
+            <div class="cv-content">
+                <p class="section-title">Who am I?</p>
+                <p>I am a first-year PhD student specializing in Physical and Chemical Sciences, focusing on advanced materials for renewable energy applications...</p>
+
+                <p class="section-title">PhD Thesis Overview</p>
+                <p><strong>Title:</strong> Exploration of Synergy Between Experimental and Computational Approaches for Optimized Energy Harvesting in DSSC Cells</p>
+                <p>This PhD project combines theoretical and experimental approaches to improve Dye-Sensitized Solar Cells (DSSCs) through DFT simulations and prototype synthesis...</p>
+
+                <p class="section-title">Education</p>
+                <ul>
+                    <li><strong>Master's in Physical and Chemical Sciences</strong> - ENSC, 2022-2024</li>
+                    <li><strong>Bachelor's in Physics and Chemistry</strong> - ENSM, 2019-2022</li>
+                    <li><strong>Baccalaureate in Physical Sciences</strong>, 2018</li>
+                </ul>
+
+                <p class="section-title">Skills</p>
+                <ul>
+                    <li>Proficiency in office software (Word, Excel, PowerPoint)</li>
+                    <li>Programming languages: C, Python</li>
+                    <li>DFT Methods (Density Functional Theory), Experimental and theoretical data analysis</li>
+                </ul>
+            </div>
         </div>
     </div>
 
